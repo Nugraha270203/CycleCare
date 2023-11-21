@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
-function Navbar() {
+function Navbarlandingpage() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 bg-body-tertiary rounded">
       <div className="container-fluid">
@@ -21,17 +21,17 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item mx-auto p-2">
-              <Link to="/About" className="nav-link fw-bold fs-5 text-black">
+              <Link to="#About" className="nav-link fw-bold fs-5 text-black">
                 About Us
               </Link>
             </li>
             <li className="nav-item mx-auto p-2">
-              <Link to="/Feature" className="nav-link fw-bold fs-5 text-black">
+              <Link to="#Fitur" className="nav-link fw-bold fs-5 text-black">
                 Feature
               </Link>
             </li>
             <li className="nav-item mx-auto p-2">
-              <Link to="/Article" className="nav-link fw-bold fs-5 text-black">
+              <Link to="#Article" className="nav-link fw-bold fs-5 text-black">
                 Article
               </Link>
             </li>
@@ -69,4 +69,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbarlandingpage;
