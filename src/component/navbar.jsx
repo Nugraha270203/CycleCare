@@ -7,7 +7,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 mb-5 bg-body-tertiary rounded">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          <img src={logo} alt="Logo" width="150" height="50" />
+          <img src={logo} yarnalt="Logo" width="150" height="50" />
         </a>
 
         <div
