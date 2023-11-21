@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+
+// JANAGAN LUPA IMPORT HALAMAN YANG SUDAH DIBUAT DI FOLDER PAGES
 import Home from "./pages/home";
 import Login from "./pages/login";
+
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -8,6 +12,7 @@ import {
   Link,
 } from "react-router-dom";
 
+// PANGGIL FUNCTION UNTUK ROUTER
 const router = createBrowserRouter([
   {path:"/", element:<Home />},
   {path:"/Login", element:<Login />}
