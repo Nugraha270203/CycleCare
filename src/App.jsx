@@ -7,6 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Regis from "./pages/Regis";
+import More from "./pages/more";
 
 import {
   createBrowserRouter,
@@ -19,7 +20,8 @@ import {
 const router = createBrowserRouter([
   {path:"/", element:<Home />},
   {path:"/Login", element:<Login />},
-  {path:"/Regis", element:<Regis />}
+  {path:"/Regis", element:<Regis />},
+  {path:"/More", element:<More />}
 ]);
 
 

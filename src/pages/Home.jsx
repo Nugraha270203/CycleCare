@@ -8,6 +8,7 @@ import fitur from "../assets/fitur.png";
 import logo from "../assets/logo.svg";
 import footer from "../assets/footer.png";
 import foto from "../assets/foto.png";
+import mockupabout from "../assets/mockupabout.png";
 function LandingPage() {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -101,15 +102,54 @@ function LandingPage() {
           />
         </div>
       </div>
+
       <div id="About" className="container-fluid" style={{ padding: 0 }}>
         <div className="landing-section">
-          <img
-            src={about}
-            alt=""
-            style={{ width: "100%", height: "auto", position: "relative" }}
-          />
+          <div
+            className="row"
+            style={{ backgroundColor: "#C53938", minHeight: "60vh" }}
+          >
+            <div className="col-md-5 offset-md-1">
+              <div className="text-white mt-4" style={{ marginLeft: "50px" }}>
+                <h1
+                  className="fw-bold text-center"
+                  style={{ borderBottom: "3px solid white", width: "180px" }}
+                >
+                  About Us
+                </h1>
+                <h3 className="mt-5 fs-4">
+                  This application will be the best solution for you those of
+                  you who own or like motorbikes to take care of you information
+                  about health and performance with these features website
+                  offers
+                </h3>
+                <button className="btn btn-light rounded rounded-pill mt-5">
+                  <Link
+                    to="/More"
+                    className="text-black fw-bold"
+                    style={{ textDecoration: "none" }}
+                  >
+                    More -{">"}
+                  </Link>
+                </button>
+              </div>
+
+            </div>
+              <div className="col-md-5 offset-md-1 mt-5">
+                <img
+                  src={mockupabout}
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    position: "relative",
+                  }}
+                />
+              </div>
+          </div>
         </div>
       </div>
+
       <div id="Fitur" className="container-fluid" style={{ padding: 0 }}>
         <div className="landing-section">
           <img
@@ -119,7 +159,7 @@ function LandingPage() {
           />
         </div>
       </div>
-      
+
       <div id="Article" className="container-fluid" style={{ padding: 0 }}>
         <div
           className="landing-section"
@@ -127,12 +167,18 @@ function LandingPage() {
         >
           <div className="text-center mx-auto" style={{ width: "150px" }}>
             <br />
-            <h1 className="text-black fw-bold" style={{ borderBottom: "3px solid red" }}>
+            <h1
+              className="text-black fw-bold"
+              style={{ borderBottom: "3px solid red" }}
+            >
               Article
             </h1>
             <div className="d-flex justify-content-center">
               <div className="d-flex">
-                <div className="card mt-5 mb-5 rounded-4 " style={{ width: "20rem" }}>
+                <div
+                  className="card mt-5 mb-5 rounded-4 "
+                  style={{ width: "20rem" }}
+                >
                   <img
                     src={foto}
                     className="card-img-top img-fluid rounded-top-4 "
@@ -146,7 +192,10 @@ function LandingPage() {
                   </div>
                 </div>
 
-                <div className="card mt-5  mb-5  mx-5 rounded-4" style={{ width: "20rem" }}>
+                <div
+                  className="card mt-5  mb-5  mx-5 rounded-4"
+                  style={{ width: "20rem" }}
+                >
                   <img
                     src={foto}
                     className="card-img-top img-fluid rounded-top-4"
@@ -159,11 +208,14 @@ function LandingPage() {
                     </p>
                   </div>
                 </div>
-                
-                <div className="card mt-5   mb-5 rounded-4" style={{ width: "20rem" }}>
+
+                <div
+                  className="card mt-5   mb-5 rounded-4"
+                  style={{ width: "20rem" }}
+                >
                   <img
                     src={foto}
-                    className="card-img-top img-fluid rounded-top-4" 
+                    className="card-img-top img-fluid rounded-top-4"
                     alt="..."
                   />
                   <div className="card-body">
@@ -188,6 +240,7 @@ function LandingPage() {
           />
         </div>
       </div>
+
     </>
   );
 }

@@ -21,17 +21,17 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item mx-auto p-2">
-              <Link to="/About" className="nav-link fw-bold fs-5 text-black">
+              <Link to="/" className="nav-link fw-bold fs-5 text-black">
                 About Us
               </Link>
             </li>
             <li className="nav-item mx-auto p-2">
-              <Link to="/Feature" className="nav-link fw-bold fs-5 text-black">
+              <Link to="/" className="nav-link fw-bold fs-5 text-black">
                 Feature
               </Link>
             </li>
             <li className="nav-item mx-auto p-2">
-              <Link to="/Article" className="nav-link fw-bold fs-5 text-black">
+              <Link to="/" className="nav-link fw-bold fs-5 text-black">
                 Article
               </Link>
             </li>
