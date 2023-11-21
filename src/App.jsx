@@ -6,7 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 // JANAGAN LUPA IMPORT HALAMAN YANG SUDAH DIBUAT DI FOLDER PAGES
 import Home from "./pages/home";
 import Login from "./pages/login";
-import Loadingpage from "./pages/loadingpage";
+import Regis from "./pages/Regis";
 
 import {
   createBrowserRouter,
@@ -19,7 +19,7 @@ import {
 const router = createBrowserRouter([
   {path:"/", element:<Home />},
   {path:"/Login", element:<Login />},
-  {path:"/Loadingpage", element:<Loadingpage />}
+  {path:"/Regis", element:<Regis />}
 ]);
 
 
