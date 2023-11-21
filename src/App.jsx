@@ -18,7 +18,7 @@ import {
 // PANGGIL FUNCTION UNTUK ROUTER
 const router = createBrowserRouter([
   {path:"/", element:<Home />},
-  {path:"/Login", element:<Login />}
+  {path:"/Login", element:<Login />},
   {path:"/Loadingpage", element:<Loadingpage />}
 ]);
 
