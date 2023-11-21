@@ -1,16 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
 function Navbar() {
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-      <div class="container-fluid">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+      <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img src={logo} alt="Logo" width="150" height="50" />
         </a>
 
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -18,49 +19,49 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
         <div
-          class="collapse navbar-collapse justify-content-center"
+          className="collapse navbar-collapse justify-content-center"
           id="navbarNav"
         >
-          <ul class="navbar-nav">
-            <li class="nav-item mx-auto p-2">
-              <a class="nav-link fw-bold fs-5 text-black" href="#">
+          <ul className="navbar-nav">
+            <li className="nav-item mx-auto p-2">
+              <Link to="/" className="nav-link fw-bold fs-5 text-black">
                 Home
-              </a>
+              </Link>
             </li>
-            <li class="nav-item mx-auto p-2">
-              <a class="nav-link fw-bold fs-5 text-black"  href="#">
+            <li className="nav-item mx-auto p-2">
+              <Link to="/About" className="nav-link fw-bold fs-5 text-black">
                 About Us
-              </a>
+              </Link>
             </li>
-            <li class="nav-item mx-auto p-2">
-              <a class="nav-link fw-bold fs-5 text-black"  href="#">
+            <li className="nav-item mx-auto p-2">
+              <Link to="/Feature" className="nav-link fw-bold fs-5 text-black">
                 Feature
-              </a>
+              </Link>
             </li>
-            <li class="nav-item mx-auto p-2">
-              <a class="nav-link fw-bold fs-5 text-black" href="#">
+            <li className="nav-item mx-auto p-2">
+              <Link to="/Article" className="nav-link fw-bold fs-5 text-black">
                 Article
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link text-black" aria-current="page" href="#">
-              Sing Up
-            </a>
+            <Link to="/signup" className="nav-link text-black">
+              Sign Up
+            </Link>
           </li>
         </ul>
       </div>
 
-      <button type="button" class="btn btn-danger rounded-pill">
-        <a href="" class="text-white" style={{ textDecoration: "none" }}>
-          Danger
-        </a>
+      <button type="button" className="btn btn-danger rounded-pill">
+        <Link to="/Login" className="text-white" style={{ textDecoration: "none" }}>
+          Login
+        </Link>
       </button>
     </nav>
   );
