@@ -10,18 +10,6 @@ function Navbar() {
           <img src={logo} alt="Logo" width="150" height="50" />
         </a>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
         <div
           className="collapse navbar-collapse justify-content-center"
           id="navbarNav"
@@ -56,13 +44,27 @@ function Navbar() {
             </Link>
           </li>
         </ul>
+        <button type="button" className="btn btn-danger rounded-pill">
+          <Link
+            to="/Login"
+            className="text-white"
+            style={{ textDecoration: "none" }}
+          >
+            Login
+          </Link>
+        </button>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
       </div>
-
-      <button type="button" className="btn btn-danger rounded-pill">
-        <Link to="/Login" className="text-white" style={{ textDecoration: "none" }}>
-          Login
-        </Link>
-      </button>
     </nav>
   );
 }
