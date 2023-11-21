@@ -6,8 +6,6 @@ function Regis() {
     return (
         <>
             <Navbar />
-
-
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div className="landing-section">
                     <div className="row">
@@ -15,8 +13,8 @@ function Regis() {
                             <div class="text-danger text-center ">Register</div>
                             <div class="text-lg-center">
                                 <p> Join our community today! Create an account
-                                to unlock exclusive features
-                                and personalized experiences..</p>
+                                    to unlock exclusive features
+                                    and personalized experiences..</p>
                             </div>
                             <div class="text-lg-center">
                                 <img
