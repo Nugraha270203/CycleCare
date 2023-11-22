@@ -8,6 +8,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Regis from "./pages/Regis";
 import More from "./pages/more";
+import Otp from "./pages/Otp";
 
 import {
   createBrowserRouter,
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
   {path:"/", element:<Home />},
   {path:"/Login", element:<Login />},
   {path:"/Regis", element:<Regis />},
-  {path:"/More", element:<More />}
+  {path:"/More", element:<More />},
+  {path:"/Otp", element:<Otp />}
 ]);
 
 
