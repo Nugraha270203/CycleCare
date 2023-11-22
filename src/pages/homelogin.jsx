@@ -162,8 +162,8 @@ function Homelogin() {
           <h2 className="mt-5 fw-bold">Articles</h2>
           <p style={{ fontSize: "25px" }}>  Read these articles to get more insight</p>
           <div class="card mt-5 mb-5" style={{ width: "100%" }}>
-            <a href="/Menuarticle">
-            <img
+            <a href="/Article">
+              <img
               src={cb1}
               className="card-img-top img-fluid rounded-top-4 "
               alt="..."
