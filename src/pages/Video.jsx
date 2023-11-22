@@ -12,6 +12,10 @@ function Video() {
                 <div className="container">
                     <br />
                     <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                     <div>
                         <img src="/src/assets/video.png" alt="logo" className="mx-5"
                         style={{ width: "600px", marginBottom:"5px"}} />
