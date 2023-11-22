@@ -8,12 +8,9 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Regis from "./pages/Regis";
 import More from "./pages/more";
-<<<<<<< HEAD
 import Otp from "./pages/Otp";
-=======
 import Article from "./pages/Article";
-import Homelogin from "./pages/homelogin";
->>>>>>> 0af68b17a15845b7dd8f30a8e1d36109b847b895
+import Homelogin from "./pages/Homelogin";
 
 import {
   createBrowserRouter,
@@ -28,13 +25,10 @@ const router = createBrowserRouter([
   {path:"/Login", element:<Login />},
   {path:"/Regis", element:<Regis />},
   {path:"/More", element:<More />},
-<<<<<<< HEAD
-  {path:"/Otp", element:<Otp />}
-=======
+  {path:"/Otp", element:<Otp />},
   {path:"/Article", element:<Article />},
   {path:"/Homelogin", element:<Homelogin />}
 
->>>>>>> 0af68b17a15845b7dd8f30a8e1d36109b847b895
 ]);
 
 
