@@ -96,7 +96,7 @@ function Homelogin() {
 
             <div className="d-flex justify-content-center">
               <div className="d-flex">
-                
+                a
 
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
                   <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
