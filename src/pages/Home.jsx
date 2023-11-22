@@ -15,10 +15,12 @@ function LandingPage() {
 
   return (
     <>
-      <Nabarlandingpage />
+      <div className="" style={{}}>
 
-      <div id="Home" className="container-fluid" style={{ padding: 0 }}>
-        <div className="landing-section">
+      <Nabarlandingpage />
+      
+      <div id="Home" className="container-fluid px" style={{ paddingTop:"20px", paddingLeft:"0px",paddingRight:"0px", marginBottom:"0px" }}>
+        <div className="landing-section mt-5">
           <img
             src={bgcustom}
             alt=""
@@ -27,17 +29,17 @@ function LandingPage() {
         </div>
       </div>
 
-      <div id="About" className="container-fluid" style={{ padding: 0 }}>
+      <div id="About" className="container-fluid" style={{ paddingTop:"0px", paddingLeft:"0px",paddingRight:"0px", marginBottom:"0px" }}>
         <div className="landing-section">
           <div
             className="row"
-            style={{ backgroundColor: "#C53938", minHeight: "60vh" }}
+            style={{ backgroundColor: "#C53938", minHeight: "100vh" }}
           >
             <div className="col-md-5 offset-md-1">
-              <div className="text-white mt-4" style={{ marginLeft: "50px" }}>
+              <div className="text-white mt-5 " style={{ marginLeft: "50px" }}>
                 <h1
                   className="fw-bold text-center"
-                  style={{ borderBottom: "3px solid white", width: "180px" }}
+                  style={{paddingTop:"75px", borderBottom: "3px solid white", width: "180px" }}
                 >
                   About Us
                 </h1>
@@ -91,6 +93,7 @@ function LandingPage() {
                 src={mockupabout}
                 alt=""
                 style={{
+                  paddingTop:"85px",
                   width: "100%",
                   height: "auto",
                   position: "relative",
@@ -198,6 +201,8 @@ function LandingPage() {
           />
         </div>
       </div>
+      </div>
+
     </>
   );
 }

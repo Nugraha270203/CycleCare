@@ -28,7 +28,7 @@ function Navbarlogin() {
                             </Link>
                         </li>
                         <li className="nav-item mx-auto p-2">
-                            <Link to="#" className="nav-link fw-bold fs-5 text-black">
+                            <Link to="/Menuarticle" className="nav-link fw-bold fs-5 text-black">
                                 Article
                             </Link>
                         </li>
@@ -40,16 +40,12 @@ function Navbarlogin() {
                     </ul>
                 </div>
 
-                
-
                 <Dropdown>
                     <Dropdown.Toggle variant="" className="rounded-circle" style={{border:"none"}}>
                     <img src={prof} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
                     </Dropdown.Toggle>
-
                     <Dropdown.Menu>
                         <Dropdown.Item href="/Profile" >Proflie</Dropdown.Item>
-                        <Dropdown.Item href="/Profile" >Profile</Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item href="/Login">Log out</Dropdown.Item>
                     </Dropdown.Menu>
