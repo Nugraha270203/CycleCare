@@ -25,7 +25,7 @@ function Homelogin() {
   return (
     <>
       <Navbarlogin />
-      <div id="Home" className="container-fluid mt-2" style={{ padding: 0 }}>
+      <div id="Home" className="container-fluid mt-2" style={{ paddingTop:"50px", paddingLeft:"0px",paddingRight:"0px", marginBottom:"0px" }}>
         <div className="landing-section">
           <img
             src={Bghomelogin}

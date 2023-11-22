@@ -6,7 +6,7 @@ import prof from "../assets/prof.png";
 
 function Navbarlogin() {
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 bg-body-tertiary rounded">
+        <nav className="fixed-top navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 bg-body-tertiary rounded">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                     <img src={logo} yarnalt="Logo" width="150" height="50" />
