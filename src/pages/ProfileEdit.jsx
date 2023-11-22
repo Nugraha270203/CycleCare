@@ -17,7 +17,7 @@ function ProfileEdit() {
                     </div>
                     <div>
                         <img src="/src/assets/prof.png" alt="logo"
-                            style={{ width: "80px", transform: "translate(540%,80%)" }} />
+                            style={{ width: "80px", transform: "translate(650%,80%)" }} />
                     </div>
                     <div style={{ fontWeight: "400", fontSize: "20px", textAlign: "center", transform: "translate(0%,210%)" }}>
                         @Matt
@@ -66,8 +66,8 @@ function ProfileEdit() {
                         <br />
                     </div>
                 </div>
-                <Footer />
             </section>
+            <Footer />
         </>
     );
 }

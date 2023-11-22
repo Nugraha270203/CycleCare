@@ -109,7 +109,7 @@ function Homelogin() {
           <div className="text-center mx-auto" style={{ width: "250px" }}>
             <div className="d-flex justify-content-center">
               <div className="d-flex">
-                <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
+                <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
                   <div className="card shadow-lg  mb-1 rounded-4 " style={{ width: "15rem", height: "8srem" }}>
                     <img
                       src={c1}
@@ -119,7 +119,7 @@ function Homelogin() {
 
                   </div>
                 </Link>
-                <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
+                <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
                   <div className="card shadow-lg mb-1 rounded-4 " style={{ width: "15rem", height: "8rem" }}>
                     <img
                       src={c2}
@@ -130,7 +130,7 @@ function Homelogin() {
                   </div>
                 </Link>
 
-                <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
+                <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
                   <div className="card shadow-lg mb-1 rounded-4 " style={{ width: "15rem", height: "8rem" }}>
                     <img
                       src={c3}
@@ -140,7 +140,7 @@ function Homelogin() {
 
                   </div>
                 </Link>
-                <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
+                <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
                   <div className="card shadow-lg  mb-1 rounded-4 " style={{ width: "15rem", height: "8rem" }}>
                     <img
                       src={c4}

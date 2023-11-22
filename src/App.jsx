@@ -19,6 +19,8 @@ import Lupa from "./pages/Lupa";
 import Passo from "./pages/Passo";
 import Otp2 from "./pages/Otp2";
 import Komunitas from "./pages/Komunitas";
+import Video from "./pages/Video";
+import Tips from "./pages/Tips";
 
 import {
   createBrowserRouter,
@@ -43,6 +45,8 @@ const router = createBrowserRouter([
   {path:"/Lupa", element: <Lupa />},
   {path:"/Passo", element: <Passo />},
   {path:"/Otp2", element: <Otp2 />},
+  {path:"/Video", element: <Video />},
+  {path:"/Tips", element: <Tips />},
   {path:"/Komunitas", element: <Komunitas />}
 
 ]);

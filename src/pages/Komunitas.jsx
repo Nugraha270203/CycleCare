@@ -8,7 +8,7 @@ function Komunitas() {
     return (
         <>
             <Navbarlogin />
-            <section>
+            <section style={{marginLeft:"100px"}}>
                 <div className="container">
                     <br />
                     <br />
@@ -44,14 +44,14 @@ function Komunitas() {
                     <br />
                     <br />
                     <div style={{fontSize:"10px", marginLeft:"100px", fontWeight:"500"}}>
-                        <img src="/src/assets/logo.svg" alt="logo" className="mx-5"
-                        style={{ width: "100px", marginBottom:"5px"}} /> 2 Minggu yang lalu
+                        <img src="/src/assets/komu1.png" alt="logo" className="mx-5"
+                        style={{ width: "100px", marginBottom:"5px"}} /> 3 Minggu yang lalu
                     </div>
                     <div style={{fontSize:"18px", marginLeft:"170px", marginBottom:"10px", fontWeight:"600"}}>
-                        Kemarin sore Honda telah menerbitkan variant Vario baru . . .
+                        Motorku encok guyss :D
                     </div>
                     <div>
-                        <img src="/src/assets/post1.png" alt="post"
+                        <img src="/src/assets/post2.png" alt="post"
                             style={{ width: "700px", marginLeft:"140px" }} />
                     </div>
                 <div className="komen" style={{ width: "695px", marginLeft: "142px", marginTop: "15px" }}>
@@ -71,8 +71,9 @@ function Komunitas() {
                 </div>    
                 </div>
 
-                <Footer />
+                
             </section>
+            <Footer />
         </>
     );
 }
