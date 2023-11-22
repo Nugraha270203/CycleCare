@@ -1,10 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "../component/navbar";
-function Home() {
+import Navbarlogin from "../component/Navbarlogin";
+function Homelogin() {
     return (
       <>
-        <Navbar />
+      <Navbarlogin />
         <div className="container">
         
         </div>
@@ -13,4 +13,4 @@ function Home() {
     );
   }
 
-export default Home;
+export default Homelogin;
