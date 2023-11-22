@@ -58,7 +58,7 @@ function Otp() {
                 </div>
             </div>
             <div className="form-group text-center my-2">
-                <a href="#">
+                <a href="/Create">
                     <button
                         type="button"
                         className="btn btn-danger btn-lg btn-sm rounded-pill"

@@ -7,12 +7,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Profile from "./pages/Profile";
+import ProfileEdit from "./pages/ProfileEdit";
 import Regis from "./pages/Regis";
 import More from "./pages/more";
 import Otp from "./pages/Otp";
 import Article from "./pages/Article";
 import Homelogin from "./pages/Homelogin";
-import Menuarticle from "./pages/Menuarticle";
+import Menuarticle from "./pages/Menuarticle"; 
+import Create from "./pages/Create";
 
 import {
   createBrowserRouter,
@@ -26,13 +28,14 @@ const router = createBrowserRouter([
   {path:"/", element:<Home />},
   {path:"/Login", element:<Login />},
   {path:"/Profile", element:<Profile />},
+  {path:"/ProfileEdit", element:<ProfileEdit />},
   {path:"/Regis", element:<Regis />},
   {path:"/More", element:<More />},
   {path:"/Otp", element:<Otp />},
   {path:"/Article", element:<Article />},
   {path:"/Homelogin", element:<Homelogin />},
   {path:"/Menuarticle", element:<Menuarticle />},
-
+  {path:"/Create", element: <Create />},
 
 
 ]);

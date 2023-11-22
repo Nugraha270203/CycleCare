@@ -64,6 +64,7 @@ function Regis() {
                                     />
                                 </div>
                                 <div className="form-group text-center mt-3">
+                                    <a href="/Otp">
                                     <button
                                         type="button"
                                         className="btn btn-danger btn-lg btn-sm rounded-pill"
@@ -71,6 +72,7 @@ function Regis() {
                                     >
                                         Register
                                     </button>
+                                    </a>
                                 </div>
                                 <div class="form-group text-center mt-2">
                                     Already have an account?

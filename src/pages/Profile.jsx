@@ -1,20 +1,23 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "../component/navbar";
+import Navbarlogin from "../component/Navbarlogin";
+import Footer from "../component/Footer";
 
 
 function Profile() {
     return (
       <>
-        <Navbar />
+        <Navbarlogin />
         <section style={{backgroundColor:"",}}>
         <div className="container">
+          <br />
+          <br />
           <div style={{fontWeight:"700",fontSize:"30px", textAlign:"center"}}>
               Profile
           </div>
           <div>
             <img src="/src/assets/prof.png" alt="logo" 
-            style={{width: "80px", transform:"translate(760%,80%)"}}/>
+            style={{width: "80px", transform:"translate(540%,80%)"}}/>
             </div>
           <div style={{fontWeight:"400",fontSize:"20px", textAlign:"center",transform:"translate(0%,210%)"}}>
             @Matt
@@ -22,11 +25,11 @@ function Profile() {
           <div style={{fontWeight:"700",fontSize:"25px", textAlign:"center",transform:"translate(0%,180%)"}}>
             Rahmat
           </div>
-          <a href="#"><button class="btn btn-danger" style={{borderRadius:"10px",width:"10%", transform:"translate(452%,280%)"}}>Edit</button></a>
+          <a href="/ProfileEdit"><button class="btn btn-danger" style={{borderRadius:"10px",width:"10%", transform:"translate(452%,280%)"}}>Edit</button></a>
         </div>
         <div className="container center-container">
           <br />
-          <div style={{backgroundColor:"#E5E5E5", borderRadius:"20px", height:"500px", width:"600px",transform:"translate(58%,20%)", justifyContent:"center"}}>
+          <div style={{backgroundColor:"#E5E5E5", borderRadius:"20px", height:"500px", width:"600px",transform:"translate(-8%,20%)", justifyContent:"center"}}>
           <form style={{justifyContent:"center", width:"500px", borderRadius:"10px", transform:"translate(10%,10%)"}}>
                 <div className="form-group">
                     <h1 style={{fontSize:"15px",fontWeight:"400"}}>Email</h1>
@@ -54,17 +57,9 @@ function Profile() {
                   <br />
                   <br />
                   <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
           </div>
-        <div className="landing-section">
-          <img src="/src/assets/footer.png"
-            style={{ width: "100%", height: "auto", position: "relative" }}
-          />
-        </div>
       </div>
+      <Footer />
         </section>
       </>
     );

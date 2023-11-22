@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { Dropdown } from 'react-bootstrap';
-import b from "../assets/b.png"
+import prof from "../assets/prof.png";
 
 function Navbarlogin() {
     return (
@@ -44,13 +44,13 @@ function Navbarlogin() {
 
                 <Dropdown>
                     <Dropdown.Toggle variant="" className="rounded-circle" style={{border:"none"}}>
-                    <img src={b} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
+                    <img src={prof} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#" >Proflie</Dropdown.Item>
+                        <Dropdown.Item href="/Profile" >Profile</Dropdown.Item>
                         <Dropdown.Divider />
-                        <Dropdown.Item href="#">Log out</Dropdown.Item>
+                        <Dropdown.Item href="/Login">Log out</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
 
