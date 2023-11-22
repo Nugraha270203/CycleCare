@@ -22,11 +22,12 @@ function Profile() {
           <div style={{fontWeight:"700",fontSize:"25px", textAlign:"center",transform:"translate(0%,180%)"}}>
             Rahmat
           </div>
-          <a href="#"><button class="btn btn-danger" style={{borderRadius:"10px",width:"8%", transform:"translate(575%,280%)"}}>Edit</button></a>
+          <a href="#"><button class="btn btn-danger" style={{borderRadius:"10px",width:"10%", transform:"translate(452%,280%)"}}>Edit</button></a>
         </div>
         <div className="container center-container">
           <br />
-            <form style={{transform:"translate(80%,40%)", width:"500px", borderRadius:"10px"}}>
+          <div style={{backgroundColor:"#E5E5E5", borderRadius:"20px", height:"500px", width:"600px",transform:"translate(58%,20%)", justifyContent:"center"}}>
+          <form style={{justifyContent:"center", width:"500px", borderRadius:"10px", transform:"translate(10%,10%)"}}>
                 <div className="form-group">
                     <h1 style={{fontSize:"15px",fontWeight:"400"}}>Email</h1>
                     <input style={{ border:"2px solid #BA3837" }} type="text" className="form-control" id="username" placeholder="matt@gmail.com " />
@@ -34,17 +35,17 @@ function Profile() {
                 <br />
                 <div className="form-group md-8">
                     <h1 style={{fontSize:"15px",fontWeight:"400"}}>No. Telepon :</h1>
-                    <input style={{ border:"2px solid #BA3837" }} type="password" className="form-control" id="password" placeholder="Password" />
+                    <input style={{ border:"2px solid #BA3837" }} type="text" className="form-control" id="hp" placeholder="081261878427" />
                 </div>
                 <br />
                 <div className="form-group md-9">
                     <h1 style={{fontSize:"15px",fontWeight:"400"}}>Jenis Kelamin :</h1>
-                    <input style={{ border:"2px solid #BA3837" }} type="text" className="form-control" id="username" placeholder="Laki-laki" />
+                    <input style={{ border:"2px solid #BA3837" }} type="text" className="form-control" id="jeniskelamin" placeholder="Laki-laki" />
                 </div>
                 <br />
                 <div className="form-group md-10">
                     <h1 style={{fontSize:"15px",fontWeight:"400"}}>Alamat :</h1>
-                    <input style={{ border:"2px solid #BA3837" }} type="password" className="form-control" id="password" placeholder="Kota Lhokseumawe, indonesia " />
+                    <input style={{ border:"2px solid #BA3837" }} type="text" className="form-control" id="alamat" placeholder="Kota Lhokseumawe, indonesia " />
                 </div>
                 </form>
                 </div>
@@ -57,6 +58,7 @@ function Profile() {
                   <br />
                   <br />
                   <br />
+          </div>
         <div className="landing-section">
           <img src="/src/assets/footer.png"
             style={{ width: "100%", height: "auto", position: "relative" }}
