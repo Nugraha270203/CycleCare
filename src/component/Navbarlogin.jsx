@@ -48,11 +48,8 @@ function Navbarlogin() {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-<<<<<<< HEAD
                         <Dropdown.Item href="/Profile" >Proflie</Dropdown.Item>
-=======
                         <Dropdown.Item href="/Profile" >Profile</Dropdown.Item>
->>>>>>> 9c9302b9b3e7c93d001bdf5d4f0e414fef5bb829
                         <Dropdown.Divider />
                         <Dropdown.Item href="/Login">Log out</Dropdown.Item>
                     </Dropdown.Menu>
