@@ -9,3 +9,4 @@ function Otp () {
         </>
     )
 }
+export default Otp;
