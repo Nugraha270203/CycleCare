@@ -26,8 +26,9 @@ function Homelogin() {
 
       <div className="container">
         <div className="container-fluid">
+          <h2 className="mt-5 fw-bold"> Ready To Know?</h2>
+          <p style={{ fontSize: "25px" }}>  Let’s start with the easy one !</p>
           <div className="text-center mx-auto" style={{ width: "250px" }}>
-
             <div className="d-flex justify-content-center">
               <div className="d-flex">
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
@@ -89,15 +90,14 @@ function Homelogin() {
           </div>
         </div>
       </div>
-      
+
       <div className="container">
         <div className="container-fluid">
+          <h2 className="mt-5 fw-bold"> Long Videos</h2>
+          <p style={{ fontSize: "25px" }}> These videos can make you care more about your bike</p>
           <div className="text-center mx-auto" style={{ width: "250px" }}>
-
             <div className="d-flex justify-content-center">
               <div className="d-flex">
-                a
-
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
                   <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
                     <img
@@ -109,7 +109,7 @@ function Homelogin() {
                   </div>
                 </Link>
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
+                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "15rem", height: "12rem" }}>
                     <img
                       src={card3}
                       className="card-img-top img-fluid rounded-top-4 "
@@ -149,10 +149,12 @@ function Homelogin() {
 
       <div className="container">
         <div className="container-fluid">
-          <div class="card mt-5 mb-5" style={{width: "100%"}}>
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
+        <h2 className="mt-5 fw-bold">Articles</h2>
+          <p style={{ fontSize: "25px" }}>  Read these articles to get more insight</p>
+          <div class="card mt-5 mb-5" style={{ width: "100%" }}>
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
           </div>
         </div>
       </div>
