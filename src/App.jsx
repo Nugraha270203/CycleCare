@@ -12,6 +12,7 @@ import More from "./pages/more";
 import Otp from "./pages/Otp";
 import Article from "./pages/Article";
 import Homelogin from "./pages/Homelogin";
+import Menuarticle from "./pages/Menuarticle";
 
 import {
   createBrowserRouter,
@@ -29,7 +30,10 @@ const router = createBrowserRouter([
   {path:"/More", element:<More />},
   {path:"/Otp", element:<Otp />},
   {path:"/Article", element:<Article />},
-  {path:"/Homelogin", element:<Homelogin />}
+  {path:"/Homelogin", element:<Homelogin />},
+  {path:"/Menuarticle", element:<Menuarticle />},
+
+
 
 ]);
 
