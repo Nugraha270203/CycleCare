@@ -23,7 +23,7 @@ function Navbarlogin() {
                             </Link>
                         </li>
                         <li className="nav-item mx-auto p-2">
-                            <Link to="#" className="nav-link fw-bold fs-5 text-black">
+                            <Link to="/Komunitas" className="nav-link fw-bold fs-5 text-black">
                                 Comunity
                             </Link>
                         </li>
@@ -48,7 +48,6 @@ function Navbarlogin() {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item href="/Profile" >Proflie</Dropdown.Item>
                         <Dropdown.Item href="/Profile" >Profile</Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item href="/Login">Log out</Dropdown.Item>

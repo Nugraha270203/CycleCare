@@ -18,6 +18,7 @@ import Create from "./pages/Create";
 import Lupa from "./pages/Lupa";
 import Passo from "./pages/Passo";
 import Otp2 from "./pages/Otp2";
+import Komunitas from "./pages/Komunitas";
 
 import {
   createBrowserRouter,
@@ -41,7 +42,8 @@ const router = createBrowserRouter([
   {path:"/Create", element: <Create />},
   {path:"/Lupa", element: <Lupa />},
   {path:"/Passo", element: <Passo />},
-  {path:"/Otp2", element: <Otp2 />}
+  {path:"/Otp2", element: <Otp2 />},
+  {path:"/Komunitas", element: <Komunitas />}
 
 ]);
 
