@@ -9,6 +9,17 @@ import card2 from "../assets/card2.png"
 import card3 from "../assets/card3.png"
 import card4 from "../assets/card4.png"
 import card5 from "../assets/card5.png"
+import c1 from "../assets/c1.png"
+import c2 from "../assets/c2.png"
+import c3 from "../assets/c3.png"
+import c4 from "../assets/c4.png"
+import cb1 from "../assets/cb1.png"
+import cb2 from "../assets/cb2.png"
+import cb3 from "../assets/cb3.png"
+import Footer from "../component/Footer";
+
+
+
 
 function Homelogin() {
   return (
@@ -32,7 +43,7 @@ function Homelogin() {
             <div className="d-flex justify-content-center">
               <div className="d-flex">
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
+                  <div className="card shadow-lg mt-3 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
                     <img
                       src={card}
                       className="card-img-top img-fluid rounded-top-4 "
@@ -43,7 +54,7 @@ function Homelogin() {
                 </Link>
 
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
+                  <div className="card shadow-lg mt-3 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
                     <img
                       src={card2}
                       className="card-img-top img-fluid rounded-top-4 "
@@ -53,7 +64,7 @@ function Homelogin() {
                   </div>
                 </Link>
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
+                  <div className="card shadow-lg mt-3 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
                     <img
                       src={card3}
                       className="card-img-top img-fluid rounded-top-4 "
@@ -64,7 +75,7 @@ function Homelogin() {
                 </Link>
 
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
+                  <div className="card shadow-lg mt-3 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
                     <img
                       src={card4}
                       className="card-img-top img-fluid rounded-top-4 "
@@ -74,7 +85,7 @@ function Homelogin() {
                   </div>
                 </Link>
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
+                  <div className="card shadow-lg mt-3 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
                     <img
                       src={card5}
                       className="card-img-top img-fluid rounded-top-4 "
@@ -99,9 +110,9 @@ function Homelogin() {
             <div className="d-flex justify-content-center">
               <div className="d-flex">
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
+                  <div className="card shadow-lg  mb-1 rounded-4 " style={{ width: "15rem", height: "8srem" }}>
                     <img
-                      src={card2}
+                      src={c1}
                       className="card-img-top img-fluid rounded-top-4 "
                       alt="..."
                     />
@@ -109,9 +120,9 @@ function Homelogin() {
                   </div>
                 </Link>
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "15rem", height: "12rem" }}>
+                  <div className="card shadow-lg mb-1 rounded-4 " style={{ width: "15rem", height: "8rem" }}>
                     <img
-                      src={card3}
+                      src={c2}
                       className="card-img-top img-fluid rounded-top-4 "
                       alt="..."
                     />
@@ -120,9 +131,9 @@ function Homelogin() {
                 </Link>
 
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
+                  <div className="card shadow-lg mb-1 rounded-4 " style={{ width: "15rem", height: "8rem" }}>
                     <img
-                      src={card4}
+                      src={c3}
                       className="card-img-top img-fluid rounded-top-4 "
                       alt="..."
                     />
@@ -130,16 +141,15 @@ function Homelogin() {
                   </div>
                 </Link>
                 <Link className="mx-3" to="/Article" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mt-5 mb-1 rounded-4 " style={{ width: "12rem", height: "15rem" }}>
+                  <div className="card shadow-lg  mb-1 rounded-4 " style={{ width: "15rem", height: "8rem" }}>
                     <img
-                      src={card5}
+                      src={c4}
                       className="card-img-top img-fluid rounded-top-4 "
                       alt="..."
                     />
 
                   </div>
                 </Link>
-
 
               </div>
             </div>
@@ -149,17 +159,42 @@ function Homelogin() {
 
       <div className="container">
         <div className="container-fluid">
-        <h2 className="mt-5 fw-bold">Articles</h2>
+          <h2 className="mt-5 fw-bold">Articles</h2>
           <p style={{ fontSize: "25px" }}>  Read these articles to get more insight</p>
           <div class="card mt-5 mb-5" style={{ width: "100%" }}>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
+            <a href="">
+            <img
+              src={cb1}
+              className="card-img-top img-fluid rounded-top-4 "
+              alt="..."
+            />
+            </a>
           </div>
+
+          <div class="card mt-5 mb-5" style={{ width: "100%" }}>
+            <a href="">
+            <img
+              src={cb2}
+              className="card-img-top img-fluid rounded-top-4 "
+              alt="..."
+            />
+            </a>
+          </div>
+
+          <div class="card mt-5 mb-5" style={{ width: "100%" }}>
+            <a href="">
+              <img
+                src={cb3}
+                className="card-img-top img-fluid rounded-top-4 "
+                alt="..."
+              />
+            </a>
+          </div>
+
         </div>
       </div>
 
-
+      <Footer />
 
     </>
   );
