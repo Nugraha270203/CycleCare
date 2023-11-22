@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import LandingNavbar from "../component/navbarlandingpage";
 import bgcustom from "../assets/bgcustom.png";
 import about from "../assets/about.png";
 import fitur from "../assets/fitur.png";
@@ -9,90 +8,15 @@ import logo from "../assets/logo.svg";
 import footer from "../assets/footer.png";
 import foto from "../assets/foto.png";
 import mockupabout from "../assets/mockupabout.png";
+import Nabarlandingpage from "../component/navbarlandingpage";
+
 function LandingPage() {
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 bg-body-tertiary rounded">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            <img src={logo} alt="Logo" width="150" height="50" />
-          </a>
+      <Nabarlandingpage />
 
-          <div
-            className="collapse navbar-collapse justify-content-center"
-            id="navbarNav"
-          >
-            <ul className="navbar-nav">
-              <li className="nav-item mx-auto p-2">
-                <button
-                  className="nav-link fw-bold fs-5 text-black"
-                  onClick={() => scrollToSection("Home")}
-                >
-                  Home
-                </button>
-              </li>
-              <li className="nav-item mx-auto p-2">
-                <button
-                  className="nav-link fw-bold fs-5 text-black"
-                  onClick={() => scrollToSection("About")}
-                >
-                  About Us
-                </button>
-              </li>
-              <li className="nav-item mx-auto p-2">
-                <button
-                  className="nav-link fw-bold fs-5 text-black"
-                  onClick={() => scrollToSection("Fitur")}
-                >
-                  Feature
-                </button>
-              </li>
-              <li className="nav-item mx-auto p-2">
-                <button
-                  className="nav-link fw-bold fs-5 text-black"
-                  onClick={() => scrollToSection("Article")}
-                >
-                  Article
-                </button>
-              </li>
-            </ul>
-          </div>
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/signup" className="nav-link text-black">
-                Sign Up
-              </Link>
-            </li>
-          </ul>
-          <button type="button" className="btn btn-danger rounded-pill">
-            <Link
-              to="/Login"
-              className="text-white"
-              style={{ textDecoration: "none" }}
-            >
-              Login
-            </Link>
-          </button>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
       <div id="Home" className="container-fluid" style={{ padding: 0 }}>
         <div className="landing-section">
           <img
@@ -124,28 +48,55 @@ function LandingPage() {
                   offers
                 </h3>
                 <button className="btn btn-light rounded rounded-pill mt-5">
+
                   <Link
+                    className="fs-5 px-3 text-black fw-bold icon-link icon-link-hover"
+                    style={{
+                      "--bs-icon-link-transform": "translate3d(0, -.125rem, 0)",
+                      textDecoration: "none",
+                    }}
+                    to="/More"
+                  >
+                    More
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="14"
+                      id="arrow"
+                    >
+                      <g
+                        fill="none"
+                        fillRule="evenodd"
+                        stroke="#000"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                      >
+                        <path d="M1 7h16M11 1l6 6-6 6"></path>
+                      </g>
+                    </svg>
+                  </Link>
+                  {/* <Link
                     to="/More"
                     className="text-black fw-bold"
                     style={{ textDecoration: "none" }}
                   >
                     More -{">"}
-                  </Link>
+                  </Link> */}
                 </button>
               </div>
-
             </div>
-              <div className="col-md-5 offset-md-1 mt-5">
-                <img
-                  src={mockupabout}
-                  alt=""
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    position: "relative",
-                  }}
-                />
-              </div>
+            <div className="col-md-5 offset-md-1 mt-5">
+              <img
+                src={mockupabout}
+                alt=""
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  position: "relative",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -173,58 +124,65 @@ function LandingPage() {
             >
               Article
             </h1>
+
             <div className="d-flex justify-content-center">
               <div className="d-flex">
-                <div
-                  className="card mt-5 mb-5 rounded-4 "
-                  style={{ width: "20rem" }}
-                >
-                  <img
-                    src={foto}
-                    className="card-img-top img-fluid rounded-top-4 "
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <p className="card-text text-start fw-bold">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
+                <Link to="/Article" style={{ textDecoration: "none" }}>
+                  <div className="card mt-5 mb-5 rounded-4 " style={{ width: "20rem" }}>
+                    <img
+                      src={foto}
+                      className="card-img-top img-fluid rounded-top-4 "
+                      alt="..."
+                    />
+                    <div className="card-body">
+                      <p className="card-text text-start fw-bold">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
 
-                <div
-                  className="card mt-5  mb-5  mx-5 rounded-4"
-                  style={{ width: "20rem" }}
-                >
-                  <img
-                    src={foto}
-                    className="card-img-top img-fluid rounded-top-4"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <p className="card-text text-start fw-bold">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                </div>
+                <Link to="/Article" style={{ textDecoration: "none" }}>
 
-                <div
-                  className="card mt-5   mb-5 rounded-4"
-                  style={{ width: "20rem" }}
-                >
-                  <img
-                    src={foto}
-                    className="card-img-top img-fluid rounded-top-4"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <p className="card-text text-start fw-bold">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
+                  <div
+                    className="card mt-5  mb-5  mx-5 rounded-4"
+                    style={{ width: "20rem" }}
+                  >
+                    <img
+                      src={foto}
+                      className="card-img-top img-fluid rounded-top-4"
+                      alt="..."
+                    />
+                    <div className="card-body">
+                      <p className="card-text text-start fw-bold">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
+
+                <Link to="/Article" style={{ textDecoration: "none" }}>
+
+                  <div
+                    className="card mt-5   mb-5 rounded-4"
+                    style={{ width: "20rem" }}
+                  >
+                    <img
+                      src={foto}
+                      className="card-img-top img-fluid rounded-top-4"
+                      alt="..."
+                    />
+                    <div className="card-body">
+                      <p className="card-text text-start fw-bold">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+                  
               </div>
             </div>
           </div>
@@ -240,7 +198,6 @@ function LandingPage() {
           />
         </div>
       </div>
-
     </>
   );
 }
