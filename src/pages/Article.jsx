@@ -14,8 +14,8 @@ function Article() {
             <div className="container">
                 <div className=" d-flex justify-content-center mt-5">
                     <div
-                        class="card text-bg-danger rounded-5 px-4"
-                        style={{ minWidth: "100%" }}
+                        class="card shadow-lg text-bg-danger rounded-5 px-4"
+                        style={{ maxWidth: "100%" }}
                     >
                         <div class="card-body">
                             <h1 class="card-title">
