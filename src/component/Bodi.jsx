@@ -13,7 +13,7 @@ const App = () => {
                     <input type="password" className="form-control" id="password" placeholder="Password" />
                 </div>
                 <div className="form-group text-center">
-                    <a href="#">Forgot Password?</a>
+                    <a href="/Lupa">Forgot Password?</a>
                 </div>
                 <div className="form-group text-center">
                     <a href="/Homelogin">

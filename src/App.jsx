@@ -15,6 +15,9 @@ import Article from "./pages/Article";
 import Homelogin from "./pages/Homelogin";
 import Menuarticle from "./pages/Menuarticle"; 
 import Create from "./pages/Create";
+import Lupa from "./pages/Lupa";
+import Passo from "./pages/Passo";
+import Otp2 from "./pages/Otp2";
 
 import {
   createBrowserRouter,
@@ -36,7 +39,9 @@ const router = createBrowserRouter([
   {path:"/Homelogin", element:<Homelogin />},
   {path:"/Menuarticle", element:<Menuarticle />},
   {path:"/Create", element: <Create />},
-
+  {path:"/Lupa", element: <Lupa />},
+  {path:"/Passo", element: <Passo />},
+  {path:"/Otp2", element: <Otp2 />}
 
 ]);
 
