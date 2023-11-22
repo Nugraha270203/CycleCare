@@ -10,7 +10,7 @@ function Menuarticle() {
             <Navbarlogin />
             <div className="container">
                 <div className="container-fluid">
-                    <h2 className="mt-5 fw-bold">Article</h2>
+                    <h2 className="mt-5 fw-bold " style={{ paddingTop:"100px", paddingLeft:"0px",paddingRight:"0px", marginBottom:"0px" }}>Article</h2>
                     <p style={{ fontSize: "25px" }}> Yuk baca artikel untuk menambah wawasan kamu!</p>
                     <div className="d-flex justify-content-center">
                         <div class="card shadow-lg rounded-5" >

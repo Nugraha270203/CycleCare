@@ -93,7 +93,7 @@ function LandingPage() {
                 src={mockupabout}
                 alt=""
                 style={{
-                  paddingTop:"85px",
+                  paddingTop:"85  px",
                   width: "100%",
                   height: "auto",
                   position: "relative",
@@ -117,18 +117,18 @@ function LandingPage() {
       <div id="Article" className="container-fluid" style={{ padding: 0 }}>
         <div
           className="landing-section"
-          style={{ backgroundColor: "#FFD573", minHeight: "60vh" }}
+          style={{ backgroundColor: "#FFD573", minHeight: "100vh" }}
         >
           <div className="text-center mx-auto" style={{ width: "150px" }}>
             <br />
             <h1
               className="text-black fw-bold"
-              style={{ borderBottom: "3px solid red" }}
+              style={{ marginTop:"80px", borderBottom: "3px solid red" }}
             >
               Article
             </h1>
 
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center mt-3">
               <div className="d-flex">
                 <Link to="/Article" style={{ textDecoration: "none" }}>
                   <div className="card mt-5 mb-5 rounded-4 " style={{ width: "20rem" }}>

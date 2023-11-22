@@ -12,6 +12,11 @@ function Komunitas() {
                 <div className="container">
                     <br />
                     <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
                     <div style={{fontSize:"10px", marginLeft:"100px", fontWeight:"500"}}>
                         <img src="/src/assets/logo.svg" alt="logo" className="mx-5"
                         style={{ width: "100px", marginBottom:"5px"}} /> 2 Minggu yang lalu
