@@ -45,11 +45,7 @@ function Navbarlogin() {
                     <img src={prof} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-<<<<<<< HEAD
                         <Dropdown.Item href="/Profile" >Profile</Dropdown.Item>
-=======
-                        <Dropdown.Item href="/Profile" >Proflie</Dropdown.Item>
->>>>>>> 523b5071b7eed08b8e36e15df47c254379ae1e08
                         <Dropdown.Divider />
                         <Dropdown.Item href="/Login">Log out</Dropdown.Item>
                     </Dropdown.Menu>
