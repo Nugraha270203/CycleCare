@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../component/navbar";
 import phone from "../assets/phone.png";
 import Bodi from "../component/Bodi";
-import footer from "../assets/footer.png"
+import Footer from "../component/Footer";
 function Login() {
   return (
     <>
@@ -18,16 +18,7 @@ function Login() {
         </div>
       </div>
       <Bodi />
-
-      <div id="footer" className="container-fluid mt-5" style={{ padding: 0 }}>
-        <div className="landing-section">
-          <img
-            src={footer}
-            alt=""
-            style={{ width: "100%", height: "auto", position: "relative" }}
-          />
-        </div>
-      </div>
+      <Footer />
     </>
   );
 }
