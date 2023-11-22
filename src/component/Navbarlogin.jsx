@@ -48,7 +48,7 @@ function Navbarlogin() {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#" >Proflie</Dropdown.Item>
+                        <Dropdown.Item href="/Profile" >Proflie</Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item href="#">Log out</Dropdown.Item>
                     </Dropdown.Menu>
