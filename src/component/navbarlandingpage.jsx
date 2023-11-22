@@ -60,7 +60,7 @@ function Navbarlandingpage() {
           </div>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/signup" className="nav-link text-black">
+              <Link to="/Regis" className="nav-link text-black">
                 Sign Up
               </Link>
             </li>
