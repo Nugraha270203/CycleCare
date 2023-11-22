@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../component/navbar";
+import Footer from "../component/Footer";
 import mobile from "../assets/mobile.png";
 function Regis() {
     return (
@@ -80,6 +81,7 @@ function Regis() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
