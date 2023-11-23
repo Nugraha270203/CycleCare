@@ -5,12 +5,15 @@ import Navbarlandingpage from "../component/navbarlandingpage";
 import Navbar from "../component/navbar";
 import jirigen from "../assets/jirigen.png"
 import Footer from "../component/Footer.jsx"
+import Navbarlogin from "../component/Navbarlogin";
 
 function Article() {
     return (
         <>
-            <Navbar />
-
+            <Navbarlogin />
+            <br />
+            <br />
+            <br />
             <div className="container">
                 <div className=" d-flex justify-content-center mt-5">
                     <div
