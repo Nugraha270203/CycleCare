@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbarlogin from "../component/Navbarlogin";
-import Bghomelogin from "../assets/bghomelogin.png";
+import sd from "../assets/sd.png";
 import { Link } from "react-router-dom";
 import foto from "../assets/foto.png"
 import card from "../assets/card.png"
@@ -28,7 +28,7 @@ function Homelogin() {
       <div id="Home" className="container-fluid mt-2" style={{ paddingTop:"50px", paddingLeft:"0px",paddingRight:"0px", marginBottom:"0px" }}>
         <div className="landing-section">
           <img
-            src={Bghomelogin}
+            src={sd}
             alt=""
             style={{ width: "100%", height: "auto", position: "relative" }}
           />
