@@ -161,7 +161,9 @@ function Homelogin() {
       </div>
       <div className="more-button-container text-center align-item-center justify-content-center mt-5">
         <div className="line left"></div>
+        <a href="/Tips">
         <button className="more-button ">More</button>
+        </a>
         <div className="line right"></div>
       </div>
       <div className="container">
@@ -229,7 +231,9 @@ function Homelogin() {
       </div>
       <div className="more-button-container text-center align-item-center justify-content-center mt-5">
         <div className="line left"></div>
+        <a href="/Menuarticle">
         <button className="more-button ">More</button>
+        </a>
         <div className="line right"></div>
       </div>
 

@@ -11,24 +11,28 @@ function Navbarlogin() {
                 <a className="navbar-brand" href="#">
                     <img src={logo} yarnalt="Logo" width="150" height="50" />
                 </a>
-
                 <div
                     className="collapse navbar-collapse justify-content-center"
                     id="navbarNav"
                 >
                     <ul className="navbar-nav">
                         <li className="nav-item mx-auto p-2">
-                            <Link to="/Homelogin" className="nav-link fw-bold fs-5 text-black">
+                            <Link to="/Homelogin" className="nav-link fw-bold fs-5 active">
                                 Home
                             </Link>
                         </li>
                         <li className="nav-item mx-auto p-2">
-                            <Link to="/Komunitas" className="nav-link fw-bold fs-5 text-black">
+                            <Link to="/Komunitas" className="nav-link  fs-5 text-black">
                                 Comunity
                             </Link>
                         </li>
                         <li className="nav-item mx-auto p-2">
-                            <Link to="/Menuarticle" className="nav-link fw-bold fs-5 text-black">
+                            <Link to="/Tips" className="nav-link fs-5 text-black">
+                                Videos
+                            </Link>
+                        </li>
+                        <li className="nav-item mx-auto p-2">
+                            <Link to="/Menuarticle" className="nav-link fs-5 text-black">
                                 Article
                             </Link>
                         </li>
@@ -41,8 +45,8 @@ function Navbarlogin() {
                 </div>
 
                 <Dropdown>
-                    <Dropdown.Toggle variant="" className="rounded-circle" style={{border:"none"}}>
-                    <img src={prof} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
+                    <Dropdown.Toggle variant="" className="rounded-circle" style={{ border: "none" }}>
+                        <img src={prof} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="/Profile" >Profile</Dropdown.Item>
