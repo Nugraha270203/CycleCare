@@ -77,7 +77,7 @@ function Navbarlandingpage() {
             className={`nav-link fs-5 text-black ${isSectionActive("Article")}`}
             onClick={() => scrollToSection("Article")}
           >
-            Article
+            Content
           </button>
         </li>
         </ul>

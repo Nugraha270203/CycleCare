@@ -9,6 +9,7 @@ import Nabarlandingpage from "../component/navbarlandingpage";
 import Fitur from "../component/home/fitur";
 import Article from "../component/home/article";
 import Footer from "../component/Footer";
+import Testimoni from "../component/testimoni";
 function LandingPage() {
 
 
@@ -20,6 +21,7 @@ function LandingPage() {
       <Aboute />
       <Fitur />
       <Article />
+<Testimoni />
       <Footer />
 
 

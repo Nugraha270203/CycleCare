@@ -17,6 +17,7 @@ import cb1 from "../assets/cb1.png"
 import cb2 from "../assets/cb2.png"
 import cb3 from "../assets/cb3.png"
 import Footer from "../component/Footer";
+import "../index.css"
 
 
 
@@ -25,7 +26,7 @@ function Homelogin() {
   return (
     <>
       <Navbarlogin />
-      <div id="Home" className="container-fluid mt-2" style={{ paddingTop:"50px", paddingLeft:"0px",paddingRight:"0px", marginBottom:"0px" }}>
+      <div id="Home" className="container-fluid mt-2" style={{ paddingTop: "50px", paddingLeft: "0px", paddingRight: "0px", marginBottom: "0px" }}>
         <div className="landing-section">
           <img
             src={sd}
@@ -109,89 +110,127 @@ function Homelogin() {
           <div className="text-center mx-auto" style={{ width: "250px" }}>
             <div className="d-flex justify-content-center">
               <div className="d-flex">
-                <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg  mb-1 rounded-4 " style={{ width: "15rem", height: "8srem" }}>
-                    <img
-                      src={c1}
-                      className="card-img-top img-fluid rounded-top-4 "
-                      alt="..."
-                    />
+                <div className="card shadow-lg  mb-1 mx-3 rounded-4 " style={{ width: "15rem", height: "8srem" }}>
+                  <img
+                    src={c1}
+                    className="card-img-top img-fluid rounded-top-4 "
+                    alt="..."
+                  />
+                  <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
+                    <p className="text-start text-black fw-medium">How to check battery voltage?</p>
+                  </Link>
+                </div>
+                <div className="card shadow-lg  mx-3 mb-1 rounded-4 " style={{ width: "15rem", height: "8srem" }}>
+                  <img
+                    src={c2}
+                    className="card-img-top img-fluid rounded-top-4 "
+                    alt="..."
+                  />
+                  <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
+                    <p className="text-start text-black fw-medium">How to maintain a motorbike?</p>
+                  </Link>
+                </div>
+                <div className="card shadow-lg mx-3 mb-1 rounded-4 " style={{ width: "15rem", height: "8srem" }}>
+                  <img
+                    src={c3}
+                    className="card-img-top img-fluid rounded-top-4 "
+                    alt="..."
+                  />
+                  <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
+                    <p className="text-start text-black fw-medium">How to change engine oil?</p>
+                  </Link>
+                </div>
+                <div className="card shadow-lg mx-3 mb-1 rounded-4 " style={{ width: "15rem", height: "8srem" }}>
+                  <img
+                    src={c4}
+                    className="card-img-top img-fluid rounded-top-4 "
+                    alt="..."
+                  />
+                  <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
+                    <p className="text-start text-black fw-medium">How to fill air tires?</p>
+                  </Link>
+                </div>
 
-                  </div>
-                </Link>
-                <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mb-1 rounded-4 " style={{ width: "15rem", height: "8rem" }}>
-                    <img
-                      src={c2}
-                      className="card-img-top img-fluid rounded-top-4 "
-                      alt="..."
-                    />
 
-                  </div>
-                </Link>
-
-                <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg mb-1 rounded-4 " style={{ width: "15rem", height: "8rem" }}>
-                    <img
-                      src={c3}
-                      className="card-img-top img-fluid rounded-top-4 "
-                      alt="..."
-                    />
-
-                  </div>
-                </Link>
-                <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
-                  <div className="card shadow-lg  mb-1 rounded-4 " style={{ width: "15rem", height: "8rem" }}>
-                    <img
-                      src={c4}
-                      className="card-img-top img-fluid rounded-top-4 "
-                      alt="..."
-                    />
-
-                  </div>
-                </Link>
 
               </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
+      <div className="more-button-container text-center align-item-center justify-content-center mt-5">
+        <div className="line left"></div>
+        <button className="more-button ">More</button>
+        <div className="line right"></div>
+      </div>
       <div className="container">
         <div className="container-fluid">
-          <h2 className="mt-5 fw-bold">Articles</h2>
-          <p style={{ fontSize: "25px" }}>  Read these articles to get more insight</p>
-          <div class="card mt-5 mb-5" style={{ width: "100%" }}>
-            <a href="/Article">
-              <img
-              src={cb1}
-              className="card-img-top img-fluid rounded-top-4 "
-              alt="..."
-            />
-            </a>
-          </div>
+          <div className="d-flex justify-content-center mt-3">
+            <div className="d-flex">
+              <Link to="/Article" style={{ textDecoration: "none" }}>
+                <div className="card shadow  mt-5 mb-5 rounded-4 " style={{ width: "20rem" }}>
+                  <img
+                    src={foto}
+                    className="card-img-top img-fluid rounded-top-4 "
+                    alt="..."
+                  />
+                  <div className="card-body">
+                    <p className="card-text text-start fw-bold">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+              </Link>
 
-          <div class="card mt-5 mb-5" style={{ width: "100%" }}>
-            <a href="">
-            <img
-              src={cb2}
-              className="card-img-top img-fluid rounded-top-4 "
-              alt="..."
-            />
-            </a>
-          </div>
+              <Link to="/Article" style={{ textDecoration: "none" }}>
 
-          <div class="card mt-5 mb-5" style={{ width: "100%" }}>
-            <a href="">
-              <img
-                src={cb3}
-                className="card-img-top img-fluid rounded-top-4 "
-                alt="..."
-              />
-            </a>
-          </div>
+                <div
+                  className="card shadow mt-5  mb-5 mx-5 rounded-4"
+                  style={{ width: "20rem" }}
+                >
+                  <img
+                    src={foto}
+                    className="card-img-top img-fluid rounded-top-4"
+                    alt="..."
+                  />
+                  <div className="card-body">
+                    <p className="card-text text-start fw-bold">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+              </Link>
 
+              <Link to="/Article" style={{ textDecoration: "none" }}>
+
+                <div
+                  className="card shadow  mt-5   mb-5 rounded-4"
+                  style={{ width: "20rem" }}
+                >
+                  <img
+                    src={foto}
+                    className="card-img-top img-fluid rounded-top-4"
+                    alt="..."
+                  />
+                  <div className="card-body">
+                    <p className="card-text text-start fw-bold">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
+      </div>
+      <div className="more-button-container text-center align-item-center justify-content-center mt-5">
+        <div className="line left"></div>
+        <button className="more-button ">More</button>
+        <div className="line right"></div>
       </div>
 
       <Footer />
