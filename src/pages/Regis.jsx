@@ -3,11 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../component/Footer";
 import logon from "../assets/logon.png";
 import bg5 from "../assets/bg5.png";
-import L1 from "../assets/L1.gif";
-import Mobilelogin from "../assets/Mobile login.gif";
+import L1 from "../assets/L1.gif"
 
-
-function Regis() {
+function Login() {
     const backgroundStyle = {
         backgroundImage: `url(${bg5})`,
         backgroundSize: "cover",
@@ -30,11 +28,6 @@ function Regis() {
                         </div>
                         <div className="col-md-6" style={{ backgroundColor: "white", padding: "20px", borderRadius: "0 15px 15px 0" }}>
                             <blockquote className=" mt-4 blockquote mb-0">
-                                <img src={Mobilelogin} alt="" style={{ width: "100%", height: "auto" }} />
-                            </div>
-                        </div>
-                        <div className="col-md-6" style={{ backgroundColor: "white", padding: "20px", borderRadius: "0 15px 15px 0" }}>
-                            <blockquote className=" mt-2 blockquote mb-0">
                                 <br />
                                 <div className="container d-flex flex-column align-items-center">
                                     <h3 className=" text-danger mx-auto">Register</h3>
@@ -48,17 +41,6 @@ function Regis() {
                                         <input type="text" className="form-control mt-4" id="Last" placeholder="Last Name " />
                                         </div>
                                         </div>
-
-                                            <input type="text" className="form-control mt-4" id="password" placeholder="First Name " />
-                                        </div>
-                                        <div className="col">
-                                            <input type="text" className="form-control mt-4" id="password" placeholder="Last Name " />
-                                        </div>
-                                    </div>
-                                    <input type="text" className="form-control mt-4" id="password" placeholder="Enter Your Email " />
-                                    <input type="password" className="form-control mt-4" id="password" placeholder="Enter Your Password " />
-
-
                                 </div>
                                 <div className="form-gorup md-8">
                                 <input type="text" className="form-control mt-4" id="email" placeholder="Enter Your Email " />
@@ -71,15 +53,10 @@ function Regis() {
                                         </button>
                                     </a>
                                 </div>
-
                                 <div className="container mt-2 text-center">
                                     <a href="" className="text-black" style={{ fontSize: "13px" }}>Forgot password?</a>
                                     <p className="text-black" style={{ fontSize: "13px" }}>Don’t have an account?
                                         <a href="" className="text-black" style={{ fontSize: "13px" }}> Sign Up</a>
-                                <div className="container mt-4 d-flex flex-column align-items-center">
-                                    <a href="" className="text-danger" style={{ fontSize: "13px" }}>Forgot password?</a>
-                                    <p className="text-danger" style={{ fontSize: "13px" }}>Don’t have an account?
-                                        <a href="" className="text-danger" style={{ fontSize: "13px" }}> Sign Up</a>
                                     </p>
                                 </div>
                             </blockquote>
@@ -94,4 +71,4 @@ function Regis() {
     );
 }
 
-export default Regis;
+export default Login;
