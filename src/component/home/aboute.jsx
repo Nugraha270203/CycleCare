@@ -19,7 +19,7 @@ function Aboute() {
                             <div className="col-md-5 offset-md-1">
                                 <div className="text-white mt-5 " style={{ marginLeft: "50px" }}>
                                     <br />
-                                    <h1 className="mt-5" style={{ borderBottom: "3px solid orange", width: "100px" }}></h1>
+                                    <h1 className="mt-5" style={{ borderBottom: "3px solid orange", width: "50px" }}></h1>
                                     <h1 className="fw-bold text-center" style={{ width: "180px" }}>
                                         About Us
                                     </h1>
@@ -39,7 +39,7 @@ function Aboute() {
                                             }}
                                             to="/More"
                                         >
-                                            More
+                                            See more information
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="18"

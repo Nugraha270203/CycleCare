@@ -1,4 +1,5 @@
-.bgcustom{
-    background-image: url("/src/assets/bgcustom.png");
-    background-size: cover;
-}
+/* styles.css */
+.active {
+    font-weight: bold;
+  }
+  
