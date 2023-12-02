@@ -45,9 +45,9 @@ function Login() {
                       </a>
                     </div>
                     <div className="container mt-4 d-flex flex-column align-items-center">
-                      <a href="" className="text-danger" style={{ fontSize: "13px" }}>Forgot password?</a>
-                      <p className="text-danger" style={{ fontSize: "13px" }}>Don’t have an account?
-                        <a href="" className="text-danger" style={{ fontSize: "13px" }}> Sign Up</a>
+                      <a href="" className="text-black" style={{ fontSize: "13px" }}>Forgot password?</a>
+                      <p className="text-black" style={{ fontSize: "13px" }}>Don’t have an account?
+                        <a href="" className="text-black" style={{ fontSize: "13px" }}> Sign Up</a>
                       </p>
                     </div>
                   </blockquote>
