@@ -38,14 +38,14 @@ function Login() {
 
                     </div>
                     <div className="form-group text-center mt-3">
-                      <a href="/Otp">
+                      <a href="/homelogin">
                         <button type="button" className="btn btn-danger btn-lg btn-sm rounded-pill" style={{ width: "100%" }}>
                           Login
                         </button>
                       </a>
                     </div>
                     <div className="container mt-4 d-flex flex-column align-items-center">
-                      <a href="" className="text-black" style={{ fontSize: "13px" }}>Forgot password?</a>
+                      <a href="/Lupa" className="text-black" style={{ fontSize: "13px" }}>Forgot password?</a>
                       <p className="text-black" style={{ fontSize: "13px" }}>Don’t have an account?
                         <a href="" className="text-black" style={{ fontSize: "13px" }}> Sign Up</a>
                       </p>

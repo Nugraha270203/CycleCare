@@ -47,7 +47,8 @@ const router = createBrowserRouter([
   {path:"/Otp2", element: <Otp2 />},
   {path:"/Video", element: <Video />},
   {path:"/Tips", element: <Tips />},
-  {path:"/Komunitas", element: <Komunitas />}
+  {path:"/Komunitas", element: <Komunitas />},
+  {path:"/Home", element: <Home />}
 
 ]);
 
