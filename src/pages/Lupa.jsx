@@ -1,68 +1,60 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "../component/navbar";
 import Footer from "../component/Footer";
-import mobile from "../assets/mobile.png";
-function Lupa() {
-    return (
-        <>
-            <Navbar />
-            <div className="container-fluid" style={{ padding: 0 }}>
-                <div className="landing-section">
-                    <div className="row">
-                        <div className="col-md-5 offset-md-1 mt-5">
-                            <div class="text-danger text-center ">Please!!</div>
-                            <div class="text-lg-center">
-                                <p> Enter your username and your email..</p>
-                            </div>
-                            <div class="text-lg-center">
-                                <img
-                                    src={mobile}
-                                    alt=""
-                                    style={{
-                                        width: "200px",
-                                        height: "auto",
-                                        position: "relative",
-                                    }}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-md-3 offset-md-1 mt-5">
-                            <form>
-                                <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="namaf"
-                                        placeholder="Enter Your Username"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className="form-control mt-2"
-                                        id="email"
-                                        placeholder="Enter Your Email "
-                                    />
-                                </div>
-                                <div className="form-group text-center mt-3">
-                                    <a href="/Otp2">
-                                    <button
-                                        type="button"
-                                        className="btn btn-danger btn-lg btn-sm rounded-pill"
-                                        style={{ width: "63%" }}
-                                    >
-                                        Continue
-                                    </button>
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
+import logon from "../assets/logon.png";
+import bg5 from "../assets/bg5.png";
+import Mobilelogin from "../assets/Mobile login.gif"
+
+function Login() {
+  const backgroundStyle = {
+    backgroundImage: `url(${bg5})`,
+    backgroundSize: "cover",
+    backgroundPosition: "flex",
+    minHeight: "100vh",
+  };
+
+  return (
+    <div className="background" style={backgroundStyle}>
+      <div className="container">
+        <a className="navbar-brand" href="#">
+          <img src={logon} alt="Logo" width="140" height="50" />
+        </a>
+            <div className="card mt-5 mx-auto mb-5" style={{ maxWidth: "80%", borderRadius: "15px", border: "none" }}>
+              <div className="row no-gutters">
+                <div className=" col-md-6" style={{ backgroundColor: "white", padding: "20px", borderRadius: "15px 0 0 15px" }}>
+                  <div className="container d-flex flex-column align-items-center">
+                    <img src={Mobilelogin} alt="" style={{ width: "100%", height: "auto" }} />
+                  </div>
+                </div>
+                <div className="col-md-6" style={{ backgroundColor: "white", padding: "20px", borderRadius: "0 15px 15px 0" }}>
+                  <blockquote className=" mt-4 blockquote mb-0">
+                    <br />
+                    <div className="container d-flex flex-column align-items-center">
+                      <h3 className=" text-danger mx-auto">Please !</h3>
+                      <p className="">Submit Your Username And Email</p>
                     </div>
+                    <div className="form-group md-8">
+                      <input type="text" className="form-control mt-4" id="username" placeholder="Enter Your Username " />
+                      <input type="text" className="form-control mt-4" id="email" placeholder="Enter Your Email " />
+
+                    </div>
+                    <div className="form-group text-center mt-3">
+                      <a href="/Otp2">
+                        <button type="button" className="btn btn-danger btn-lg btn-sm rounded-pill" style={{ width: "100%" }}>
+                          Continue
+                        </button>
+                      </a>
+                    </div>
+                  </blockquote>
                 </div>
             </div>
-            <Footer />
-        </>
-    );
+        </div>
+      
+        <br />
+      </div>
+      <Footer />
+    </div>
+  );
 }
-export default Lupa;
+
+export default Login;
