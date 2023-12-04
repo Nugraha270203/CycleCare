@@ -70,7 +70,7 @@ function Otp() {
                                 </a>
                             </div>
                     <div className="form-group text-center my-3">
-                    <a href="#">
+                    <a href="/Create">
                         <button type="button"
                         className="btn btn-danger btn-lg btn-sm rounded-pill"
                         style={{ width: "50%", }}
