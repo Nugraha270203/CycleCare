@@ -49,7 +49,15 @@ function Navbarlogin() {
                         <img src={prof} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item href="/Profile" >Profile</Dropdown.Item>
+                        <Dropdown.Item href="/Profile" >
+                            <div className="container">
+                            <br/>
+                                <img className="mx-5" src={prof} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
+                                <h4>Rahmat Azhari</h4>
+                                <hr />
+                            </div>
+                        </Dropdown.Item>
+                        <Dropdown.Item href="/profileEdit">Edit Profile</Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item href="/Login">Log out</Dropdown.Item>
                     </Dropdown.Menu>
