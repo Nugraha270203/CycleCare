@@ -18,9 +18,10 @@ function ProfileEdit() {
                             <br />
                             <h3 className="mb-4" style={{marginLeft:"470px"}}>  Edit Profile</h3>
                             <img src="/src/assets/prof.png" alt="logo" style={{ width: "80px", marginLeft: "500px" }} />
-                            
+                            <br />
+                            <br />
                             <h5 style={{marginLeft:"505px"}}> @Matt</h5>
-                            <h5 style={{marginLeft:"475px"}}>Rahmat Azhari</h5>
+                            <h5 className=" fw-bold"style={{marginLeft:"475px"}}>Rahmat Azhari</h5>
                         </div>
 
                             <div className="" style={{ marginLeft: "300px",marginTop:"-55px", backgroundColor: "#E5E5E5", borderRadius: "20px", height: "450px", width: "600px", transform: "translate(-8%,20%)", justifyContent: "center" }}>
