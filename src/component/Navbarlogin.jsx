@@ -17,7 +17,7 @@ function Navbarlogin() {
                 >
                     <ul className="navbar-nav">
                         <li className="nav-item mx-auto p-2">
-                            <Link to="/Homelogin" className="nav-link fw-bold fs-5 active">
+                            <Link to="/Homelogin" className="nav-link active fs-5 text-black">
                                 Home
                             </Link>
                         </li>

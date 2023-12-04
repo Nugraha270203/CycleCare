@@ -36,7 +36,7 @@ function Fitur() {
                     <br />
                     <br />
                     <br />
-                <p className="fs-6 text-end fw-bold">Read more > </p>
+                <p className="fs-6 text-end fw-bold">Read more  </p>
                 </blockquote>
               </div>
             </div>
@@ -56,7 +56,7 @@ function Fitur() {
                     <br />
                     <br />
                     <br />
-                <p className="fs-6 text-end fw-bold">Read more > </p>
+                <p className="fs-6 text-end fw-bold">Read more  </p>
                 </blockquote>
               </div>
             </div>
@@ -75,7 +75,7 @@ function Fitur() {
                     <br />
                     <br />
                     <br />
-                <p className="fs-6 text-end fw-bold">Read more > </p>
+                <p className="fs-6 text-end fw-bold">Read more  </p>
                 </blockquote>
               </div>
             </div>
