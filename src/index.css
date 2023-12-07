@@ -210,3 +210,29 @@ button {
   flex-grow: 1; /* Memastikan .card-body mengisi sisa ruang di dalam .floating-chat */
   overflow-y: auto; /* Jika kontennya terlalu panjang, izinkan scrolling */
 }
+
+.sidebar {
+  width: 225px;
+  background-color: #343a40;
+  padding: 20px;
+  height: 100vh;
+  color: white;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: orange !important;
+}

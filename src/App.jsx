@@ -12,7 +12,7 @@ import Regis from "./pages/Regis";
 import More from "./pages/more";
 import Otp from "./pages/Otp";
 import Article from "./pages/Article";
-import Homelogin from "./pages/Homelogin";
+import Homelogin from "./pages/homelogin";
 import Menuarticle from "./pages/Menuarticle"; 
 import Create from "./pages/Create";
 import Lupa from "./pages/Lupa";
@@ -21,7 +21,8 @@ import Otp2 from "./pages/Otp2";
 import Komunitas from "./pages/Komunitas";
 import Video from "./pages/Video";
 import Tips from "./pages/Tips";
-
+import Dashboard from "./pages/Admin/Dashboard";
+import Artikel from "./pages/Admin/Artikel";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -48,7 +49,10 @@ const router = createBrowserRouter([
   {path:"/Video", element: <Video />},
   {path:"/Tips", element: <Tips />},
   {path:"/Komunitas", element: <Komunitas />},
-  {path:"/Home", element: <Home />}
+  {path:"/Home", element: <Home />},
+{path:"/Dashboard", element:<Dashboard />},
+{path:"/Artikel", element:<Artikel />}
+
 
 ]);
 
