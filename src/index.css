@@ -210,8 +210,7 @@ button {
   flex-grow: 1; /* Memastikan .card-body mengisi sisa ruang di dalam .floating-chat */
   overflow-y: auto; /* Jika kontennya terlalu panjang, izinkan scrolling */
 }
-
-.sidebar {
+.sidebar1 {
   width: 225px;
   background-color: #343a40;
   padding: 20px;
@@ -219,20 +218,41 @@ button {
   color: white;
 }
 
-.content {
-  flex: 1;
-  padding: 20px;
-}
-
-.nav-item {
+.nav-item1 {
   margin-bottom: 10px;
 }
 
-.nav-link {
+.is-hover {
+  text-decoration: none;
+  position: relative;
+}
+
+.is-hover:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: orange;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.is-hover:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+.aktif{
+  border-bottom: 2px solid orange;
+}
+.nav-link1 {
   color: white !important;
+  text-decoration: none;
   transition: color 0.3s ease-in-out;
 }
 
-.nav-link:hover {
-  background-color: orange !important;
+.nav-link1:hover {
+  color: orange !important;
 }

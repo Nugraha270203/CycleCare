@@ -13,7 +13,6 @@ function Sidebaradmin() {
                     <li className="nav-item">
                         <Link to="/dashboard" className="nav-link">Dashboard</Link>
                         <Link to="/Artikel" className="nav-link">Artikel</Link>
-
                     </li>   
 
                 </ul>
