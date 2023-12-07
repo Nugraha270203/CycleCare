@@ -96,3 +96,117 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+.chat-messages {
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#chat-form {
+  display: flex;
+}
+
+#message-input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.chat-bubble {
+  position: relative;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 90%; /* Mengubah max-width menjadi 100% agar balon tetap responsif */
+  margin: 10px 0; /* Mengurangi margin agar balon tidak terlalu rapat */
+}
+
+.bubble-content {
+  padding: 8px;
+}
+
+.chat-bubble::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px; /* Mengubah right menjadi left */
+  margin-top: -10px; /* Setengah dari tinggi border-width */
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #4CAF50 transparent transparent; /* Menyesuaikan urutan border-color */
+}
+
+.chat-bubble1 {
+  position: relative;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 90%;
+  margin: 10px 0;
+}
+
+.bubble-content1 {
+  padding: 8px;
+}
+
+.chat-bubble1::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -20px; /* Mengubah left menjadi right agar ekornya mengarah ke kiri */
+  margin-top: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #4CAF50; /* Menyesuaikan urutan border-color agar ekornya mengarah ke kiri */
+}
+.floating-chat {
+  transition: height 0.3s ease-in-out; /* Menggunakan transition pada height */
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column; /* Membuat container menjadi flex column */
+  max-height: 80vh; /* Tentukan ketinggian maksimum kartu */
+  overflow-y: auto; /* Jika kontennya terlalu panjang, izinkan scrolling */
+}
+
+.floating-chat.closed {
+  height: 40px; /* Atur tinggi kartu ketika tertutup */
+}
+
+.floating-chat.open {
+  height: 50%; /* Atur tinggi kartu ketika terbuka (sesuai ketinggian maksimum) */
+}
+
+.floating-chat .card-header {
+  height: 40px; /* Atur ketinggian header */
+}
+
+.floating-chat .card-body {
+  flex-grow: 1; /* Memastikan .card-body mengisi sisa ruang di dalam .floating-chat */
+  overflow-y: auto; /* Jika kontennya terlalu panjang, izinkan scrolling */
+}

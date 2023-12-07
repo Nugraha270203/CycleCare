@@ -18,7 +18,7 @@ import cb2 from "../assets/cb2.png"
 import cb3 from "../assets/cb3.png"
 import Footer from "../component/Footer";
 import "../index.css"
-
+import FloatingChat from "../component/chat";
 
 
 
@@ -35,7 +35,6 @@ function Homelogin() {
           />
         </div>
       </div>
-
       <div className="container">
         <div className="container-fluid">
           <h2 className="mt-5 fw-bold"> Ready To Know?</h2>
@@ -116,7 +115,7 @@ function Homelogin() {
                     className="card-img-top img-fluid rounded-top-4 "
                     alt="..."
                   />
-                  <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
+                  <Link className="mx-3" to="/Video" style={{ textDecoration: "none" }}>
                     <p className="text-start text-black fw-medium">How to check battery voltage?</p>
                   </Link>
                 </div>
@@ -126,7 +125,7 @@ function Homelogin() {
                     className="card-img-top img-fluid rounded-top-4 "
                     alt="..."
                   />
-                  <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
+                  <Link className="mx-3" to="/Video" style={{ textDecoration: "none" }}>
                     <p className="text-start text-black fw-medium">How to maintain a motorbike?</p>
                   </Link>
                 </div>
@@ -136,7 +135,7 @@ function Homelogin() {
                     className="card-img-top img-fluid rounded-top-4 "
                     alt="..."
                   />
-                  <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
+                  <Link className="mx-3" to="/Video" style={{ textDecoration: "none" }}>
                     <p className="text-start text-black fw-medium">How to change engine oil?</p>
                   </Link>
                 </div>
@@ -146,7 +145,7 @@ function Homelogin() {
                     className="card-img-top img-fluid rounded-top-4 "
                     alt="..."
                   />
-                  <Link className="mx-3" to="/Tips" style={{ textDecoration: "none" }}>
+                  <Link className="mx-3" to="/Video" style={{ textDecoration: "none" }}>
                     <p className="text-start text-black fw-medium">How to fill air tires?</p>
                   </Link>
                 </div>
@@ -236,6 +235,7 @@ function Homelogin() {
         </a>
         <div className="line right"></div>
       </div>
+      <FloatingChat />
 
       <Footer />
 

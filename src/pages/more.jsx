@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../component/navbar";
 import About2 from "../assets/About2.png";
 import footer from "../assets/footer.png"
+import Footer from "../component/Footer";
 function More() {
   return (
     <>
@@ -16,15 +17,7 @@ function More() {
           />
         </div>
       </div>
-      <div id="footer" className="container-fluid" style={{ padding: 0 }}>
-        <div className="landing-section">
-          <img
-            src={footer}
-            alt=""
-            style={{ width: "100%", height: "auto", position: "relative" }}
-          />
-        </div>
-      </div>
+     <Footer />
     </>
   );
 }

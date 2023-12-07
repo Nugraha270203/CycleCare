@@ -16,7 +16,7 @@ function Login() {
   return (
     <div className="background" style={backgroundStyle}>
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/Home">
           <img src={logon} alt="Logo" width="140" height="50" />
         </a>
             <div className="card mt-5 mx-auto mb-5" style={{ maxWidth: "80%", borderRadius: "15px", border: "none" }}>
