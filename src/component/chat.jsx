@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, InputGroup, FormControl, Card } from 'react-bootstrap';
 import "../index.css";
+import bot from "../assets/bot.png"
+import bot2 from "../assets/bxs_bot.png"
 
 const FloatingChat = () => {
   const [messages, setMessages] = useState([]);
@@ -27,18 +29,34 @@ const FloatingChat = () => {
       <Card.Header
         style={{
           cursor: 'pointer',
-          backgroundColor: '#007BFF',
+          backgroundColor: '#C53938',
           color: '#fff',
-          borderBottom: isChatOpen ? 'none' : '1px solid #ddd', 
+          borderBottom: isChatOpen ? 'none' : '1px solid #ddd',
+          height: '60px'
         }}
-        onClick={toggleChat} 
+        onClick={toggleChat}
       >
-        Chatbot
+        <div className='d-flex'>
+          <div className='row'>
+            <div className='col-3'>
+              <img src={bot} alt="" />
+            </div>
+            <div className='col'>
+            <p style={{paddingBottom:"20px"}} className='fw-bold'>C&C Bot <p  style={{color:"green", fontWeight:"600"}}>• Online</p></p>
+            </div>
+
+          </div>
+        </div>
       </Card.Header>
       <Card.Body>
-        <div className='chat-bubble'>
-          <p>Do you have problems with your motorbike?</p>
+        <div className='text-center'>
+          <img src={bot2} alt="" />
+          <h6>Hi, <h6 className='fw-bold'>Rahmat!</h6></h6>
+          <h6>How can i help you to day?</h6>
         </div>
+        {/* <div className='chat-bubble'>
+          <p>Do you have problems with your motorbike?</p>
+        </div> */}
         {messages.map((message, index) => (
           <div key={index} className="chat-bubble1">
             <p>{message}</p>

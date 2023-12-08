@@ -186,7 +186,7 @@ button {
 .floating-chat {
   transition: height 0.3s ease-in-out; /* Menggunakan transition pada height */
   position: fixed;
-  bottom: 0;
+  bottom: 2px;
   right: 0;
   display: flex;
   flex-direction: column; /* Membuat container menjadi flex column */
@@ -199,7 +199,7 @@ button {
 }
 
 .floating-chat.open {
-  height: 50%; /* Atur tinggi kartu ketika terbuka (sesuai ketinggian maksimum) */
+  height: 70%; /* Atur tinggi kartu ketika terbuka (sesuai ketinggian maksimum) */
 }
 
 .floating-chat .card-header {
