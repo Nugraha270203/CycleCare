@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import "../../index.css";
 import axios from "axios";
+import Bg5 from "../../assets/Bg5.png";
+import logo from "../../assets/logo.png";
 
 function Artikel() {
     const [artikelList, setArtikelList] = useState([]);
@@ -30,34 +32,33 @@ function Artikel() {
     };
 
     return (
-        <>
+        <>  
+            <div></div>
             <div className="row">
-                <div className="col-2">
-                    <div className="sidebar1">
-                        <ul className="nav flex-column">
+                <div className="col-2 ">
+                    <div className="sidebar1" style={{backgroundColor : '#808080'}}>
+                        <ul className="nav flex-column text-danger">
                             <div className="text-center">
-                                <h1>Cyclecare</h1>
+                                <img src={logo} alt="Logo" width="100%" height="auto"/>
                             </div>
                             <hr />
                             <li className="nav-item1">
-                                <Link to="/Admin/dashboard" className="nav-link1 is-hover">
+                                <Link to="/Admin/dashboard" className="nav-link1 is-hover text-danger">
                                     Dashboard
                                 </Link>
                             </li>
                             <li className="nav-item1">
-                                <Link to="/Admin/Artikel" className="nav-link1 aktif ">
+                                <Link to="/Admin/Artikel" className="nav-link1 aktif text-danger">
                                     Artikel
                                 </Link>
                             </li>
                         </ul>
                     </div>
                 </div>
+                
                 <div className="col">
                     <div className="container">
                         <div className="container-fluid">
-                            <h1 className="fw-bold">Artikel</h1>
-                            <br />
-                            <br />
                             <a href="/Admin/Tambahartikel">
                                 <button className="btn btn-primary">Tambah Artikel</button>
                             </a>
