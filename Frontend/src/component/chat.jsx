@@ -51,7 +51,7 @@ const FloatingChat = () => {
       <Card.Body>
         <div className='text-center'>
           <img src={bot2} alt="" />
-          <h6>Hi, <h6 className='fw-bold'>Rahmat!</h6></h6>
+          <h6>Hi, </h6><h6 className='fw-bold'>Rahmat!</h6>
           <h6>How can i help you to day?</h6>
         </div>
         {/* <div className='chat-bubble'>
