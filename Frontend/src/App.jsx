@@ -30,6 +30,8 @@ import Tambahvideo from "./pages/Admin/tambahvideo";
 import Motor from "./pages/Admin/Motor";
 import Tipe from "./pages/Admin/Tipe";
 import Seri from "./pages/Admin/Seri";
+import Tambahmotor from "./pages/Admin/tambahmotor";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -65,7 +67,9 @@ const router = createBrowserRouter([
   {path:"/Admin/Tambahvideo", element: <Tambahvideo />},
   {path:"/Admin/Motor", element: <Motor />},
   {path:"/Admin/Tipe", element: <Tipe />},
-  {path:"/Admin/Seri", element: <Seri />}
+  {path:"/Admin/Seri", element: <Seri />},
+  {path:"/Admin/Tambahmotor", element: <Tambahmotor />},
+
 
 
 ]);

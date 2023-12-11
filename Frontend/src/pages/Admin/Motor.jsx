@@ -57,7 +57,6 @@ function Motor() {
                         <li className="nav-item fw-semibold">
                             <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                                 aria-expanded="true" aria-controls="collapsePages">
-                               
                                 <span className="fs-6 active"> Motor</span>
                             </a>
                             <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
@@ -150,7 +149,7 @@ function Motor() {
                                 <div className="container-fluid">
                                     <h3 className="mb-5">Brand Motor</h3>
                                     <hr />
-                                    <a href="">
+                                    <a href="/Admin/Tambahmotor">
                                         <button className="btn btn-primary">Tambah Brand Motor</button>
                                     </a>
                                     <table className="table mt-3">

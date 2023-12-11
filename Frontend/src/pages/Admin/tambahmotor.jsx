@@ -16,7 +16,7 @@ import "../../assets/vendor/jquery-easing/jquery.easing.min.js";
 import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
-function tambahmotor() {
+function Tambahmotor() {
     const [judul_artikel, setjudul_artikel] = useState('');
     const [foto, setfoto] = useState(null);
 
@@ -73,36 +73,36 @@ function tambahmotor() {
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
-                    <li class="nav-item fw-semibold active">
-                        <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                            aria-controls="collapseTwo">
-                            <span className="fs-6">Content</span>
-                        </a>
-                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-warning collapse-inner rounded">
-                                <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
-                                <a class="collapse-item" href="/Admin/Tvid">Video</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li className="nav-item fw-semibold">
-                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                            data-parent="#accordionSidebar" />
-                        <li className="nav-item fw-semibold">
-                            <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
-                                aria-expanded="true" aria-controls="collapsePages">
-                                <span className="fs-6 "> Motor</span>
+                    <li class="nav-item">
+                        <li class="nav-item fw-semibold ">
+                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                                aria-controls="collapseTwo">
+                                <span className="fs-6">Content</span>
                             </a>
-                            <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                            <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
-                                    <a class="collapse-item" href="/Admin/Motor">Brand Motor</a>
-                                    <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
-                                    <a class="collapse-item" href="utilities-color.html">Seri Motor</a>
+                                    <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
+                                    <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
                         </li>
+                        <li className="nav-item fw-semibold">
+                            <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
+                                aria-expanded="true" aria-controls="collapsePages">
+                                <span className="fs-6 active"> Motor</span>
+                            </a>
+                            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                                data-parent="#accordionSidebar">
+                                <div class="bg-warning collapse-inner rounded">
+                                    <a class="collapse-item active text-danger" href="/Admin/Motor">Brand Motor</a>
+                                    <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
+                                    <a class="collapse-item" href="/Admin/Seri">Seri Motor</a>
+                                </div>
+                            </div>
+                        </li>
+
+                       
                     </li>
                 </ul>
                 {/* sidebar */}
@@ -215,4 +215,4 @@ function tambahmotor() {
     );
 }
 
-export default tambahmotor;
+export default Tambahmotor;
