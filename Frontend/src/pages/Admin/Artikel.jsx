@@ -78,7 +78,7 @@ const handleDelete = (id) => {
                                 data-parent="#accordionSidebar">
                                 <div class="bg-white py-1 collapse-inner rounded">
                                     <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
-                                    <a class="collapse-item" href="cards.html">Video</a>
+                                    <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
                         </li>
