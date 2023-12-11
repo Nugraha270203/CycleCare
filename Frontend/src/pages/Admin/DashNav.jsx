@@ -50,7 +50,7 @@ function DashNav() {
                                 aria-controls="collapseTwo">
                                 <span>Content</span>
                             </a>
-                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                            <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-white py-1 collapse-inner rounded">
                                     <a class="collapse-item" href="/Admin/Artikel">Artikel</a>
@@ -58,8 +58,9 @@ function DashNav() {
                                 </div>
                             </div>
                         </li>
+                        
 
-                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                        <a class="nav-link  text-danger" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
                             <img src={art12} alt="" width="10%" height="auto" />
                             <span> Video</span>
@@ -72,7 +73,7 @@ function DashNav() {
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
+                        <a class="nav-link  text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
                             <img src={q2} alt="" width="10%" height="auto" />
                             <span> Community</span>

@@ -63,7 +63,7 @@ function Artikel() {
                     </a>
                     <hr class="sidebar-divider my-0" />
                     <li class="nav-item fw-semibold">
-                        <a class="nav-link text-danger" href="#">
+                        <a class="nav-link text-danger" href="/Admin/DashNav">
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
