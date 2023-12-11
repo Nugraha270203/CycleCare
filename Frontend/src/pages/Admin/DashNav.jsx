@@ -38,17 +38,17 @@ function DashNav() {
                         </div>
                     </a>
                     <hr class="sidebar-divider my-0" />
-                    <li class="nav-item active">
+                    <li class="nav-item active fw-semibold">
                         <a class="nav-link text-danger" href="#">
                             <img src={q1} alt="" width="10%" height="auto" />
-                            <span>  Dashboard</span></a>
+                            <span className="fs-6">  Dashboard</span></a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item fw-semibold">
                         <li class="nav-item">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
-                                <span>Content</span>
+                                <span className="fs-6">Content</span>
                             </a>
                             <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
@@ -60,10 +60,10 @@ function DashNav() {
                         </li>
                         
 
-                        <a class="nav-link  text-danger" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                        <a class="nav-link  text-danger " href="#" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
                             <img src={art12} alt="" width="10%" height="auto" />
-                            <span> Video</span>
+                            <span className="fs-6 fw-semibold"> Video</span>
                         </a>
                         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                             data-parent="#accordionSidebar">
