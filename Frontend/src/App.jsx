@@ -25,6 +25,7 @@ import Dashboard from "./pages/Admin/Dashboard";
 import Artikel from "./pages/Admin/Artikel";
 import Tambahrtikel from "./pages/Admin/tambahartikel";
 import DashNav from "./pages/Admin/DashNav";
+import Tvid from "./pages/Admin/Tvid";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -55,7 +56,8 @@ const router = createBrowserRouter([
   {path:"/Admin/Dashboard", element:<Dashboard />},
   {path:"/Admin/Artikel", element:<Artikel />},
   {path:"/Admin/tambahartikel", element:<Tambahrtikel />},
-  {path:"/Admin/DashNav", element:<DashNav />}
+  {path:"/Admin/DashNav", element:<DashNav />},
+  {path:"/Admin/Tvid", element: <Tvid />}
 
 
 ]);
