@@ -59,11 +59,11 @@ function DashNav() {
 
                     
                         <li class="nav-item">
-                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                                aria-controls="collapseTwo">
+                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true"
+                                aria-controls="collapse">
                                 <span>Motor</span>
                             </a>
-                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                            <div id="collapse" class="collapse" aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-white py-1 collapse-inner rounded">
                                     <a class="collapse-item" href="/Admin/Artikel">Brand Motor</a>
