@@ -19,7 +19,13 @@ const db = mysql.createConnection({
   password: "",
   database: "cyclecare2"
 });
-
+db.connect((err) => {
+  if (err) {
+    console.error("Error connecting to database:", err);
+    return;
+  }
+  console.log("Connected to MySQL database");
+});
 
 // Endpoint untuk mendapatkan artikel
 app.get("/Admin/artikel", (req, res) => {
@@ -33,8 +39,6 @@ app.get("/Admin/artikel", (req, res) => {
   });
 });
 
-
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, 'src', 'assets', 'gambar'));
@@ -44,18 +48,10 @@ const storage = multer.diskStorage({
   }
 });
 const upload = multer({ storage: storage });
-db.connect((err) => {
-  if (err) {
-    console.error("Error connecting to database:", err);
-    return;
-  }
-  console.log("Connected to MySQL database");
-});
-
 // File dari direktori gambar
 app.use('/assets/gambar', express.static(path.join(__dirname, 'src', 'assets', 'gambar')));
-
 // untuk menambah artikel dengan gambar
+
 app.post("/Admin/tambahartikel", upload.single('foto'), (req, res) => {
   const judul_artikel = req.body.judul_artikel;
   const foto = req.file.filename; // Nama file gambar yang diunggah
@@ -71,11 +67,48 @@ app.post("/Admin/tambahartikel", upload.single('foto'), (req, res) => {
     return res.json(data);
   });
 });
+app.get("/Admin/video", (req, res) => {
+  const sql = "SELECT * FROM video";
+  db.query(sql, (err, data) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      return res.json({ error: "Error executing SQL query" });
+    }
+    return res.json(data);
+  });
+});
+app.post("/Admin/tambahvideo", upload.single('thumbnail'), (req, res) => {
+  const judul_video = req.body.judul_video;
+  const link = req.body.link;
+  const thumbnail = req.file.filename;
 
+  const sql = "INSERT INTO video (`judul_video`, `link`, `thumbnail`) VALUES (?, ?, ?)";
+  const values = [judul_video, link, thumbnail];
+
+  db.query(sql, values, (err, data) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      return res.json({ error: "Error executing SQL query" });
+    }
+    return res.json(data);
+  });
+});
 // untuk menghapus artikel
 app.delete("/Admin/artikel/:id", (req, res) => {
   const id = req.params.id;
   const sql = "DELETE FROM artikel WHERE id = ?";
+  db.query(sql, [id], (err, data) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      return res.json({ error: "Error executing SQL query" });
+    }
+    return res.json(data);
+  });
+});
+// untuk menghapus video
+app.delete("/Admin/video/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM video WHERE id = ?";
   db.query(sql, [id], (err, data) => {
     if (err) {
       console.error("Error executing SQL query:", err);
@@ -124,6 +157,29 @@ app.post('/regis', (req, res) => {
     }
   );
 });
+app.get("/Admin/totalvideos", (req, res) => {
+  const sql = "SELECT COUNT(*) AS total_videos FROM video";
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      return res.json({ error: "Error executing SQL query" });
+    }
+    const totalVideos = result[0].total_videos;
+    return res.json({ totalVideos });
+  });
+});
+app.get("/Admin/totalartikel", (req, res) => {
+  const sql = "SELECT COUNT(*) AS total_artikel FROM artikel";
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      return res.json({ error: "Error executing SQL query" });
+    }
+    const totalArtikel = result[0].total_artikel;
+    return res.json({ totalArtikel });
+  });
+});
+
 // Endpoint untuk login
 app.post('/login', (req, res) => {
   const email = req.body.email;
@@ -146,7 +202,6 @@ app.post('/login', (req, res) => {
   );
   
 });
-
 
 // Mmemulai server pada port 8082
 app.listen(8082, () => {
