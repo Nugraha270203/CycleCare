@@ -6,6 +6,7 @@ import logon from "../assets/logon.png";
 import bg5 from "../assets/bg5.png";
 import s1 from "../assets/s1.gif";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function Create() {
@@ -15,16 +16,22 @@ function Create() {
         backgroundPosition: "flex",
         minHeight: "100vh",
     };
+    const navigate = useNavigate();
     const location = useLocation();
-    const dataFromLogin = location.state && location.state.data;
-    const [username, setUsername] = useState('');
+    const dataFromRegistration = location.state && location.state.data;
+    const [username, setUsername] = useState(dataFromRegistration && dataFromRegistration.username ? dataFromRegistration.username : '');
+
+
+
 
     const handleCreateUsername = () => {
-        // ini untuk memeriksa apakah dataFromLogin memiliki data yang diperlukan
-        if (dataFromLogin) {
-            const { email, password, firstname, lastname } = dataFromLogin;
+        // Periksa apakah dataFromRegistration memiliki data yang diperlukan
+        if (dataFromRegistration) {
+            const { email, password, firstname, lastname } = dataFromRegistration;
 
-            // ini kirim data username ke server
+
+
+            // Kirim data username ke server
             axios.post('http://localhost:8082/regis', {
                 email,
                 password,
@@ -33,12 +40,20 @@ function Create() {
                 username,
             }).then((response) => {
                 console.log(response.data);
-                // setelah data berhasil disimpan
+                navigate('/Homelogin');
             }).catch((error) => {
                 console.error('Error during creating username:', error);
+                alert('Gagal membuat username. Silakan coba lagi.');
+                console.log(error.response.data);  // Menampilkan pesan kesalahan dari server
             });
         }
     };
+
+    const handleChangeUsername = (event) => {
+        // Perbarui state username saat ada perubahan pada input
+        setUsername(event.target.value);
+    };
+
 
     return (
         <div className="background" style={backgroundStyle}>

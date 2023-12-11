@@ -110,7 +110,7 @@ app.post('/regis', (req, res) => {
   const password = req.body.password;
   const firstname = req.body.firstname;
   const lastname = req.body.lastname;
-  const username = req.body.username || null;
+  const username = req.body.username;
 
   // Validasi apakah email sudah ada dalam database
   db.query(
@@ -133,6 +133,7 @@ app.post('/regis', (req, res) => {
               if (err) {
                 console.log(err);
                 res.status(500).send('Error during registration');
+                alert('Error during registration')
               } else {
                 res.status(200).send('Registration successful');
               }
@@ -158,15 +159,16 @@ app.post('/login', (req, res) => {
       if (err) {
         res.send({err: err})
       }
-
-      if (result) {
+      if (result.length > 0) {
         res.send(result)
       } else {
         res.send({ massage: "wrong username or pasasword!" })
       }
 
     }
+    
   );
+  
 });
 
 

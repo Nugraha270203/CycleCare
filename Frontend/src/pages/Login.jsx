@@ -17,23 +17,29 @@ function Login() {
   
   const [email, setEmail]=useState("");
   const [password, setPassword]=useState("");
-  const [loginStatus, setloginStatus]=useState(""); 
+  const [loginStatus, setLoginStatus]=useState(""); 
   const navigate = useNavigate();
 
-  const handleLogin = ()=>{
+  const handleLogin = () => {
     axios.post('http://localhost:8082/login', {
-    email : email,
-    password : password,
-    }).then((Response)=>{
-      if(Response.data.message){
-        setloginStatus(Response.data.message)
-      }else{
-        setloginStatus(Response.data.username)
-        navigate('/Homelogin');
+      email: email,
+      password: password,
+    }).then((response) => {
+      if (response.data.message) {
+        setLoginStatus(response.data.message);
+      } else {
+        const userData = response.data;
+        setLoginStatus(userData.username);
+  
+        // Simpan data pengguna di localStorage
+        localStorage.setItem('userData', JSON.stringify(userData));
+        navigate('/homelogin');
       }
-      console.log(Response)
+      console.log(response);
     });
-  }
+  };
+  
+  
   return (
     <div className="background" style={backgroundStyle}>
       <div className="container">
