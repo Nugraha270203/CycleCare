@@ -68,12 +68,12 @@ function Artikel() {
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
-                        <li class="nav-item fw-semibold active">
+                        <li class="nav-item fw-semibold">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
                                 <span className="fs-6">Content</span>
                             </a>
-                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                            <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
                                     <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
