@@ -88,7 +88,7 @@ function Motor() {
                                
                                 <span className="fs-6 "> Motor</span>
                             </a>
-                            <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
                                     <a class="collapse-item active text-danger" href="/Admin/Motor">Brand Motor</a>

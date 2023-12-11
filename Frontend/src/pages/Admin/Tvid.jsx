@@ -74,7 +74,7 @@ function Artikel() {
                                 aria-controls="collapseTwo">
                                 <span className="fs-6">Content</span>
                             </a>
-                            <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
+                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
                                     <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
