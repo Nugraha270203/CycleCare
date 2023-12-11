@@ -16,9 +16,10 @@ import "../../assets/vendor/jquery-easing/jquery.easing.min.js";
 import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
-function tambahartikel() {
-    const [judul_artikel, setjudul_artikel] = useState('');
-    const [foto, setfoto] = useState(null);
+function Tambahvideo() {
+    const [judul_video, setjudul_video] = useState('');
+    const [link, setlink] = useState('');
+    const [thumbnail, setthumbnail] = useState(null);
 
     const [error, setError] = useState(null);
     const [notifMessage, setNotifMessage] = useState(null);
@@ -29,24 +30,25 @@ function tambahartikel() {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append("judul_artikel", judul_artikel);
-        formData.append("foto", foto);
+        formData.append("judul_video", judul_video);
+        formData.append("link", link);
+        formData.append("thumbnail", thumbnail);
 
         try {
-            await axios.post("http://localhost:8082/Admin/tambahartikel", formData);
+            await axios.post("http://localhost:8082/Admin/tambahvideo", formData);
             setNotifMessage("Artikel berhasil ditambahkan!");
             setError(null);
-            navigate('/Admin/Artikel');
+            navigate('/Admin/Tvid');
         } catch (error) {
             if (error.response) {
                 console.error("Server error with response:", error.response.data);
-                setNotifMessage("Gagal menambahkan artikel. Silakan coba lagi.");
+                setNotifMessage("Gagal menambahkan video. Silakan coba lagi.");
             } else if (error.request) {
                 console.error("No response received from the server");
-                setNotifMessage("Gagal menambahkan artikel. Tidak ada respons dari server.");
+                setNotifMessage("Gagal menambahkan video. Tidak ada respons dari server.");
             } else {
                 console.error("Error:", error.message);
-                setNotifMessage("Gagal menambahkan artikel. " + error.message);
+                setNotifMessage("Gagal menambahkan video. " + error.message);
             }
         }
     }
@@ -82,8 +84,8 @@ function tambahartikel() {
                         <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                             data-parent="#accordionSidebar">
                             <div class="bg-warning collapse-inner rounded">
-                                <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
-                                <a class="collapse-item" href="/Admin/Tvid">Video</a>
+                                <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
+                                <a class="collapse-item active text-danger" href="/Admin/Tvid">Video</a>
                             </div>
                         </div>
                     </li>
@@ -189,87 +191,42 @@ function tambahartikel() {
                         <div className="col" >
                             <div className="container" >
                                 <div className="container-fluid">
-                                    <h3 className="mb-5">Tambah artikel</h3>
+                                    <h3 className="mb-5">Tambah Video</h3>
                                     <hr />
 
                                     {notifMessage && <Alert variant="success">{notifMessage}</Alert>}
                                     <Form onSubmit={handleSubmit} className="mt-3">
                                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                            <Form.Label>Judul Artikel</Form.Label>
-                                            <Form.Control type="text" rows={3} placeholder="Tuliskan teks disini" onChange={e => setjudul_artikel(e.target.value)} />
+                                            <Form.Label>Judul video</Form.Label>
+                                            <Form.Control type="text" rows={3} placeholder="Buat judul video" onChange={e => setjudul_video(e.target.value)} />
                                         </Form.Group>
-
+                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                            <Form.Label>link</Form.Label>
+                                            <Form.Control type="text" rows={3} placeholder="Masukan Link Video" onChange={e => setlink(e.target.value)} />
+                                        </Form.Group>
                                         <Form.Group className="mb-3" controlId="formFile">
                                             <Form.Label>Upload Thumbnail</Form.Label>
-                                            <Form.Control type="file" onChange={(e) => setfoto(e.target.files[0])} />
+                                            <Form.Control type="file" onChange={(e) => setthumbnail(e.target.files[0])} />
                                         </Form.Group>
 
                                         <Button variant="primary" type="submit">
-                                            Tambah Artikel
+                                            Tambah video
                                         </Button>
                                     </Form>
 
                                 </div>
                             </div>
                         </div>
-                        {/* content */}
+                        
 
                     </div>
                 </div>
             </div>
 
 
-            {/* <div className="row">
-                <div className="col-2">
-                    <div className="sidebar1">
-                        <ul className="nav flex-column">
-                            <div className="text-center">
-                                <h1>Cyclecare</h1>
-                            </div>
-                            <hr />
-                            <li className="nav-item1">
-                                <Link to="/Admin/dashboard" className="nav-link1 is-hover">
-                                    Dashboard
-                                </Link>
-                            </li>
-                            <li className="nav-item1">
-                                <Link to="/Admin/Artikel" className="nav-link1 aktif ">
-                                    Artikel
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="col">
-                    <div className="container">
-                        <div className="container">
-                            <div className="container-fluid">
-                                <br />
-                                <br />
-                                {notifMessage && <Alert variant="success">{notifMessage}</Alert>}
-                                <Form onSubmit={handleSubmit} >
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                        <Form.Label>Text Input Banyak</Form.Label>
-                                        <Form.Control as="textarea" rows={3} placeholder="Tuliskan teks disini" onChange={e => setj_artikel(e.target.value)} />
-                                    </Form.Group>
-
-                                    <Form.Group className="mb-3" controlId="formFile">
-                                        <Form.Label>Upload Gambar</Form.Label>
-                                        <Form.Control type="file" onChange={(e) => setfoto(e.target.files[0])} />
-                                    </Form.Group>
-
-                                    <Button variant="primary" type="submit">
-                                        Submit
-                                    </Button>
-                                </Form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
+            
         </>
     );
 }
 
-export default tambahartikel;
+export default Tambahvideo;

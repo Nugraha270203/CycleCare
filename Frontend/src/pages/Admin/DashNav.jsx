@@ -14,15 +14,38 @@ import "../../assets/vendor/jquery/jquery.min.js"
 import "../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
 import "../../assets/vendor/jquery-easing/jquery.easing.min.js"
 import "../../assets/js/sb-admin-2.min.js"
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 
 function DashNav() {
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => {
-        setOpen(!open);
-    };
+    const [totalVideos, setTotalVideos] = useState(0);
+    const [totalArtikel, setTotalArtikel] = useState(0);
+
+    useEffect(() => {
+        // Panggil API untuk mendapatkan total video
+        axios.get("http://localhost:8082/Admin/totalvideos")
+            .then((response) => {
+                setTotalVideos(response.data.totalVideos);
+            })
+            .catch((error) => {
+                console.error("Error fetching total videos:", error);
+            });
+    }, []);
+
+    useEffect(() => {
+        // Panggil API untuk mendapatkan total video
+        axios.get("http://localhost:8082/Admin/totalartikel")
+            .then((response) => {
+                setTotalArtikel(response.data.totalArtikel);
+            })
+            .catch((error) => {
+                console.error("Error fetching total videos:", error);
+            });
+    }, []);
+
+
     return (
         <>
 
@@ -43,6 +66,32 @@ function DashNav() {
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
+<<<<<<< HEAD
+
+                    <li class="nav-item fw-semibold ">
+                        <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                            aria-controls="collapseTwo">
+                            <span className="fs-6">Content</span>
+                        </a>
+                        <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-warning collapse-inner rounded">
+                                <a class="collapse-item  " href="/Admin/Artikel">Artikel</a>
+                                <a class="collapse-item" href="/Admin/Tvid">Video</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li className="nav-item fw-semibold">
+                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
+                            aria-expanded="true" aria-controls="collapsePages">
+                            <img src={art12} alt="" width="10%" height="auto" />
+                            <span className="fs-6 "> Video</span>
+                        </a>
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-warning collapse-inner rounded">
+                                <a class="collapse-item" href="utilities-color.html">Colors</a>
+=======
                         <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                             data-parent="#accordionSidebar" />
                        
@@ -72,6 +121,7 @@ function DashNav() {
                                     <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
                                     <a class="collapse-item" href="utilities-color.html">Seri Motor</a>
                                 </div>
+>>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
                             </div>
                         </li>
                        
@@ -158,7 +208,7 @@ function DashNav() {
                                                         <div class="col mr-2">
                                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                                 Total Video</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
+                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{totalVideos}</div>
                                                         </div>
                                                         <div class="col-auto">
                                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -174,7 +224,7 @@ function DashNav() {
                                                         <div class="col mr-2">
                                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                                 Total Artikel</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{totalArtikel}</div>
                                                         </div>
                                                         <div class="col-auto">
                                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>

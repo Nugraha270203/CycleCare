@@ -52,7 +52,7 @@ function Artikel() {
 
             {/* sidebar */}
             <div id="wrapper">
-            <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
+                <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                         <div class="sidebar-brand-icon rotate-n-15">
 
@@ -68,6 +68,31 @@ function Artikel() {
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
+<<<<<<< HEAD
+                    <li class="nav-item fw-semibold active">
+                        <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                            aria-controls="collapseTwo">
+                            <span className="fs-6">Content</span>
+                        </a>
+                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-warning collapse-inner rounded">
+                                <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
+                                <a class="collapse-item" href="/Admin/Tvid">Video</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li className="nav-item fw-semibold">
+                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
+                            aria-expanded="true" aria-controls="collapsePages">
+                            <img src={art12} alt="" width="10%" height="auto" />
+                            <span className="fs-6 "> Video</span>
+                        </a>
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-warning collapse-inner rounded">
+                                <a class="collapse-item" href="utilities-color.html">Colors</a>
+=======
                         <li class="nav-item fw-semibold">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
@@ -94,6 +119,7 @@ function Artikel() {
                                     <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
                                     <a class="collapse-item" href="/Admin/Seri">Seri Motor</a>
                                 </div>
+>>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
                             </div>
                         </li>
                    
@@ -192,7 +218,13 @@ function Artikel() {
                                                 <tr key={artikel.id}>
                                                     <td>{no + 1}</td>
                                                     <td>{artikel.judul_artikel}</td>
-                                                    <td>{artikel.foto}</td>
+                                                    <td>
+                                                        <img
+                                                            src={`http://localhost:8082/assets/gambar/${artikel.foto}`}
+                                                            alt={artikel.judul_artikel}
+                                                            style={{ maxWidth: '100px', maxHeight: '100px' }}
+                                                        />
+                                                    </td>
                                                     <td>
                                                         <button className="btn btn-danger" onClick={() => handleDelete(artikel.id)}>Hapus</button>
                                                     </td>
