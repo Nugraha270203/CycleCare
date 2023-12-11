@@ -43,13 +43,10 @@ function DashNav() {
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span>  Dashboard</span></a>
                     </li>
-
-                    <li class="nav-item">
-                        <li class="nav-item">
-                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                                aria-controls="collapseTwo">
-                                <span>Content</span>
-                            </a>
+                    <li class="nav-item active">
+                        <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" 
+                            aria-controls="collapseTwo">
+                            <span>Content</span>
                             <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-white py-1 collapse-inner rounded">
@@ -57,20 +54,27 @@ function DashNav() {
                                     <a class="collapse-item" href="cards.html">Video</a>
                                 </div>
                             </div>
-                        </li>
-
-                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                            aria-expanded="true" aria-controls="collapseUtilities">
-                            <img src={art12} alt="" width="10%" height="auto" />
-                            <span> Video</span>
                         </a>
-                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            </div>
-                        </div>
                     </li>
+
+                    
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                                aria-controls="collapseTwo">
+                                <span>Motor</span>
+                            </a>
+                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                                data-parent="#accordionSidebar">
+                                <div class="bg-white py-1 collapse-inner rounded">
+                                    <a class="collapse-item" href="/Admin/Artikel">Brand Motor</a>
+                                    <a class="collapse-item" href="/Admin/Tvid">Seri Motor</a>
+                                    <a class="collapse-item" href="#">Jenis Motor</a>
+                                </div>
+                            </div>
+                        </li>
+                    
+
+
                     <li class="nav-item">
                         <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
@@ -80,10 +84,12 @@ function DashNav() {
                         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                                <a class="collapse-item" href="#">Colors</a>
+                                <a class="collapse-item" href="#">Render</a>
                             </div>
                         </div>
                     </li>
+                    
                 </ul>
                 {/* sidebar */}
                 {/* navbar */}
@@ -237,4 +243,4 @@ function DashNav() {
 
     )
 }
-export default DashNav;
+export default DashNav; 

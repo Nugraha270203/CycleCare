@@ -63,11 +63,11 @@ function Artikel() {
                     </a>
                     <hr class="sidebar-divider my-0" />
                     <li class="nav-item fw-semibold">
-                        <a class="nav-link text-danger" href="#">
+                        <a class="nav-link text-danger" href="/Admin/DasNav">
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
-
+                    
                     <li class="nav-item">
                         <li class="nav-item fw-semibold active">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
@@ -81,8 +81,9 @@ function Artikel() {
                                     <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
-                        </li>
-
+                            </li>
+                        </li>    
+                        <div>
                         <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
                             <img src={art12} alt="" width="10%" height="auto" />
@@ -94,7 +95,9 @@ function Artikel() {
                                 <a class="collapse-item" href="utilities-color.html">Colors</a>
                             </div>
                         </div>
-                    </li>
+                        </div>
+                    
+                
                     <li class="nav-item">
                         <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
