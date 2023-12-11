@@ -51,7 +51,7 @@ function DashNav() {
                                 data-parent="#accordionSidebar">
                                 <div class="bg-white py-1 collapse-inner rounded">
                                     <a class="collapse-item" href="/Admin/Artikel">Artikel</a>
-                                    <a class="collapse-item" href="cards.html">Video</a>
+                                    <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
                         </a>
@@ -73,22 +73,6 @@ function DashNav() {
                             </div>
                         </li>
                     
-
-
-                    <li class="nav-item">
-                        <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
-                            aria-expanded="true" aria-controls="collapseUtilities">
-                            <img src={q2} alt="" width="10%" height="auto" />
-                            <span> Community</span>
-                        </a>
-                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="#">Colors</a>
-                                <a class="collapse-item" href="#">Render</a>
-                            </div>
-                        </div>
-                    </li>
                     
                 </ul>
                 {/* sidebar */}
