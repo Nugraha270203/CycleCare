@@ -81,32 +81,22 @@ function Artikel() {
                                 </div>
                             </div>
                         </li>
-                    <li className="nav-item fw-semibold">
-                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
-                            aria-expanded="true" aria-controls="collapsePages">
-                            <img src={art12} alt="" width="10%" height="auto" />
-                            <span className="fs-6 "> Video</span>
-                        </a>
-                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-warning collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <li className="nav-item fw-semibold">
+                            <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
+                                aria-expanded="true" aria-controls="collapsePages">
+                             
+                                <span className="fs-6 "> Motor</span>
+                            </a>
+                            <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                                data-parent="#accordionSidebar">
+                                <div class="bg-warning collapse-inner rounded">
+                                    <a class="collapse-item" href="/Admin/Motor">Brand Motor</a>
+                                    <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
+                                    <a class="collapse-item" href="/Admin/Seri">Seri Motor</a>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="nav-item fw-semibold">
-                        <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
-                            aria-expanded="true" aria-controls="collapseUtilities">
-                            <img src={q2} alt="" width="10%" height="auto" />
-                            <span className="fs-6"> Community</span>
-                        </a>
-                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-warning py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                   
                 </ul>
                 {/* sidebar */}
                 {/* navbar */}

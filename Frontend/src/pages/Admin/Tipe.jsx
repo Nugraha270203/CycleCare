@@ -1,27 +1,51 @@
-import React from "react";
+
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navdas.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import q1 from "../../assets/q1.png";
-import art1 from "../../assets/art1.png";
 import art12 from "../../assets/art12.png";
 import prof from "../../assets/prof.png";
 import con1 from "../../assets/con1.png";
 import con2 from "../../assets/con2.png";
 import q2 from "../../assets/q2.png";
-import "../../assets/vendor/jquery/jquery.min.js"
-import "../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
-import "../../assets/vendor/jquery-easing/jquery.easing.min.js"
-import "../../assets/js/sb-admin-2.min.js"
+import "../../assets/vendor/jquery/jquery.min.js";
+import "../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js";
+import "../../assets/vendor/jquery-easing/jquery.easing.min.js";
+import "../../assets/js/sb-admin-2.min.js";
+import axios from 'axios';
 
-
-
-function DashNav() {
+function Tipe() {
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(!open);
+    };
+
+
+    const [artikelList, setArtikelList] = useState([]);
+    const [notifMessage, setNotifMessage] = useState(null);
+
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:8082/Admin/artikel")
+            .then((res) => setArtikelList(res.data))
+            .catch((err) => console.log(err));
+    }, []);
+
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:8082/Admin/artikel/${id}`)
+            .then((res) => {
+                // Setelah berhasil menghapus, perbarui daftar artikel
+                setArtikelList(artikelList.filter(data => data.id !== id));
+                setNotifMessage("Artikel berhasil dihapus!");
+            })
+            .catch((err) => {
+                console.log(err);
+                setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
+            });
     };
     return (
         <>
@@ -39,14 +63,13 @@ function DashNav() {
                     </a>
                     <hr class="sidebar-divider my-0" />
                     <li class="nav-item fw-semibold">
-                        <a class="nav-link text-danger" href="/Admin/Dashnav">
+                        <a class="nav-link text-danger" href="/Admin/DashNav">
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
-                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                            data-parent="#accordionSidebar" />
-                       
-                        <li class="nav-item fw-semibold active ">
+
+                    <li class="nav-item">
+                    <li class="nav-item fw-semibold ">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
                                 <span className="fs-6">Content</span>
@@ -54,32 +77,33 @@ function DashNav() {
                             <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
-                                    <a class="collapse-item  " href="/Admin/Artikel">Artikel</a>
+                                    <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
                                     <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
                         </li>
-                        <li className="nav-item fw-semibold active">
+                        <li className="nav-item fw-semibold">
                             <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                                 aria-expanded="true" aria-controls="collapsePages">
-                                
                                 <span className="fs-6 "> Motor</span>
                             </a>
                             <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
                                     <a class="collapse-item" href="/Admin/Motor">Brand Motor</a>
-                                    <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
-                                    <a class="collapse-item" href="utilities-color.html">Seri Motor</a>
+                                    <a class="collapse-item active text-danger" href="/Admin/Tipe">Tipe Motor</a>
+                                    <a class="collapse-item" href="/Admin/Seri">Seri Motor</a>
                                 </div>
                             </div>
                         </li>
+
                        
+                    </li>
                 </ul>
                 {/* sidebar */}
                 {/* navbar */}
-                <div id="content-wrapper" class="d-flex flex-column">
-                    <div id="content">
+                <div id="content-wrapper" class="d-flex flex-column bg-body-secondary">
+                    <div id="content ">
                         <nav className="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style={{ backgroundColor: "#800000" }}>
                             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                                 <i class="fa fa-bars"></i>
@@ -112,6 +136,8 @@ function DashNav() {
                                         </div>
                                     </form>
                                 </div>
+
+
                                 <li class="nav-item dropdown no-arrow">
                                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -146,76 +172,34 @@ function DashNav() {
 
 
                         {/* content */}
-                        <div className="col">
-                            <div className="container">
+                        <div className="col" >
+                            <div className="container" >
                                 <div className="container-fluid">
-                                    <h1>DASHBOARD</h1>
-                                    <div className="row">
-                                        <div class="col-xl-3 col-md-6 mb-4">
-                                            <div class="card border-left-primary shadow h-100 py-2">
-                                                <div class="card-body">
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-2">
-                                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                                Total Video</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-6 mb-4">
-                                            <div class="card border-left-primary shadow h-100 py-2">
-                                                <div class="card-body">
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-2">
-                                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                                Total Artikel</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-6 mb-4">
-                                            <div class="card border-left-primary shadow h-100 py-2">
-                                                <div class="card-body">
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-2">
-                                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                                Total Pengguna</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-6 mb-4">
-                                            <div class="card border-left-primary shadow h-100 py-2">
-                                                <div class="card-body">
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-2">
-                                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                                Total Postingan Komunitas</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h3 className="mb-5">Tipe Motor</h3>
+                                    <hr />
+                                    <a href="">
+                                        <button className="btn btn-primary">Tambah Tipe Motor</button>
+                                    </a>
+                                    <table className="table mt-3">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Tipe Motor</th>
+                                                <th scope="col">Thumbnail</th>
+                                                <th scope="col">Handle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
                                 </div>
                             </div>
                         </div>
@@ -224,9 +208,10 @@ function DashNav() {
                     </div>
                 </div>
             </div>
-
         </>
 
     )
 }
-export default DashNav;
+export default Tipe;
+
+

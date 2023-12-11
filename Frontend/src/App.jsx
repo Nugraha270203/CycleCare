@@ -26,6 +26,9 @@ import Artikel from "./pages/Admin/Artikel";
 import Tambahrtikel from "./pages/Admin/tambahartikel";
 import DashNav from "./pages/Admin/DashNav";
 import Tvid from "./pages/Admin/Tvid";
+import Motor from "./pages/Admin/Motor";
+import Tipe from "./pages/Admin/Tipe";
+import Seri from "./pages/Admin/Seri";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -57,7 +60,10 @@ const router = createBrowserRouter([
   {path:"/Admin/Artikel", element:<Artikel />},
   {path:"/Admin/tambahartikel", element:<Tambahrtikel />},
   {path:"/Admin/DashNav", element:<DashNav />},
-  {path:"/Admin/Tvid", element: <Tvid />}
+  {path:"/Admin/Tvid", element: <Tvid />},
+  {path:"/Admin/Motor", element: <Motor />},
+  {path:"/Admin/Tipe", element: <Tipe />},
+  {path:"/Admin/Seri", element: <Seri />}
 
 
 ]);
