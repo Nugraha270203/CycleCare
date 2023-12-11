@@ -186,7 +186,7 @@ function Artikel() {
                                 <div className="container-fluid">
                                     <h3 className="mb-5">ARTIKEL</h3>
                                     <hr />
-                                    <a href="">
+                                    <a href="/Admin/tambahartikel">
                                         <button className="btn btn-primary">Tambah Artikel</button>
                                     </a>
                                     <table className="table mt-3">
@@ -194,18 +194,22 @@ function Artikel() {
                                             <tr>
                                                 <th scope="col">No</th>
                                                 <th scope="col">Judul Artikel</th>
-                                                <th scope="col">Thumnail</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Thumbnail</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            
+                                            {artikelList.map((artikel, no) => (
+                                                <tr key={artikel.id}>
+                                                    <td>{no + 1}</td>
+                                                    <td>{artikel.judul_artikel}</td>
+                                                    <td>{artikel.foto}</td>
+                                                    <td>
+                                                        <button className="btn btn-danger" onClick={() => handleDelete(artikel.id)}>Hapus</button>
+                                                    </td>
+                                                </tr>
+                                            ))}
+
                                         </tbody>
                                     </table>
 

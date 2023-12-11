@@ -12,15 +12,6 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, 'src', 'assets', 'gambar'));
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  }
-});
-const upload = multer({ storage: storage });
 // Koneksi ke database MySQL
 const db = mysql.createConnection({
   host: "localhost",
@@ -28,13 +19,7 @@ const db = mysql.createConnection({
   password: "",
   database: "cyclecare2"
 });
-db.connect((err) => {
-  if (err) {
-    console.error("Error connecting to database:", err);
-    return;
-  }
-  console.log("Connected to MySQL database");
-});
+
 
 // Endpoint untuk mendapatkan artikel
 app.get("/Admin/artikel", (req, res) => {
@@ -48,16 +33,35 @@ app.get("/Admin/artikel", (req, res) => {
   });
 });
 
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, 'src', 'assets', 'gambar'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+const upload = multer({ storage: storage });
+db.connect((err) => {
+  if (err) {
+    console.error("Error connecting to database:", err);
+    return;
+  }
+  console.log("Connected to MySQL database");
+});
+
 // File dari direktori gambar
 app.use('/assets/gambar', express.static(path.join(__dirname, 'src', 'assets', 'gambar')));
 
 // untuk menambah artikel dengan gambar
 app.post("/Admin/tambahartikel", upload.single('foto'), (req, res) => {
-  const j_artikel = req.body.j_artikel;
+  const judul_artikel = req.body.judul_artikel;
   const foto = req.file.filename; // Nama file gambar yang diunggah
 
-  const sql = "INSERT INTO artikel (`j_artikel`, `foto`) VALUES (?, ?)";
-  const values = [j_artikel, foto];
+  const sql = "INSERT INTO artikel (`judul_artikel`, `foto`) VALUES (?, ?)";
+  const values = [judul_artikel, foto];
 
   db.query(sql, values, (err, data) => {
     if (err) {
@@ -67,6 +71,7 @@ app.post("/Admin/tambahartikel", upload.single('foto'), (req, res) => {
     return res.json(data);
   });
 });
+
 // untuk menghapus artikel
 app.delete("/Admin/artikel/:id", (req, res) => {
   const id = req.params.id;
