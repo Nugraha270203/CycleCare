@@ -28,7 +28,7 @@ function DashNav() {
 
             {/* sidebar */}
             <div id="wrapper">
-                <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion" id="accordionSidebar">
+                <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                         <div class="sidebar-brand-icon rotate-n-15">
 
@@ -38,79 +38,56 @@ function DashNav() {
                         </div>
                     </a>
                     <hr class="sidebar-divider my-0" />
-                    <li class="nav-item active fw-semibold">
-                        <a class="nav-link text-danger" href="#">
+                    <li class="nav-item fw-semibold">
+                        <a class="nav-link text-danger" href="/Admin/Dashnav">
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
-<<<<<<< HEAD
 
-                    <li class="nav-item fw-semibold">
-                        <li class="nav-item">
+                    <li class="nav-item">
+                        <li class="nav-item fw-semibold ">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
                                 <span className="fs-6">Content</span>
                             </a>
                             <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
-=======
-                    <li class="nav-item active">
-                        <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" 
-                            aria-controls="collapseTwo">
-                            <span>Content</span>
-                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
->>>>>>> 45d25b9ee1723ffc066efd9805b7e2af55a8022e
                                 data-parent="#accordionSidebar">
-                                <div class="bg-white py-1 collapse-inner rounded">
-                                    <a class="collapse-item" href="/Admin/Artikel">Artikel</a>
-                                    <a class="collapse-item" href="cards.html">Video</a>
+                                <div class="bg-white collapse-inner rounded">
+                                    <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
+                                    <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
-<<<<<<< HEAD
                         </li>
-                        
-
-                        <a class="nav-link  text-danger " href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                            aria-expanded="true" aria-controls="collapseUtilities">
+                    </li>
+                    <li className="nav-item fw-semibold">
+                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
+                            aria-expanded="true" aria-controls="collapsePages">
                             <img src={art12} alt="" width="10%" height="auto" />
-                            <span className="fs-6 fw-semibold"> Video</span>
-=======
->>>>>>> 45d25b9ee1723ffc066efd9805b7e2af55a8022e
+                            <span className="fs-6 "> Video</span>
                         </a>
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                            </div>
+                        </div>
                     </li>
 
-                    
-                        <li class="nav-item">
-                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true"
-                                aria-controls="collapse">
-                                <span>Motor</span>
-                            </a>
-                            <div id="collapse" class="collapse" aria-labelledby="headingTwo"
-                                data-parent="#accordionSidebar">
-                                <div class="bg-white py-1 collapse-inner rounded">
-                                    <a class="collapse-item" href="/Admin/Artikel">Brand Motor</a>
-                                    <a class="collapse-item" href="/Admin/Tvid">Seri Motor</a>
-                                    <a class="collapse-item" href="#">Jenis Motor</a>
-                                </div>
-                            </div>
-                        </li>
-                    
 
 
-                    <li class="nav-item">
-                        <a class="nav-link  text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
+                    <li class="nav-item fw-semibold">
+                        <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
                             <img src={q2} alt="" width="10%" height="auto" />
-                            <span> Community</span>
+                            <span className="fs-6"> Community</span>
                         </a>
                         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="#">Colors</a>
-                                <a class="collapse-item" href="#">Render</a>
+                                <a class="collapse-item" href="utilities-color.html">Colors</a>
                             </div>
                         </div>
                     </li>
-                    
                 </ul>
                 {/* sidebar */}
                 {/* navbar */}
@@ -264,4 +241,4 @@ function DashNav() {
 
     )
 }
-export default DashNav; 
+export default DashNav;
