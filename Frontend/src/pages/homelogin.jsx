@@ -1,4 +1,3 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbarlogin from "../component/Navbarlogin";
 import sd from "../assets/sd.png";
@@ -19,6 +18,7 @@ import cb3 from "../assets/cb3.png"
 import Footer from "../component/Footer";
 import "../index.css"
 import FloatingChat from "../component/chat";
+import { useState } from "react";
 
 
 

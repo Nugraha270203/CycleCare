@@ -1,10 +1,32 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { Dropdown } from 'react-bootstrap';
 import prof from "../assets/prof.png";
+import React, { useEffect ,useState} from "react";
+
+// const handleLogout = () => {
+//     // Hapus informasi akun dari localStorage saat logout
+//     localStorage.removeItem('userData');
+//     // Lakukan langkah-langkah logout lainnya, seperti mengarahkan pengguna ke halaman login
+//     // atau mengganti state loginStatus menjadi null, dll.
+//   };
+
 
 function Navbarlogin() {
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        // Ambil data pengguna dari localStorage saat komponen dimuat
+        const storedUserData = localStorage.getItem('userData');
+
+        if (storedUserData) {
+            // Parse data JSON dari localStorage dan set ke state
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
+    // Tambahan: deklarasikan state setUserData
+
+
     return (
         <nav className="fixed-top navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 bg-body-tertiary rounded">
             <div className="container-fluid">
@@ -51,9 +73,9 @@ function Navbarlogin() {
                     <Dropdown.Menu>
                         <Dropdown.Item href="/Profile" >
                             <div className="container">
-                            <br/>
+                                <br />
                                 <img className="mx-5" src={prof} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
-                                <h4>Rahmat Azhari</h4>
+                                <h4>{userData ? userData.username : "Guest"}</h4>
                                 <hr />
                             </div>
                         </Dropdown.Item>

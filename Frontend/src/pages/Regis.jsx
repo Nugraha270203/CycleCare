@@ -13,25 +13,10 @@ function Login() {
     const [lastNamereg, setLastNamereg] = useState('');
     const [emailreg, setEmailreg] = useState('');
     const [passwordreg, setPasswordreg] = useState('');
+    const [usenamereg, setUsernamereg] = useState('');
     const navigate = useNavigate();
     const [error, setError] = useState("");
 
-    const checkIfEmailUsed = async (email) => {
-        try {
-            // Kirim permintaan ke server untuk memeriksa apakah email sudah digunakan
-            const response = await axios.post('http://localhost:8082/check-email', {
-                email: email,
-            });
-
-            // Jika server memberikan respons bahwa email sudah digunakan, kembalikan true
-            // Jika tidak, kembalikan false
-            return response.data.emailUsed;
-        } catch (error) {
-            console.error('Error checking email:', error);
-            // Jika terjadi kesalahan, kembalikan false atau lakukan penanganan kesalahan sesuai kebutuhan
-            return false;
-        }
-    };
 
     const handleRegister = async () => {
         try {
@@ -41,36 +26,15 @@ function Login() {
                 password: passwordreg,
                 firstname: firstNamereg,
                 lastname: lastNamereg,
+                username: usenamereg  
             });
-
-            console.log(response.data);
-
-            // Periksa apakah email sudah digunakan sebelumnya
-            const isEmailUsed = await checkIfEmailUsed(emailreg);
-
-            if (isEmailUsed) {
-                // Tampilkan peringatan bahwa email sudah digunakan
-                setError("Email is already registered.");
-                // Tampilkan alert dengan pesan kesalahan
-                alert("Email is already registered.");
-            } else {
-                // Jika email belum digunakan, pindahkan pengguna ke halaman "/create"
-                const dataToPass = {
-                    email: emailreg,
-                    password: passwordreg,
-                    firstname: firstNamereg,
-                    lastname: lastNamereg,
-                };
-                navigate('/Create', { state: { data: dataToPass } });
-            }
-        } catch (error) {
-            console.error('Error during registration:', error);
-            // Set error state untuk ditampilkan dalam komponen
-            setError("Error during registration.");
-            // Tampilkan alert dengan pesan kesalahan
-            alert("Email is already registered.");
-        }
+            alert('Akun berhasil dibuat!')
+            navigate('/Login');
+        }  catch (error) {
+            alert('Email sudah digunakan');
+        }        
     };
+    
 
 
 
@@ -88,7 +52,7 @@ function Login() {
                             </div>
                         </div>
                         <div className="col-md-6" style={{ backgroundColor: "white", padding: "20px", borderRadius: "0 15px 15px 0" }}>
-                            <blockquote className=" mt-4 blockquote mb-0">
+                            <blockquote className="  blockquote mb-0">
                                 <br />
                                 <div className="container d-flex flex-column align-items-center">
                                     <h3 className=" text-danger mx-auto">Register</h3>
@@ -103,9 +67,11 @@ function Login() {
                                         <div className="col">
                                             <input type="text" className="form-control mt-4" id="Last" placeholder="Last Name" onChange={(e) => setLastNamereg(e.target.value)} />
                                         </div>
+
                                     </div>
                                 </div>
                                 <div className="form-gorup md-8">
+                                    <input type="text" className="form-control mt-4" id="Username" placeholder="Create Your Username" onChange={(e) => setUsernamereg(e.target.value)} />
                                     <input type="text" className="form-control mt-4" id="email" placeholder="Enter Your Email" onChange={(e) => setEmailreg(e.target.value)} />
                                     <input type="password" className="form-control mt-4" id="Password" placeholder="Enter Your Password" onChange={(e) => setPasswordreg(e.target.value)} />
                                 </div>
