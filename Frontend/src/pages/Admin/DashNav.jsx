@@ -38,7 +38,7 @@ function DashNav() {
                         </div>
                     </a>
                     <hr class="sidebar-divider my-0" />
-                    <li class="nav-item fw-semibold">
+                    <li class="nav-item active">
                         <a class="nav-link text-danger" href="/Admin/Dashnav">
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>

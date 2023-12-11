@@ -58,7 +58,7 @@ function tambahartikel() {
 
             {/* sidebar */}
             <div id="wrapper">
-            <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
+                <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                         <div class="sidebar-brand-icon rotate-n-15">
 
@@ -74,19 +74,19 @@ function tambahartikel() {
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
-                        <li class="nav-item fw-semibold ">
-                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                                aria-controls="collapseTwo">
-                                <span className="fs-6">Content</span>
-                            </a>
-                            <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
-                                data-parent="#accordionSidebar">
-                                <div class="bg-warning collapse-inner rounded">
-                                    <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
-                                    <a class="collapse-item" href="/Admin/Tvid">Video</a>
-                                </div>
+                    <li class="nav-item fw-semibold active">
+                        <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                            aria-controls="collapseTwo">
+                            <span className="fs-6">Content</span>
+                        </a>
+                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-warning collapse-inner rounded">
+                                <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
+                                <a class="collapse-item" href="/Admin/Tvid">Video</a>
                             </div>
-                        </li>
+                        </div>
+                    </li>
                     <li className="nav-item fw-semibold">
                         <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                             aria-expanded="true" aria-controls="collapsePages">
@@ -191,7 +191,7 @@ function tambahartikel() {
                                 <div className="container-fluid">
                                     <h3 className="mb-5">ARTIKEL</h3>
                                     <hr />
-                                    
+
                                     {notifMessage && <Alert variant="success">{notifMessage}</Alert>}
                                     <Form onSubmit={handleSubmit} className="mt-3">
                                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
