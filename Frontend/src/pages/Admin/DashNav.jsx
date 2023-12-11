@@ -10,6 +10,12 @@ import prof from "../../assets/prof.png";
 import con1 from "../../assets/con1.png";
 import con2 from "../../assets/con2.png";
 import q2 from "../../assets/q2.png";
+import "../../assets/vendor/jquery/jquery.min.js"
+import "../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
+import "../../assets/vendor/jquery-easing/jquery.easing.min.js"
+import "../../assets/js/sb-admin-2.min.js"
+
+
 
 function DashNav() {
 
@@ -37,19 +43,22 @@ function DashNav() {
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span>  Dashboard</span></a>
                     </li>
-                    <div className="dropdown">
-                        <img src={con1} alt="" width="10%" height="auto" />
-                        <span className="text-danger" onClick={handleOpen}>Article</span>
-                        {open ? (
-                            <ul className="menu">
-                                <li className="menu-item">
-                                    <button>Create Article</button>
-                                </li>
-                            </ul>
-                        ) : null}
 
-                    </div>
                     <li class="nav-item">
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                                aria-controls="collapseTwo">
+                                <span>Content</span>
+                            </a>
+                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                                data-parent="#accordionSidebar">
+                                <div class="bg-white py-1 collapse-inner rounded">
+                                    <a class="collapse-item" href="/Admin/Artikel">Artikel</a>
+                                    <a class="collapse-item" href="cards.html">Video</a>
+                                </div>
+                            </div>
+                        </li>
+
                         <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
                             <img src={art12} alt="" width="10%" height="auto" />
@@ -219,10 +228,11 @@ function DashNav() {
                                 </div>
                             </div>
                         </div>
+                        {/* content */}
+
                     </div>
                 </div>
             </div>
-            {/* content */}
         </>
 
     )
