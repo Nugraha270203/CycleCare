@@ -52,7 +52,7 @@ function DashNav() {
                             <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
-                                    <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
+                                    <a class="collapse-item  " href="/Admin/Artikel">Artikel</a>
                                     <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
