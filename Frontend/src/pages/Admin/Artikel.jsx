@@ -1,5 +1,5 @@
 
-import React ,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navdas.css";
 import { Link } from "react-router-dom";
@@ -23,36 +23,36 @@ function Artikel() {
         setOpen(!open);
     };
 
-    
-const [artikelList, setArtikelList] = useState([]);
-const [notifMessage, setNotifMessage] = useState(null);
+
+    const [artikelList, setArtikelList] = useState([]);
+    const [notifMessage, setNotifMessage] = useState(null);
 
 
-useEffect(() => {
-    axios
-        .get("http://localhost:8082/Admin/artikel")
-        .then((res) => setArtikelList(res.data))
-        .catch((err) => console.log(err));
-}, []);
+    useEffect(() => {
+        axios
+            .get("http://localhost:8082/Admin/artikel")
+            .then((res) => setArtikelList(res.data))
+            .catch((err) => console.log(err));
+    }, []);
 
-const handleDelete = (id) => {
-    axios.delete(`http://localhost:8082/Admin/artikel/${id}`)
-        .then((res) => {
-            // Setelah berhasil menghapus, perbarui daftar artikel
-            setArtikelList(artikelList.filter(data => data.id !== id));
-            setNotifMessage("Artikel berhasil dihapus!");
-        })
-        .catch((err) => {
-            console.log(err);
-            setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
-        });
-};
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:8082/Admin/artikel/${id}`)
+            .then((res) => {
+                // Setelah berhasil menghapus, perbarui daftar artikel
+                setArtikelList(artikelList.filter(data => data.id !== id));
+                setNotifMessage("Artikel berhasil dihapus!");
+            })
+            .catch((err) => {
+                console.log(err);
+                setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
+            });
+    };
     return (
         <>
 
             {/* sidebar */}
             <div id="wrapper">
-                <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion" id="accordionSidebar">
+                <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                         <div class="sidebar-brand-icon rotate-n-15">
 
@@ -111,8 +111,8 @@ const handleDelete = (id) => {
                 </ul>
                 {/* sidebar */}
                 {/* navbar */}
-                <div id="content-wrapper" class="d-flex flex-column">
-                    <div id="content">
+                <div id="content-wrapper" class="d-flex flex-column bg-body-secondary">
+                    <div id="content ">
                         <nav className="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style={{ backgroundColor: "#800000" }}>
                             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                                 <i class="fa fa-bars"></i>
@@ -181,11 +181,34 @@ const handleDelete = (id) => {
 
 
                         {/* content */}
-                        <div className="col">
-                            <div className="container">
+                        <div className="col" >
+                            <div className="container" >
                                 <div className="container-fluid">
-                                    <h1>DASHBOARD</h1>
-                                    
+                                    <h3 className="mb-5">ARTIKEL</h3>
+                                    <hr />
+                                    <a href="">
+                                        <button className="btn btn-primary">Tambah Artikel</button>
+                                    </a>
+                                    <table className="table mt-3">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Judul Artikel</th>
+                                                <th scope="col">Thumnail</th>
+                                                <th scope="col">Handle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+
                                 </div>
                             </div>
                         </div>
