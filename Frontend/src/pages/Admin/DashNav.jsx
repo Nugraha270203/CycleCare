@@ -44,10 +44,11 @@ function DashNav() {
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
-                    <li class="nav-item">
                         <li class="nav-item fw-semibold ">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
+                            <img src={q2} alt="" width="10%" height="auto" />
+
                                 <span className="fs-6">Content</span>
                             </a>
                             <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
@@ -58,7 +59,6 @@ function DashNav() {
                                 </div>
                             </div>
                         </li>
-                    </li>
                     <li className="nav-item fw-semibold">
                         <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                             aria-expanded="true" aria-controls="collapsePages">
@@ -67,14 +67,11 @@ function DashNav() {
                         </a>
                         <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                             data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
+                            <div class="bg-white collapse-inner rounded">
                                 <a class="collapse-item" href="utilities-color.html">Colors</a>
                             </div>
                         </div>
                     </li>
-
-
-
                     <li class="nav-item fw-semibold">
                         <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
