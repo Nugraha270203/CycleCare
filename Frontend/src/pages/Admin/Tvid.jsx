@@ -18,7 +18,7 @@ import axios from 'axios';
 
 function Artikel() {
 
-   
+
 
 
     const [videoList, setVideoList] = useState([]);
@@ -49,7 +49,7 @@ function Artikel() {
 
             {/* sidebar */}
             <div id="wrapper">
-            <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
+                <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                         <div class="sidebar-brand-icon rotate-n-15">
 
@@ -65,51 +65,22 @@ function Artikel() {
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
-<<<<<<< HEAD
-                        <li class="nav-item fw-semibold active">
-=======
-                    <li class="nav-item">
-                    <li class="nav-item fw-semibold ">
->>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
-                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                                aria-controls="collapseTwo">
-                                <span className="fs-6">Content</span>
-                            </a>
-                            <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
-                                data-parent="#accordionSidebar">
-                                <div class="bg-warning collapse-inner rounded">
-                                    <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
-                                    <a class="collapse-item active text-danger" href="/Admin/Tvid">Video</a>
-                                </div>
-                            </div>
-                        </li>
-<<<<<<< HEAD
-                    <li className="nav-item fw-semibold">
-                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
-                            aria-expanded="true" aria-controls="collapsePages">
-                            <img src={art12} alt="" width="10%" height="auto" />
-                            <span className="fs-6 "> Video</span>
+                    <li class="nav-item fw-semibold active">
+                        <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                            aria-controls="collapseTwo">
+                            <span className="fs-6">Content</span>
                         </a>
-                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                             data-parent="#accordionSidebar">
                             <div class="bg-warning collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                                <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
+                                <a class="collapse-item active text-danger" href="/Admin/Tvid">Video</a>
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item fw-semibold">
-                        <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
-                            aria-expanded="true" aria-controls="collapseUtilities">
-                            <img src={q2} alt="" width="10%" height="auto" />
-                            <span className="fs-6"> Community</span>
-                        </a>
-                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-warning py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            </div>
-                        </div>
-=======
+                    <li className="nav-item fw-semibold">
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                            data-parent="#accordionSidebar" />
                         <li className="nav-item fw-semibold">
                             <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                                 aria-expanded="true" aria-controls="collapsePages">
@@ -120,13 +91,10 @@ function Artikel() {
                                 <div class="bg-warning collapse-inner rounded">
                                     <a class="collapse-item" href="/Admin/Motor">Brand Motor</a>
                                     <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
-                                    <a class="collapse-item" href="/Admin/Seri">Seri Motor</a>
+                                    <a class="collapse-item" href="utilities-color.html">Seri Motor</a>
                                 </div>
                             </div>
                         </li>
-
-                       
->>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
                     </li>
                 </ul>
                 {/* sidebar */}
@@ -213,20 +181,15 @@ function Artikel() {
                                         <thead>
                                             <tr>
                                                 <th scope="col">No</th>
-<<<<<<< HEAD
                                                 <th scope="col">Judul video</th>
                                                 <th scope="col">Link video</th>
                                                 <th scope="col">Thumnail</th>
-=======
-                                                <th scope="col">Judul Video</th>
-                                                <th scope="col">Thumbnail</th>
->>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Action</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-<<<<<<< HEAD
-                                        {videoList.map((video, no) => (
+                                            {videoList.map((video, no) => (
                                                 <tr key={video.id}>
                                                     <td>{no + 1}</td>
                                                     <td>{video.judul_video}</td>
@@ -243,15 +206,6 @@ function Artikel() {
                                                     </td>
                                                 </tr>
                                             ))}
-=======
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-
->>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
                                         </tbody>
                                     </table>
 

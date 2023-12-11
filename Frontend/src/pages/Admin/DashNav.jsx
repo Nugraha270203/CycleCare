@@ -66,7 +66,6 @@ function DashNav() {
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
-<<<<<<< HEAD
 
                     <li class="nav-item fw-semibold ">
                         <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
@@ -82,36 +81,11 @@ function DashNav() {
                         </div>
                     </li>
                     <li className="nav-item fw-semibold">
-                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
-                            aria-expanded="true" aria-controls="collapsePages">
-                            <img src={art12} alt="" width="10%" height="auto" />
-                            <span className="fs-6 "> Video</span>
-                        </a>
-                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-warning collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
-=======
                         <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                             data-parent="#accordionSidebar" />
-                       
-                        <li class="nav-item fw-semibold active ">
-                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                                aria-controls="collapseTwo">
-                                <span className="fs-6">Content</span>
-                            </a>
-                            <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
-                                data-parent="#accordionSidebar">
-                                <div class="bg-warning collapse-inner rounded">
-                                    <a class="collapse-item  " href="/Admin/Artikel">Artikel</a>
-                                    <a class="collapse-item" href="/Admin/Tvid">Video</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="nav-item fw-semibold active">
+                        <li className="nav-item fw-semibold">
                             <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                                 aria-expanded="true" aria-controls="collapsePages">
-                                
                                 <span className="fs-6 "> Motor</span>
                             </a>
                             <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
@@ -121,11 +95,11 @@ function DashNav() {
                                     <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
                                     <a class="collapse-item" href="utilities-color.html">Seri Motor</a>
                                 </div>
->>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
                             </div>
                         </li>
-                       
+                    </li>
                 </ul>
+
                 {/* sidebar */}
                 {/* navbar */}
                 <div id="content-wrapper" class="d-flex flex-column">
@@ -275,8 +249,9 @@ function DashNav() {
                 </div>
             </div>
 
+
         </>
 
-    )
-}
+    );
+};
 export default DashNav;
