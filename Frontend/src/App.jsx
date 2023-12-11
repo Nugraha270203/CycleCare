@@ -26,7 +26,13 @@ import Artikel from "./pages/Admin/Artikel";
 import Tambahrtikel from "./pages/Admin/tambahartikel";
 import DashNav from "./pages/Admin/DashNav";
 import Tvid from "./pages/Admin/Tvid";
+<<<<<<< HEAD
 import Tambahvideo from "./pages/Admin/tambahvideo";
+=======
+import Motor from "./pages/Admin/Motor";
+import Tipe from "./pages/Admin/Tipe";
+import Seri from "./pages/Admin/Seri";
+>>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
 import {
   createBrowserRouter,
   RouterProvider,
@@ -59,8 +65,14 @@ const router = createBrowserRouter([
   {path:"/Admin/tambahartikel", element:<Tambahrtikel />},
   {path:"/Admin/DashNav", element:<DashNav />},
   {path:"/Admin/Tvid", element: <Tvid />},
+<<<<<<< HEAD
   {path:"/Admin/Tambahvideo", element: <Tambahvideo />}
 
+=======
+  {path:"/Admin/Motor", element: <Motor />},
+  {path:"/Admin/Tipe", element: <Tipe />},
+  {path:"/Admin/Seri", element: <Seri />}
+>>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
 
 
 ]);

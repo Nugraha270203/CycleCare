@@ -40,11 +40,11 @@ function Motor() {
             .then((res) => {
                 // Setelah berhasil menghapus, perbarui daftar artikel
                 setArtikelList(artikelList.filter(data => data.id !== id));
-                setNotifMessage("Data Motor berhasil dihapus!");
+                setNotifMessage("Artikel berhasil dihapus!");
             })
             .catch((err) => {
                 console.log(err);
-                setNotifMessage("Gagal menghapus Data Motor. Silakan coba lagi.");
+                setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
             });
     };
     return (
@@ -63,54 +63,42 @@ function Motor() {
                     </a>
                     <hr class="sidebar-divider my-0" />
                     <li class="nav-item fw-semibold">
-                        <a class="nav-link text-danger" href="/Admin/Dashnav">
-                            <img src={q1} alt="" width="10%" height="auto" />
+                        <a class="nav-link text-danger" href="/Admin/DashNav">
+                        <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <li class="nav-item fw-semibold active">
+                        <li class="nav-item fw-semibold ">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
                                 <span className="fs-6">Content</span>
                             </a>
-                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                            <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
-                                <div class="bg-white py-1 collapse-inner rounded">
-                                    <a class="collapse-item active text-danger" href="/Admin/Artikel">Artikel</a>
+                                <div class="bg-warning collapse-inner rounded">
+                                    <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
                                     <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
                         </li>
-                    </li>
-                    <li className="nav-item fw-semibold">
-                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
-                            aria-expanded="true" aria-controls="collapsePages">
-                            <img src={art12} alt="" width="10%" height="auto" />
-                            <span className="fs-6 "> Video</span>
-                        </a>
-                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <li className="nav-item fw-semibold">
+                            <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
+                                aria-expanded="true" aria-controls="collapsePages">
+                               
+                                <span className="fs-6 "> Motor</span>
+                            </a>
+                            <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                                data-parent="#accordionSidebar">
+                                <div class="bg-warning collapse-inner rounded">
+                                    <a class="collapse-item active text-danger" href="/Admin/Motor">Brand Motor</a>
+                                    <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
+                                    <a class="collapse-item" href="/Admin/Seri">Seri Motor</a>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    
+                        </li>
 
-
-                    <li class="nav-item fw-semibold">
-                        <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
-                            aria-expanded="true" aria-controls="collapseUtilities">
-                            <img src={q2} alt="" width="10%" height="auto" />
-                            <span className="fs-6"> Community</span>
-                        </a>
-                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            </div>
-                        </div>
+                       
                     </li>
                 </ul>
                 {/* sidebar */}
@@ -188,31 +176,27 @@ function Motor() {
                         <div className="col" >
                             <div className="container" >
                                 <div className="container-fluid">
-                                    <h3 className="mb-5">ARTIKEL</h3>
+                                    <h3 className="mb-5">Brand Motor</h3>
                                     <hr />
-                                    <a href="/Admin/tambahartikel">
-                                        <button className="btn btn-primary">Tambah Artikel</button>
+                                    <a href="">
+                                        <button className="btn btn-primary">Tambah Brand Motor</button>
                                     </a>
                                     <table className="table mt-3">
                                         <thead>
                                             <tr>
                                                 <th scope="col">No</th>
-                                                <th scope="col">Judul Artikel</th>
+                                                <th scope="col">Nama Brand</th>
                                                 <th scope="col">Thumbnail</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col">Handle</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {artikelList.map((artikel, no) => (
-                                                <tr key={artikel.id}>
-                                                    <td>{no + 1}</td>
-                                                    <td>{artikel.judul_artikel}</td>
-                                                    <td>{artikel.foto}</td>
-                                                    <td>
-                                                        <button className="btn btn-danger" onClick={() => handleDelete(artikel.id)}>Hapus</button>
-                                                    </td>
-                                                </tr>
-                                            ))}
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
 
                                         </tbody>
                                     </table>

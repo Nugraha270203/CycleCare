@@ -16,24 +16,27 @@ import "../../assets/vendor/jquery-easing/jquery.easing.min.js";
 import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
-function Artikel() {
+function Tipe() {
 
-   
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+        setOpen(!open);
+    };
 
 
-    const [videoList, setVideoList] = useState([]);
+    const [artikelList, setArtikelList] = useState([]);
     const [notifMessage, setNotifMessage] = useState(null);
 
 
     useEffect(() => {
         axios
-            .get("http://localhost:8082/Admin/video")
-            .then((res) => setVideoList(res.data))
+            .get("http://localhost:8082/Admin/artikel")
+            .then((res) => setArtikelList(res.data))
             .catch((err) => console.log(err));
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:8082/Admin/video/${id}`)
+        axios.delete(`http://localhost:8082/Admin/artikel/${id}`)
             .then((res) => {
                 // Setelah berhasil menghapus, perbarui daftar artikel
                 setArtikelList(artikelList.filter(data => data.id !== id));
@@ -49,7 +52,7 @@ function Artikel() {
 
             {/* sidebar */}
             <div id="wrapper">
-            <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
+                <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                         <div class="sidebar-brand-icon rotate-n-15">
 
@@ -60,17 +63,13 @@ function Artikel() {
                     </a>
                     <hr class="sidebar-divider my-0" />
                     <li class="nav-item fw-semibold">
-                        <a class="nav-link text-danger" href="/Admin/Dashnav">
+                        <a class="nav-link text-danger" href="/Admin/DashNav">
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
-<<<<<<< HEAD
-                        <li class="nav-item fw-semibold active">
-=======
                     <li class="nav-item">
                     <li class="nav-item fw-semibold ">
->>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
                                 <span className="fs-6">Content</span>
@@ -79,37 +78,10 @@ function Artikel() {
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
                                     <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
-                                    <a class="collapse-item active text-danger" href="/Admin/Tvid">Video</a>
+                                    <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
                         </li>
-<<<<<<< HEAD
-                    <li className="nav-item fw-semibold">
-                        <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
-                            aria-expanded="true" aria-controls="collapsePages">
-                            <img src={art12} alt="" width="10%" height="auto" />
-                            <span className="fs-6 "> Video</span>
-                        </a>
-                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-warning collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item fw-semibold">
-                        <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
-                            aria-expanded="true" aria-controls="collapseUtilities">
-                            <img src={q2} alt="" width="10%" height="auto" />
-                            <span className="fs-6"> Community</span>
-                        </a>
-                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-warning py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            </div>
-                        </div>
-=======
                         <li className="nav-item fw-semibold">
                             <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                                 aria-expanded="true" aria-controls="collapsePages">
@@ -119,14 +91,13 @@ function Artikel() {
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
                                     <a class="collapse-item" href="/Admin/Motor">Brand Motor</a>
-                                    <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
+                                    <a class="collapse-item active text-danger" href="/Admin/Tipe">Tipe Motor</a>
                                     <a class="collapse-item" href="/Admin/Seri">Seri Motor</a>
                                 </div>
                             </div>
                         </li>
 
                        
->>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
                     </li>
                 </ul>
                 {/* sidebar */}
@@ -204,46 +175,21 @@ function Artikel() {
                         <div className="col" >
                             <div className="container" >
                                 <div className="container-fluid">
-                                    <h3 className="mb-5">Video</h3>
+                                    <h3 className="mb-5">Tipe Motor</h3>
                                     <hr />
-                                    <a href="/Admin/Tambahvideo">
-                                        <button className="btn btn-primary">Tambah Video</button>
+                                    <a href="">
+                                        <button className="btn btn-primary">Tambah Tipe Motor</button>
                                     </a>
                                     <table className="table mt-3">
                                         <thead>
                                             <tr>
                                                 <th scope="col">No</th>
-<<<<<<< HEAD
-                                                <th scope="col">Judul video</th>
-                                                <th scope="col">Link video</th>
-                                                <th scope="col">Thumnail</th>
-=======
-                                                <th scope="col">Judul Video</th>
+                                                <th scope="col">Tipe Motor</th>
                                                 <th scope="col">Thumbnail</th>
->>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
                                                 <th scope="col">Handle</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-<<<<<<< HEAD
-                                        {videoList.map((video, no) => (
-                                                <tr key={video.id}>
-                                                    <td>{no + 1}</td>
-                                                    <td>{video.judul_video}</td>
-                                                    <td>{video.link}</td>
-                                                    <td>
-                                                        <img
-                                                            src={`http://localhost:8082/assets/gambar/${video.thumbnail}`}
-                                                            alt={video.judul_artikel}
-                                                            style={{ maxWidth: '100px', maxHeight: '100px' }}
-                                                        />
-                                                    </td>
-                                                    <td>
-                                                        <button className="btn btn-danger" onClick={() => handleDelete(artikel.id)}>Hapus</button>
-                                                    </td>
-                                                </tr>
-                                            ))}
-=======
                                             <tr>
                                                 <th scope="row">1</th>
                                                 <td>Mark</td>
@@ -251,7 +197,6 @@ function Artikel() {
                                                 <td>@mdo</td>
                                             </tr>
 
->>>>>>> 2c66840302bb6f3024fd9f643e0dd436a2ddcfa6
                                         </tbody>
                                     </table>
 
@@ -267,6 +212,6 @@ function Artikel() {
 
     )
 }
-export default Artikel;
+export default Tipe;
 
 
