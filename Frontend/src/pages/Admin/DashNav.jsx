@@ -19,6 +19,8 @@ function DashNav() {
     };
     return (
         <>
+
+            {/* sidebar */}
             <div id="wrapper">
                 <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion" id="accordionSidebar">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
@@ -36,16 +38,16 @@ function DashNav() {
                             <span>  Dashboard</span></a>
                     </li>
                     <div className="dropdown">
-                        <img src={con1} alt="" width="10%" height="auto"/>
+                        <img src={con1} alt="" width="10%" height="auto" />
                         <span className="text-danger" onClick={handleOpen}>Article</span>
                         {open ? (
                             <ul className="menu">
                                 <li className="menu-item">
                                     <button>Create Article</button>
-                                </li>   
+                                </li>
                             </ul>
                         ) : null}
-                        
+
                     </div>
                     <li class="nav-item">
                         <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -74,7 +76,8 @@ function DashNav() {
                         </div>
                     </li>
                 </ul>
-
+                {/* sidebar */}
+                {/* navbar */}
                 <div id="content-wrapper" class="d-flex flex-column">
                     <div id="content">
                         <nav className="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style={{ backgroundColor: "#800000" }}>
@@ -139,6 +142,10 @@ function DashNav() {
                                 </li>
                             </ul>
                         </nav>
+                        {/* navbar */}
+
+
+                        {/* content */}
                         <div className="col">
                             <div className="container">
                                 <div className="container-fluid">
@@ -215,8 +222,9 @@ function DashNav() {
                     </div>
                 </div>
             </div>
-
+            {/* content */}
         </>
+
     )
 }
 export default DashNav;
