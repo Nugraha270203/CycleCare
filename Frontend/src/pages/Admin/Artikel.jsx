@@ -63,11 +63,15 @@ function Artikel() {
                     </a>
                     <hr class="sidebar-divider my-0" />
                     <li class="nav-item fw-semibold">
+<<<<<<< HEAD
                         <a class="nav-link text-danger" href="/Admin/DashNav">
+=======
+                        <a class="nav-link text-danger" href="/Admin/DasNav">
+>>>>>>> 45d25b9ee1723ffc066efd9805b7e2af55a8022e
                             <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
-
+                    
                     <li class="nav-item">
                         <li class="nav-item fw-semibold active">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
@@ -81,8 +85,9 @@ function Artikel() {
                                     <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
-                        </li>
-
+                            </li>
+                        </li>    
+                        <div>
                         <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
                             <img src={art12} alt="" width="10%" height="auto" />
@@ -94,8 +99,15 @@ function Artikel() {
                                 <a class="collapse-item" href="utilities-color.html">Colors</a>
                             </div>
                         </div>
+<<<<<<< HEAD
                     </li>
                     <li class="nav-item fw-semibold">
+=======
+                        </div>
+                    
+                
+                    <li class="nav-item">
+>>>>>>> 45d25b9ee1723ffc066efd9805b7e2af55a8022e
                         <a class="nav-link collapsed text-danger" href="/Admin/tambahartikel" data-toggle="collapse" data-target="#collapseUtilities"
                             aria-expanded="true" aria-controls="collapseUtilities">
                             <img src={q2} alt="" width="10%" height="auto" />
