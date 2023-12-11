@@ -18,35 +18,7 @@ import axios from 'axios';
 
 function Motor() {
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => {
-        setOpen(!open);
-    };
-
-
-    const [artikelList, setArtikelList] = useState([]);
-    const [notifMessage, setNotifMessage] = useState(null);
-
-
-    useEffect(() => {
-        axios
-            .get("http://localhost:8082/Admin/artikel")
-            .then((res) => setArtikelList(res.data))
-            .catch((err) => console.log(err));
-    }, []);
-
-    const handleDelete = (id) => {
-        axios.delete(`http://localhost:8082/Admin/artikel/${id}`)
-            .then((res) => {
-                // Setelah berhasil menghapus, perbarui daftar artikel
-                setArtikelList(artikelList.filter(data => data.id !== id));
-                setNotifMessage("Artikel berhasil dihapus!");
-            })
-            .catch((err) => {
-                console.log(err);
-                setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
-            });
-    };
+    
     return (
         <>
 
@@ -86,7 +58,7 @@ function Motor() {
                             <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                                 aria-expanded="true" aria-controls="collapsePages">
                                
-                                <span className="fs-6 "> Motor</span>
+                                <span className="fs-6 active"> Motor</span>
                             </a>
                             <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                                 data-parent="#accordionSidebar">

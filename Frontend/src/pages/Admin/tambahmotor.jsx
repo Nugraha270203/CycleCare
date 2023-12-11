@@ -1,8 +1,8 @@
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Form, Button, Alert } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navdas.css";
-import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import q1 from "../../assets/q1.png";
 import art12 from "../../assets/art12.png";
@@ -16,31 +16,44 @@ import "../../assets/vendor/jquery-easing/jquery.easing.min.js";
 import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
-function Artikel() {
+function tambahmotor() {
+    const [judul_artikel, setjudul_artikel] = useState('');
+    const [foto, setfoto] = useState(null);
 
-    const [artikelList, setArtikelList] = useState([]);
+    const [error, setError] = useState(null);
     const [notifMessage, setNotifMessage] = useState(null);
-    useEffect(() => {
-        axios
-            .get("http://localhost:8082/Admin/artikel")
-            .then((res) => setArtikelList(res.data))
-            .catch((err) => console.log(err));
-    }, []);
 
-    const handleDelete = (id) => {
-        axios.delete(`http://localhost:8082/Admin/artikel/${id}`)
-            .then((res) => {
-                // Setelah berhasil menghapus, perbarui daftar artikel
-                setArtikelList(artikelList.filter(data => data.id !== id));
-                setNotifMessage("Artikel berhasil dihapus!");
-            })
-            .catch((err) => {
-                console.log(err);
-                setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
-            });
-    };
+    const navigate = useNavigate();
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append("judul_artikel", judul_artikel);
+        formData.append("foto", foto);
+
+        try {
+            await axios.post("http://localhost:8082/Admin/tambahartikel", formData);
+            setNotifMessage("Artikel berhasil ditambahkan!");
+            setError(null);
+            navigate('/Admin/Artikel');
+        } catch (error) {
+            if (error.response) {
+                console.error("Server error with response:", error.response.data);
+                setNotifMessage("Gagal menambahkan artikel. Silakan coba lagi.");
+            } else if (error.request) {
+                console.error("No response received from the server");
+                setNotifMessage("Gagal menambahkan artikel. Tidak ada respons dari server.");
+            } else {
+                console.error("Error:", error.message);
+                setNotifMessage("Gagal menambahkan artikel. " + error.message);
+            }
+        }
+    }
     return (
         <>
+
+
 
             {/* sidebar */}
             <div id="wrapper">
@@ -92,7 +105,6 @@ function Artikel() {
                         </li>
                     </li>
                 </ul>
-
                 {/* sidebar */}
                 {/* navbar */}
                 <div id="content-wrapper" class="d-flex flex-column bg-body-secondary">
@@ -168,40 +180,25 @@ function Artikel() {
                         <div className="col" >
                             <div className="container" >
                                 <div className="container-fluid">
-                                    <h3 className="mb-5">ARTIKEL</h3>
+                                    <h3 className="mb-5">Tambah artikel</h3>
                                     <hr />
-                                    <a href="/Admin/tambahartikel">
-                                        <button className="btn btn-primary">Tambah Artikel</button>
-                                    </a>
-                                    <table className="table mt-3">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">No</th>
-                                                <th scope="col">Judul Artikel</th>
-                                                <th scope="col">Thumbnail</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {artikelList.map((artikel, no) => (
-                                                <tr key={artikel.id}>
-                                                    <td>{no + 1}</td>
-                                                    <td>{artikel.judul_artikel}</td>
-                                                    <td>
-                                                        <img
-                                                            src={`http://localhost:8082/assets/gambar/${artikel.foto}`}
-                                                            alt={artikel.judul_artikel}
-                                                            style={{ maxWidth: '100px', maxHeight: '100px' }}
-                                                        />
-                                                    </td>
-                                                    <td>
-                                                        <button className="btn btn-danger" onClick={() => handleDelete(artikel.id)}>Hapus</button>
-                                                    </td>
-                                                </tr>
-                                            ))}
 
-                                        </tbody>
-                                    </table>
+                                    {notifMessage && <Alert variant="success">{notifMessage}</Alert>}
+                                    <Form onSubmit={handleSubmit} className="mt-3">
+                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                            <Form.Label>Judul Artikel</Form.Label>
+                                            <Form.Control type="text" rows={3} placeholder="Tuliskan teks disini" onChange={e => setjudul_artikel(e.target.value)} />
+                                        </Form.Group>
+
+                                        <Form.Group className="mb-3" controlId="formFile">
+                                            <Form.Label>Upload Thumbnail</Form.Label>
+                                            <Form.Control type="file" onChange={(e) => setfoto(e.target.files[0])} />
+                                        </Form.Group>
+
+                                        <Button variant="primary" type="submit">
+                                            Tambah Artikel
+                                        </Button>
+                                    </Form>
 
                                 </div>
                             </div>
@@ -211,10 +208,11 @@ function Artikel() {
                     </div>
                 </div>
             </div>
+
+
+
         </>
-
-    )
+    );
 }
-export default Artikel;
 
-
+export default tambahmotor;

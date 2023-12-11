@@ -86,7 +86,7 @@ function Tipe() {
                             <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                                 aria-expanded="true" aria-controls="collapsePages">
                                 
-                                <span className="fs-6 "> Motor</span>
+                                <span className="fs-6 active"> Motor</span>
                             </a>
                             <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
                                 data-parent="#accordionSidebar">
