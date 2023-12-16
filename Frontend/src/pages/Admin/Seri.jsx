@@ -18,35 +18,7 @@ import axios from 'axios';
 
 function Tipe() {
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => {
-        setOpen(!open);
-    };
-
-
-    const [artikelList, setArtikelList] = useState([]);
-    const [notifMessage, setNotifMessage] = useState(null);
-
-
-    useEffect(() => {
-        axios
-            .get("http://localhost:8082/Admin/artikel")
-            .then((res) => setArtikelList(res.data))
-            .catch((err) => console.log(err));
-    }, []);
-
-    const handleDelete = (id) => {
-        axios.delete(`http://localhost:8082/Admin/artikel/${id}`)
-            .then((res) => {
-                // Setelah berhasil menghapus, perbarui daftar artikel
-                setArtikelList(artikelList.filter(data => data.id !== id));
-                setNotifMessage("Artikel berhasil dihapus!");
-            })
-            .catch((err) => {
-                console.log(err);
-                setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
-            });
-    };
+    
     return (
         <>
 
@@ -178,7 +150,7 @@ function Tipe() {
                                 <div className="container-fluid">
                                     <h3 className="mb-5">Seri Motor</h3>
                                     <hr />
-                                    <a href="">
+                                    <a href="/Admin/Tambahserimotor">
                                         <button className="btn btn-primary">Tambah Seri Motor</button>
                                     </a>
                                     <table className="table mt-3">

@@ -17,38 +17,25 @@ import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
 function Tambahmotor() {
-    const [nama_brand, setNamabrand] = useState('');
-    const [deskripsi_brand, setDeskripsibrand] = useState('');
-    const [notifMessage, setNotifMessage] = useState(null);
 
-    const navigate = useNavigate();
+    const [brand, setBrand] = useState({ nama: '', deskripsi: '' });
+    const navigate =useNavigate();
+    const handleInputChange = (e) => {
+        setBrand({ ...brand, [e.target.name]: e.target.value });
+    };
 
-    async function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Submit:", nama_brand, deskripsi_brand);
-
-        const formData = new FormData();
-        formData.append("nama", nama_brand);
-        formData.append("deskripsi", deskripsi_brand);
-        
-
         try {
-            await axios.post("http://localhost:8082/Admin/tambahbrand", formData);
-            setNotifMessage("Brand berhasil ditambahkan!");
+            const response = await axios.post('http://localhost:8082/Admin/brandMotor', brand);
+            console.log(response.data); // Response dari server
             navigate('/Admin/Motor');
+            alert('Brand berhasil ditambah!')
         } catch (error) {
-            if (error.response) {
-                console.error("Server error with response:", error.response.data);
-                setNotifMessage("Gagal menambahkan brand. Silakan coba lagi.");
-            } else if (error.request) {
-                console.error("No response received from the server");
-                setNotifMessage("Gagal menambahkan brand. Tidak ada respons dari server.");
-            } else {
-                console.error("Error:", error.message);
-                setNotifMessage("Gagal menambahkan brand. " + error.message);
-            }
+            console.error('Error:', error);
+            // Handle error, tampilkan pesan atau lakukan tindakan lain sesuai kebutuhan
         }
-    }
+    };
 
     return (
         <>
@@ -177,18 +164,30 @@ function Tambahmotor() {
                         <div className="col" >
                             <div className="container" >
                                 <div className="container-fluid">
-                                    <h3 className="mb-5">Tambah artikel</h3>
+                                    <h3 className="mb-5">Tambah Brand Motor</h3>
                                     <hr />
 
-                                    {notifMessage && <Alert variant="success">{notifMessage}</Alert>}
-                                    <Form onSubmit={handleSubmit} className="mt-3">
-                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                    <Form className="mt-3" onSubmit={handleSubmit}>
+                                        <Form.Group className="mb-3" controlId="formBasicBrand">
                                             <Form.Label>Nama Brand</Form.Label>
-                                            <Form.Control type="text" rows={3} placeholder="Masukan nama brand" onChange={e => setNamabrand(e.target.value)} />
+                                            <Form.Control
+                                                type="text"
+                                                name="nama"
+                                                placeholder="Masukkan nama brand"
+                                                onChange={handleInputChange}
+                                                value={brand.nama}
+                                            />
                                         </Form.Group>
-                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                        <Form.Group className="mb-3" controlId="formBasicDeskripsi">
                                             <Form.Label>Deskripsi</Form.Label>
-                                            <Form.Control as="textarea" rows={3} placeholder="Masukan deskripsi brand" onChange={e => setDeskripsibrand(e.target.value)} />
+                                            <Form.Control
+                                                as="textarea"
+                                                name="deskripsi"
+                                                rows={3}
+                                                placeholder="Masukkan deskripsi brand"
+                                                onChange={handleInputChange}
+                                                value={brand.deskripsi}
+                                            />
                                         </Form.Group>
                                         <Button variant="primary" type="submit">
                                             Tambah Motor

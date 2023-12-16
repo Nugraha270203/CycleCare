@@ -58,14 +58,26 @@ app.get("/Admin/video", (req, res) => {
     return res.json(data);
   });
 });
-app.get("/Admin/brand", (req, res) => {
-  const sql = "SELECT * FROM brand_motor";
-  db.query(sql, (err, data) => {
+app.get('/Admin/brandMotor', (req, res) => {
+  const sql = 'SELECT * FROM brand_motor';
+  db.query(sql, (err, results) => {
     if (err) {
-      console.error("Error executing SQL query:", err);
-      return res.json({ error: "Error executing SQL query" });
+      console.error('Error fetching data from database:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json(results);
     }
-    return res.json(data);
+  });
+});
+app.get('/Admin/tipeMotor', (req, res) => {
+  const sql = 'SELECT * FROM tipe_motor';
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error('Error fetching data from database:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json(result);
+    }
   });
 });
 app.get("/Admin/totalvideos", (req, res) => {
@@ -123,20 +135,30 @@ app.post("/Admin/tambahvideo", upload.single('thumbnail'), (req, res) => {
     return res.json(data);
   });
 });
-app.post("/Admin/tambahbrand", (req, res) => {
-  console.log("Request Body:", req.body);
-  const nama_brand = req.body.nama;
-  const deskripsi_brand = req.body.deskripsi;
-  
-  const sql = "INSERT INTO brand_motor (`nama`, `deskripsi`) VALUES (?, ?)";
-  const values = [nama_brand, deskripsi_brand];
-
-  db.query(sql, values, (err, data) => {
+app.post('/Admin/brandMotor', (req, res) => {
+  const { nama, deskripsi } = req.body;
+  const sql = 'INSERT INTO brand_motor (nama, deskripsi) VALUES (?, ?)';
+  db.query(sql, [nama, deskripsi], (err, result) => {
     if (err) {
-      console.error("Error executing SQL query:", err);
-      return res.json({ error: "Error executing SQL query" });
+      console.error('Error inserting into database:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      const newBrand = { id: result.insertId, nama, deskripsi };
+      res.json(newBrand);
     }
-    return res.json(data);
+  });
+});
+app.post('/Admin/tipeMotor', (req, res) => {
+  const { nama, deskripsi } = req.body;
+  const sql = 'INSERT INTO tipe_motor (nama, deskripsi) VALUES (?, ?)';
+  db.query(sql, [nama, deskripsi], (err, result) => {
+    if (err) {
+      console.error('Error inserting into database:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      const newTipe = { id: result.insertId, nama, deskripsi };
+      res.json(newTipe);
+    }
   });
 });
 app.post('/regis', (req, res) => {
@@ -201,7 +223,6 @@ app.post('/login', (req, res) => {
 });
 
 
-// untuk menghapus artikel
 app.delete("/Admin/artikel/:id", (req, res) => {
   const id = req.params.id;
   const sql = "DELETE FROM artikel WHERE id = ?";
@@ -213,7 +234,6 @@ app.delete("/Admin/artikel/:id", (req, res) => {
     return res.json(data);
   });
 });
-// untuk menghapus video
 app.delete("/Admin/video/:id", (req, res) => {
   const id = req.params.id;
   const sql = "DELETE FROM video WHERE id = ?";
@@ -225,15 +245,28 @@ app.delete("/Admin/video/:id", (req, res) => {
     return res.json(data);
   });
 });
-app.delete("/Admin/brand/:id", (req, res) => {
-  const id = req.params.id;
-  const sql = "DELETE FROM brand_motor WHERE id = ?";
-  db.query(sql, [id], (err, data) => {
+app.delete('/Admin/brandMotor/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM brand_motor WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
     if (err) {
-      console.error("Error executing SQL query:", err);
-      return res.json({ error: "Error executing SQL query" });
+      console.error('Error deleting data from database:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json({ success: true });
     }
-    return res.json(data);
+  });
+});
+app.delete('/Admin/tipeMotor/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM tipe_motor WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting data from database:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json({ success: true });
+    }
   });
 });
 

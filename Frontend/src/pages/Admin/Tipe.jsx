@@ -18,35 +18,34 @@ import axios from 'axios';
 
 function Tipe() {
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => {
-        setOpen(!open);
-    };
-
-
-    const [artikelList, setArtikelList] = useState([]);
-    const [notifMessage, setNotifMessage] = useState(null);
-
+    const [tipes, setTipes] = useState([]);
 
     useEffect(() => {
-        axios
-            .get("http://localhost:8082/Admin/artikel")
-            .then((res) => setArtikelList(res.data))
-            .catch((err) => console.log(err));
+        fetchData();
     }, []);
 
-    const handleDelete = (id) => {
-        axios.delete(`http://localhost:8082/Admin/artikel/${id}`)
-            .then((res) => {
-                // Setelah berhasil menghapus, perbarui daftar artikel
-                setArtikelList(artikelList.filter(data => data.id !== id));
-                setNotifMessage("Artikel berhasil dihapus!");
-            })
-            .catch((err) => {
-                console.log(err);
-                setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
-            });
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:8082/Admin/tipeMotor');
+            setTipes(response.data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setTipes([]);
+        }
     };
+
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:8082/Admin/tipeMotor/${id}`);
+            fetchData();
+            alert('Tipe Motor Berhasil Dihapus!')
+        } catch (error) {
+            console.error('Error deleting data:', error);
+            alert('Tipe Motor Gagal Dihapus!')
+
+        }
+    };
+
     return (
         <>
 
@@ -69,7 +68,7 @@ function Tipe() {
                     </li>
 
                     <li class="nav-item">
-                    <li class="nav-item fw-semibold ">
+                        <li class="nav-item fw-semibold ">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
                                 <span className="fs-6">Content</span>
@@ -97,7 +96,7 @@ function Tipe() {
                             </div>
                         </li>
 
-                       
+
                     </li>
                 </ul>
                 {/* sidebar */}
@@ -177,7 +176,7 @@ function Tipe() {
                                 <div className="container-fluid">
                                     <h3 className="mb-5">Tipe Motor</h3>
                                     <hr />
-                                    <a href="">
+                                    <a href="/Admin/Tambahtipe">
                                         <button className="btn btn-primary">Tambah Tipe Motor</button>
                                     </a>
                                     <table className="table mt-3">
@@ -190,13 +189,21 @@ function Tipe() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-
+                                            {tipes.map((tipe, index) => (
+                                                <tr key={index}>
+                                                    <th scope="row">{index + 1}</th>
+                                                    <td>{tipe.nama}</td>
+                                                    <td>{tipe.deskripsi}</td>
+                                                    <td>
+                                                        <button
+                                                            className="btn btn-danger"
+                                                            onClick={() => handleDelete(tipe.id)}
+                                                        >
+                                                            Hapus
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))}
                                         </tbody>
                                     </table>
 

@@ -35,6 +35,8 @@ function Homelogin() {
           />
         </div>
       </div>
+      {/* <FloatingChat /> */}
+
       <div className="container">
         <div className="container-fluid">
           <h2 className="mt-5 fw-bold"> Ready To Know?</h2>
@@ -49,7 +51,6 @@ function Homelogin() {
                       className="card-img-top img-fluid rounded-top-4 "
                       alt="..."
                     />
-
                   </div>
                 </Link>
 
@@ -101,7 +102,6 @@ function Homelogin() {
           </div>
         </div>
       </div>
-
       <div className="container">
         <div className="container-fluid">
           <h2 className="mt-5 fw-bold"> Long Videos</h2>
@@ -158,13 +158,15 @@ function Homelogin() {
         </div>
 
       </div>
+      
       <div className="more-button-container text-center align-item-center justify-content-center mt-5">
         <div className="line left"></div>
         <a href="/Tips">
-        <button className="more-button ">More</button>
+        <button className="more-button "><p className="fw-semibold" style={{color:"black", }}>More</p></button>
         </a>
         <div className="line right"></div>
       </div>
+      
       <div className="container">
         <div className="container-fluid">
           <div className="d-flex justify-content-center mt-3">
@@ -231,11 +233,11 @@ function Homelogin() {
       <div className="more-button-container text-center align-item-center justify-content-center mt-5">
         <div className="line left"></div>
         <a href="/Menuarticle">
-        <button className="more-button ">More</button>
+        <button className="more-button "><p className="fw-semibold" style={{color:"black", }}>More</p></button>
         </a>
         <div className="line right"></div>
       </div>
-      <FloatingChat />
+      
 
       <Footer />
 

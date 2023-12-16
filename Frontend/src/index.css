@@ -177,39 +177,50 @@ button {
   content: "";
   position: absolute;
   top: 50%;
-  right: -20px; /* Mengubah left menjadi right agar ekornya mengarah ke kiri */
-  margin-top: -10px;
-  border-width: 10px;
+  right: -20px; 
   border-style: solid;
-  border-color: transparent transparent transparent #4CAF50; /* Menyesuaikan urutan border-color agar ekornya mengarah ke kiri */
+  border-color: transparent transparent transparent #4CAF50; 
 }
 .floating-chat {
-  transition: height 0.3s ease-in-out; /* Menggunakan transition pada height */
+  transition: height 0.3s ease-in-out;
   position: fixed;
-  bottom: 2px;
-  right: 0;
+  top: -20px; 
+  right: 20px;
   display: flex;
-  flex-direction: column; /* Membuat container menjadi flex column */
-  max-height: 80vh; /* Tentukan ketinggian maksimum kartu */
-  overflow-y: auto; /* Jika kontennya terlalu panjang, izinkan scrolling */
+  flex-direction: column;
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 300px; /* Sesuaikan lebar sesuai kebutuhan */
+  background-color: #fff; /* Atur warna latar belakang */
+  z-index: 1000; /* Sesuaikan jika diperlukan agar tampil di atas elemen lain */
+
+  &.closed {
+    height: 40px;
+  }
+
+  &.open {
+    height: 70%;
+  }
+
+  .card-header {
+    height: 40px;
+  }
+
+  .card-body {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 50%;
+    border-style: solid;
+    border-color: transparent transparent #4CAF50 transparent;
+  }
 }
 
-.floating-chat.closed {
-  height: 40px; /* Atur tinggi kartu ketika tertutup */
-}
-
-.floating-chat.open {
-  height: 70%; /* Atur tinggi kartu ketika terbuka (sesuai ketinggian maksimum) */
-}
-
-.floating-chat .card-header {
-  height: 40px; /* Atur ketinggian header */
-}
-
-.floating-chat .card-body {
-  flex-grow: 1; /* Memastikan .card-body mengisi sisa ruang di dalam .floating-chat */
-  overflow-y: auto; /* Jika kontennya terlalu panjang, izinkan scrolling */
-}
 .sidebar1 {
   width: 225px;
   background-color: #343a40;

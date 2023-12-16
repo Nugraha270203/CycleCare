@@ -17,26 +17,32 @@ import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
 function Motor() {
-    const [artikelList, setArtikelList] = useState([]);
+    const [brands, setBrands] = useState([]);
     useEffect(() => {
-        axios
-            .get("http://localhost:8082/Admin/brand")
-            .then((res) => setArtikelList(res.data))
-            .catch((err) => console.log(err));
+        fetchData();
     }, []);
 
-    const handleDelete = (id) => {
-        axios.delete(`http://localhost:8082/Admin/brand/${id}`)
-            .then((res) => {
-                // Setelah berhasil menghapus, perbarui daftar artikel
-                setArtikelList(artikelList.filter(data => data.id !== id));
-                setNotifMessage("Artikel berhasil dihapus!");
-            })
-            .catch((err) => {
-                console.log(err);
-                setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
-            });
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:8082/Admin/brandMotor');
+            setBrands(response.data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     };
+
+    const handleDelete = async (id) => {
+        try {
+          await axios.delete(`http://localhost:8082/Admin/brandMotor/${id}`);
+          fetchData();
+          alert('Brand motor berhasil dihapus!')
+        } catch (error) {
+          console.error('Error deleting data:', error);
+          alert('Brand motor Gagal dihapus!')
+
+        }
+      };
+    
 
     return (
         <>
@@ -181,17 +187,14 @@ function Motor() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {artikelList.map((artikel, no) => (
-                                                <tr key={artikel.id}>
-                                                    <td>{no + 1}</td>
-                                                    <td>{artikel.nama}</td>
-                                                    <td>{artikel.deskripsi}</td>                                                 
-                                                    <td>
-                                                        <button className="btn btn-danger" onClick={() => handleDelete(artikel.id)}>Hapus</button>
-                                                    </td>
+                                            {brands.map((brand, index) => (
+                                                <tr key={index}>
+                                                    <th scope="row">{index + 1}</th>
+                                                    <td>{brand.nama}</td>
+                                                    <td>{brand.deskripsi}</td>
+                                                    <td><button className="btn btn-danger" onClick={() => handleDelete(brand.id)}>Hapus</button></td>
                                                 </tr>
                                             ))}
-
                                         </tbody>
                                     </table>
 

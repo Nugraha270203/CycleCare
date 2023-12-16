@@ -37,6 +37,7 @@ function tambahartikel() {
             setNotifMessage("Artikel berhasil ditambahkan!");
             setError(null);
             navigate('/Admin/Artikel');
+            alert('Artikel berhasil ditambahkan!')
         } catch (error) {
             if (error.response) {
                 console.error("Server error with response:", error.response.data);

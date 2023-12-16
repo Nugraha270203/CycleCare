@@ -16,49 +16,35 @@ import "../../assets/vendor/jquery-easing/jquery.easing.min.js";
 import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
-function Tambahvideo() {
-    const [judul_video, setjudul_video] = useState('');
-    const [link, setlink] = useState('');
-    const [thumbnail, setthumbnail] = useState(null);
+function Tambahtipe() {
 
-    const [error, setError] = useState(null);
-    const [notifMessage, setNotifMessage] = useState(null);
-
+    const [nama, setNama] = useState('');
+    const [deskripsi, setDeskripsi] = useState('');
     const navigate = useNavigate();
 
-    async function handleSubmit(e) {
-        e.preventDefault();
+    const handleNamaChange = (event) => {
+        setNama(event.target.value);
+    };
 
-        const formData = new FormData();
-        formData.append("judul_video", judul_video);
-        formData.append("link", link);
-        formData.append("thumbnail", thumbnail);
+    const handleDeskripsiChange = (event) => {
+        setDeskripsi(event.target.value);
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
         try {
-            await axios.post("http://localhost:8082/Admin/tambahvideo", formData);
-            setNotifMessage("Artikel berhasil ditambahkan!");
-            setError(null);
-            navigate('/Admin/Tvid');
-            alert('Video berhasil ditambahkan!')
+            await axios.post('http://localhost:8082/Admin/tipeMotor', { nama, deskripsi });
+            alert('Tipe Motor Berhasil Ditambahkan!')
+            navigate ('/Admin/Tipe');
         } catch (error) {
-            if (error.response) {
-                console.error("Server error with response:", error.response.data);
-                setNotifMessage("Gagal menambahkan video. Silakan coba lagi.");
-            } else if (error.request) {
-                console.error("No response received from the server");
-                setNotifMessage("Gagal menambahkan video. Tidak ada respons dari server.");
-            } else {
-                console.error("Error:", error.message);
-                setNotifMessage("Gagal menambahkan video. " + error.message);
-            }
+            console.error('Error adding data:', error);
+            alert('Tipe Motor Gagal Ditambahkan!')
         }
-    }
+    };
 
     return (
         <>
-
-
-
             {/* sidebar */}
             <div id="wrapper">
                 <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
@@ -77,36 +63,36 @@ function Tambahvideo() {
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
-                    <li class="nav-item fw-semibold active">
-                        <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                            aria-controls="collapseTwo">
-                            <span className="fs-6">Content</span>
-                        </a>
-                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
-                            data-parent="#accordionSidebar">
-                            <div class="bg-warning collapse-inner rounded">
-                                <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
-                                <a class="collapse-item active text-danger" href="/Admin/Tvid">Video</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li className="nav-item fw-semibold">
-                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                            data-parent="#accordionSidebar" />
-                        <li className="nav-item fw-semibold">
-                            <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
-                                aria-expanded="true" aria-controls="collapsePages">
-                                <span className="fs-6 "> Motor</span>
+                    <li class="nav-item">
+                        <li class="nav-item fw-semibold ">
+                            <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                                aria-controls="collapseTwo">
+                                <span className="fs-6">Content</span>
                             </a>
-                            <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                            <div id="collapseTwo" class="collapse " aria-labelledby="headingTwo"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-warning collapse-inner rounded">
-                                    <a class="collapse-item" href="/Admin/Motor">Brand Motor</a>
-                                    <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
-                                    <a class="collapse-item" href="utilities-color.html">Seri Motor</a>
+                                    <a class="collapse-item " href="/Admin/Artikel">Artikel</a>
+                                    <a class="collapse-item" href="/Admin/Tvid">Video</a>
                                 </div>
                             </div>
                         </li>
+                        <li className="nav-item fw-semibold">
+                            <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
+                                aria-expanded="true" aria-controls="collapsePages">
+                                <span className="fs-6 active"> Motor</span>
+                            </a>
+                            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                                data-parent="#accordionSidebar">
+                                <div class="bg-warning collapse-inner rounded">
+                                    <a class="collapse-item active text-danger" href="/Admin/Motor">Brand Motor</a>
+                                    <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
+                                    <a class="collapse-item" href="/Admin/Seri">Seri Motor</a>
+                                </div>
+                            </div>
+                        </li>
+
+
                     </li>
                 </ul>
                 {/* sidebar */}
@@ -184,42 +170,53 @@ function Tambahvideo() {
                         <div className="col" >
                             <div className="container" >
                                 <div className="container-fluid">
-                                    <h3 className="mb-5">Tambah Video</h3>
+                                    <h3 className="mb-5">Tambah Tipe Motor</h3>
                                     <hr />
 
-                                    {notifMessage && <Alert variant="success">{notifMessage}</Alert>}
-                                    <Form onSubmit={handleSubmit} className="mt-3">
-                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                            <Form.Label>Judul video</Form.Label>
-                                            <Form.Control type="text" rows={3} placeholder="Buat judul video" onChange={e => setjudul_video(e.target.value)} />
+                                    <Form className="mt-3" onSubmit={handleSubmit}>
+                                        <Form.Group className="mb-3" controlId="formBasicBrand">
+                                            <Form.Label>Tipe Motor</Form.Label>
+                                            <Form.Control
+                                                placeholder="Masukkan nama tipe"
+                                                type="text"
+                                                className="form-control"
+                                                id="nama"
+                                                value={nama}
+                                                onChange={handleNamaChange}
+                                                required
+                                            />
                                         </Form.Group>
-                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                            <Form.Label>link</Form.Label>
-                                            <Form.Control type="text" rows={3} placeholder="Masukan Link Video" onChange={e => setlink(e.target.value)} />
+                                        <Form.Group className="mb-3" controlId="formBasicDeskripsi">
+                                            <Form.Label>Deskripsi</Form.Label>
+                                            <Form.Control
+                                                as="textarea"
+                                                name="deskripsi"
+                                                id="deskripsi"
+                                                rows={3}
+                                                placeholder="Masukkan deskripsi tipe motor"
+                                                value={deskripsi}
+                                                onChange={handleDeskripsiChange}
+                                                required
+                                            />
                                         </Form.Group>
-                                        <Form.Group className="mb-3" controlId="formFile">
-                                            <Form.Label>Upload Thumbnail</Form.Label>
-                                            <Form.Control type="file" onChange={(e) => setthumbnail(e.target.files[0])} />
-                                        </Form.Group>
-
                                         <Button variant="primary" type="submit">
-                                            Tambah video
+                                            Tambah Tipe Motor
                                         </Button>
                                     </Form>
 
                                 </div>
                             </div>
                         </div>
-                        
+                        {/* content */}
 
                     </div>
                 </div>
             </div>
 
 
-            
+
         </>
     );
 }
 
-export default Tambahvideo;
+export default Tambahtipe;
