@@ -17,8 +17,27 @@ import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
 function Motor() {
+    const [artikelList, setArtikelList] = useState([]);
+    useEffect(() => {
+        axios
+            .get("http://localhost:8082/Admin/brand")
+            .then((res) => setArtikelList(res.data))
+            .catch((err) => console.log(err));
+    }, []);
 
-    
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:8082/Admin/brand/${id}`)
+            .then((res) => {
+                // Setelah berhasil menghapus, perbarui daftar artikel
+                setArtikelList(artikelList.filter(data => data.id !== id));
+                setNotifMessage("Artikel berhasil dihapus!");
+            })
+            .catch((err) => {
+                console.log(err);
+                setNotifMessage("Gagal menghapus artikel. Silakan coba lagi.");
+            });
+    };
+
     return (
         <>
 
@@ -36,7 +55,7 @@ function Motor() {
                     <hr class="sidebar-divider my-0" />
                     <li class="nav-item fw-semibold">
                         <a class="nav-link text-danger" href="/Admin/DashNav">
-                        <img src={q1} alt="" width="10%" height="auto" />
+                            <img src={q1} alt="" width="10%" height="auto" />
                             <span className="fs-6">  Dashboard</span></a>
                     </li>
 
@@ -69,7 +88,7 @@ function Motor() {
                             </div>
                         </li>
 
-                       
+
                     </li>
                 </ul>
                 {/* sidebar */}
@@ -157,17 +176,21 @@ function Motor() {
                                             <tr>
                                                 <th scope="col">No</th>
                                                 <th scope="col">Nama Brand</th>
-                                                <th scope="col">Thumbnail</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Deskripsi</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
+                                            {artikelList.map((artikel, no) => (
+                                                <tr key={artikel.id}>
+                                                    <td>{no + 1}</td>
+                                                    <td>{artikel.nama}</td>
+                                                    <td>{artikel.deskripsi}</td>                                                 
+                                                    <td>
+                                                        <button className="btn btn-danger" onClick={() => handleDelete(artikel.id)}>Hapus</button>
+                                                    </td>
+                                                </tr>
+                                            ))}
 
                                         </tbody>
                                     </table>

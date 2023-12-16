@@ -17,44 +17,41 @@ import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
 function Tambahmotor() {
-    const [judul_artikel, setjudul_artikel] = useState('');
-    const [foto, setfoto] = useState(null);
-
-    const [error, setError] = useState(null);
+    const [nama_brand, setNamabrand] = useState('');
+    const [deskripsi_brand, setDeskripsibrand] = useState('');
     const [notifMessage, setNotifMessage] = useState(null);
 
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
+        console.log("Submit:", nama_brand, deskripsi_brand);
 
         const formData = new FormData();
-        formData.append("judul_artikel", judul_artikel);
-        formData.append("foto", foto);
+        formData.append("nama", nama_brand);
+        formData.append("deskripsi", deskripsi_brand);
+        
 
         try {
-            await axios.post("http://localhost:8082/Admin/tambahartikel", formData);
-            setNotifMessage("Artikel berhasil ditambahkan!");
-            setError(null);
-            navigate('/Admin/Artikel');
+            await axios.post("http://localhost:8082/Admin/tambahbrand", formData);
+            setNotifMessage("Brand berhasil ditambahkan!");
+            navigate('/Admin/Motor');
         } catch (error) {
             if (error.response) {
                 console.error("Server error with response:", error.response.data);
-                setNotifMessage("Gagal menambahkan artikel. Silakan coba lagi.");
+                setNotifMessage("Gagal menambahkan brand. Silakan coba lagi.");
             } else if (error.request) {
                 console.error("No response received from the server");
-                setNotifMessage("Gagal menambahkan artikel. Tidak ada respons dari server.");
+                setNotifMessage("Gagal menambahkan brand. Tidak ada respons dari server.");
             } else {
                 console.error("Error:", error.message);
-                setNotifMessage("Gagal menambahkan artikel. " + error.message);
+                setNotifMessage("Gagal menambahkan brand. " + error.message);
             }
         }
     }
+
     return (
         <>
-
-
-
             {/* sidebar */}
             <div id="wrapper">
                 <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar">
@@ -102,7 +99,7 @@ function Tambahmotor() {
                             </div>
                         </li>
 
-                       
+
                     </li>
                 </ul>
                 {/* sidebar */}
@@ -186,17 +183,15 @@ function Tambahmotor() {
                                     {notifMessage && <Alert variant="success">{notifMessage}</Alert>}
                                     <Form onSubmit={handleSubmit} className="mt-3">
                                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                            <Form.Label>Judul Artikel</Form.Label>
-                                            <Form.Control type="text" rows={3} placeholder="Tuliskan teks disini" onChange={e => setjudul_artikel(e.target.value)} />
+                                            <Form.Label>Nama Brand</Form.Label>
+                                            <Form.Control type="text" rows={3} placeholder="Masukan nama brand" onChange={e => setNamabrand(e.target.value)} />
                                         </Form.Group>
-
-                                        <Form.Group className="mb-3" controlId="formFile">
-                                            <Form.Label>Upload Thumbnail</Form.Label>
-                                            <Form.Control type="file" onChange={(e) => setfoto(e.target.files[0])} />
+                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                            <Form.Label>Deskripsi</Form.Label>
+                                            <Form.Control as="textarea" rows={3} placeholder="Masukan deskripsi brand" onChange={e => setDeskripsibrand(e.target.value)} />
                                         </Form.Group>
-
                                         <Button variant="primary" type="submit">
-                                            Tambah Artikel
+                                            Tambah Motor
                                         </Button>
                                     </Form>
 

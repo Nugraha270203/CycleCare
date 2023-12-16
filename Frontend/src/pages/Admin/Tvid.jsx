@@ -18,9 +18,6 @@ import axios from 'axios';
 
 function Artikel() {
 
-
-
-
     const [videoList, setVideoList] = useState([]);
     const [notifMessage, setNotifMessage] = useState(null);
 
@@ -35,8 +32,7 @@ function Artikel() {
     const handleDelete = (id) => {
         axios.delete(`http://localhost:8082/Admin/video/${id}`)
             .then((res) => {
-                // Setelah berhasil menghapus, perbarui daftar artikel
-                setArtikelList(artikelList.filter(data => data.id !== id));
+                setVideoList(videoList.filter(data => data.id !== id));
                 setNotifMessage("Artikel berhasil dihapus!");
             })
             .catch((err) => {
@@ -202,7 +198,7 @@ function Artikel() {
                                                         />
                                                     </td>
                                                     <td>
-                                                        <button className="btn btn-danger" onClick={() => handleDelete(artikel.id)}>Hapus</button>
+                                                        <button className="btn btn-danger" onClick={() => handleDelete(video.id)}>Hapus</button>
                                                     </td>
                                                 </tr>
                                             ))}

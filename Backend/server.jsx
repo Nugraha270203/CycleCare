@@ -4,8 +4,6 @@ const cors = require("cors");
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const path = require('path');
-const bcrypt = require('bcrypt');
-const crypto = require('crypto'); 
 const app = express();
 
 app.use(cors());
@@ -26,6 +24,7 @@ db.connect((err) => {
   }
   console.log("Connected to MySQL database");
 });
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, 'src', 'assets', 'gambar'));
@@ -37,7 +36,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 // File dari direktori gambar
 app.use('/assets/gambar', express.static(path.join(__dirname, 'src', 'assets', 'gambar')));
-// Endpoint untuk mendapatkan artikel
 
 
 app.get("/Admin/artikel", (req, res) => {
@@ -61,7 +59,7 @@ app.get("/Admin/video", (req, res) => {
   });
 });
 app.get("/Admin/brand", (req, res) => {
-  const sql = "SELECT * FROM video";
+  const sql = "SELECT * FROM brand_motor";
   db.query(sql, (err, data) => {
     if (err) {
       console.error("Error executing SQL query:", err);
@@ -125,13 +123,15 @@ app.post("/Admin/tambahvideo", upload.single('thumbnail'), (req, res) => {
     return res.json(data);
   });
 });
+app.post("/Admin/tambahbrand", (req, res) => {
+  console.log("Request Body:", req.body);
+  const nama_brand = req.body.nama;
+  const deskripsi_brand = req.body.deskripsi;
+  
+  const sql = "INSERT INTO brand_motor (`nama`, `deskripsi`) VALUES (?, ?)";
+  const values = [nama_brand, deskripsi_brand];
 
-
-// untuk menghapus artikel
-app.delete("/Admin/artikel/:id", (req, res) => {
-  const id = req.params.id;
-  const sql = "DELETE FROM artikel WHERE id = ?";
-  db.query(sql, [id], (err, data) => {
+  db.query(sql, values, (err, data) => {
     if (err) {
       console.error("Error executing SQL query:", err);
       return res.json({ error: "Error executing SQL query" });
@@ -139,19 +139,6 @@ app.delete("/Admin/artikel/:id", (req, res) => {
     return res.json(data);
   });
 });
-// untuk menghapus video
-app.delete("/Admin/video/:id", (req, res) => {
-  const id = req.params.id;
-  const sql = "DELETE FROM video WHERE id = ?";
-  db.query(sql, [id], (err, data) => {
-    if (err) {
-      console.error("Error executing SQL query:", err);
-      return res.json({ error: "Error executing SQL query" });
-    }
-    return res.json(data);
-  });
-});
-// Endpoint untuk registrasi
 app.post('/regis', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -191,9 +178,6 @@ app.post('/regis', (req, res) => {
     }
   );
 });
-
-
-// Endpoint untuk login
 app.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -202,7 +186,7 @@ app.post('/login', (req, res) => {
     [email, password],
     (err, result) => {
       if (err) {
-        res.send({err: err})
+        res.send({ err: err })
       }
       if (result.length > 0) {
         res.send(result)
@@ -211,10 +195,50 @@ app.post('/login', (req, res) => {
       }
 
     }
-    
+
   );
-  
+
 });
+
+
+// untuk menghapus artikel
+app.delete("/Admin/artikel/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM artikel WHERE id = ?";
+  db.query(sql, [id], (err, data) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      return res.json({ error: "Error executing SQL query" });
+    }
+    return res.json(data);
+  });
+});
+// untuk menghapus video
+app.delete("/Admin/video/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM video WHERE id = ?";
+  db.query(sql, [id], (err, data) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      return res.json({ error: "Error executing SQL query" });
+    }
+    return res.json(data);
+  });
+});
+app.delete("/Admin/brand/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM brand_motor WHERE id = ?";
+  db.query(sql, [id], (err, data) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      return res.json({ error: "Error executing SQL query" });
+    }
+    return res.json(data);
+  });
+});
+
+
+
 
 // Mmemulai server pada port 8082
 app.listen(8082, () => {

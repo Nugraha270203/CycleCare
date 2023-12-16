@@ -64,7 +64,7 @@ function DashNav() {
                     <li class="nav-item fw-semibold">
                         <a class="nav-link text-danger" href="/Admin/Dashnav">
                             <img src={q1} alt="" width="10%" height="auto" />
-                            <span className="fs-6">  Dashboard</span></a>
+                            <span className="fs-6 active">  Dashboard</span></a>
                     </li>
 
                     <li class="nav-item fw-semibold ">
