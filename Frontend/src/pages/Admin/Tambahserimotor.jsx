@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,6 +17,70 @@ import "../../assets/js/sb-admin-2.min.js";
 import axios from 'axios';
 
 function Tambahserimotor() {
+
+    const [nama, setNama] = useState('');
+    const [deskripsi, setDeskripsi] = useState('');
+    const [tipeMotorId, setTipeMotorId] = useState('');
+    const [brandMotorId, setBrandMotorId] = useState('');
+    const [tipeMotorOptions, setTipeMotorOptions] = useState([]);
+    const [brandMotorOptions, setBrandMotorOptions] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Ambil data tipe motor dari server
+        const fetchTipeMotorOptions = async () => {
+            try {
+                const response = await axios.get('http://localhost:8082/Admin/tipeMotor');
+                setTipeMotorOptions(response.data);
+            } catch (error) {
+                console.error('Error fetching tipe motor options:', error);
+            }
+        };
+
+        // Ambil data brand motor dari server
+        const fetchBrandMotorOptions = async () => {
+            try {
+                const response = await axios.get('http://localhost:8082/Admin/brandMotor');
+                setBrandMotorOptions(response.data);
+            } catch (error) {
+                console.error('Error fetching brand motor options:', error);
+            }
+        };
+
+        fetchTipeMotorOptions();
+        fetchBrandMotorOptions();
+    }, []);
+
+    const handleNamaChange = (event) => {
+        setNama(event.target.value);
+    };
+    const handleDeskripsiChange = (event) => {
+        setDeskripsi(event.target.value);
+    };
+    const handleTipeMotorChange = (event) => {
+        setTipeMotorId(event.target.value);
+    };
+    const handleBrandMotorChange = (event) => {
+        setBrandMotorId(event.target.value);
+    };
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            await axios.post('http://localhost:8082/Admin/seriMotor', {
+                nama,
+                deskripsi,
+                tipeMotorId,
+                brandMotorId,
+            });
+            console.log('Data berhasil ditambahkan');
+            alert('Seri Motor Berhasil Ditambahkan!')
+            navigate('/Admin/Seri');
+        } catch (error) {
+            console.error('Error adding data:', error);
+            alert('Seri Motor Gagal Ditambahkan!')
+        }
+    };
 
 
     return (
@@ -146,30 +210,70 @@ function Tambahserimotor() {
                         <div className="col" >
                             <div className="container" >
                                 <div className="container-fluid">
-                                    <h3 className="mb-5">Tambah Tipe Motor</h3>
+                                    <h3 className="mb-5">Tambah Seri Motor</h3>
                                     <hr />
 
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                    </div>
-                                    <select class="form-select mb-3" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    <select class="form-select mb-3" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    <button type="submit" className="btn btn-primary">Tambah seri motor</button>
+                                    <form onSubmit={handleSubmit}>
+                                        <div className="mb-3">
+                                            <label htmlFor="nama">Nama Seri</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="nama"
+                                                value={nama}
+                                                onChange={handleNamaChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="deskripsi">Deskripsi</label>
+                                            <textarea
+                                                className="form-control"
+                                                id="deskripsi"
+                                                rows="3"
+                                                value={deskripsi}
+                                                onChange={handleDeskripsiChange}
+                                                required
+                                            ></textarea>
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="tipeMotor">Tipe Motor</label>
+                                            <select
+                                                className="form-control"
+                                                id="tipeMotor"
+                                                value={tipeMotorId}
+                                                onChange={handleTipeMotorChange}
+                                                required
+                                            >
+                                                <option value="" disabled>-- Pilih Tipe Motor --</option>
+                                                {tipeMotorOptions.map((tipeMotor) => (
+                                                    <option key={tipeMotor.id} value={tipeMotor.id}>
+                                                        {tipeMotor.nama}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="brandMotor">Brand Motor</label>
+                                            <select
+                                                className="form-control"
+                                                id="brandMotor"
+                                                value={brandMotorId}
+                                                onChange={handleBrandMotorChange}
+                                                required
+                                            >
+                                                <option value="" disabled>-- Pilih Brand Motor --</option>
+                                                {brandMotorOptions.map((brandMotor) => (
+                                                    <option key={brandMotor.id} value={brandMotor.id}>
+                                                        {brandMotor.nama}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        <button type="submit" className="btn btn-primary">
+                                            Tambah Seri Motor
+                                        </button>
+                                    </form>
 
                                 </div>
                             </div>

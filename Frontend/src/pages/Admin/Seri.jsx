@@ -18,7 +18,34 @@ import axios from 'axios';
 
 function Tipe() {
 
-    
+    const [seriMotor, setSeriMotor] = useState([]);
+
+    useEffect(() => {
+        // Ambil data dari API saat komponen dimuat
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:8082/Admin/seriMotor');
+            setSeriMotor(response.data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:8082/Admin/seriMotor/${id}`);
+            fetchData();
+            alert('Seri Motor Berhasil Dihapus!')
+        } catch (error) {
+            console.error('Error deleting data:', error);
+            alert('Seri Motor Gagal Dihapus!')
+
+        }
+    };
+
+
     return (
         <>
 
@@ -41,7 +68,7 @@ function Tipe() {
                     </li>
 
                     <li class="nav-item">
-                    <li class="nav-item fw-semibold ">
+                        <li class="nav-item fw-semibold ">
                             <a class="nav-link text-danger" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
                                 <span className="fs-6">Content</span>
@@ -57,7 +84,7 @@ function Tipe() {
                         <li className="nav-item fw-semibold">
                             <a class="nav-link collapsed text-danger" href="#" data-toggle="collapse" data-target="#collapsePages"
                                 aria-expanded="true" aria-controls="collapsePages">
-                                
+
                                 <span className="fs-6 active"> Motor</span>
                             </a>
                             <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
@@ -70,7 +97,7 @@ function Tipe() {
                             </div>
                         </li>
 
-                        
+
                     </li>
                 </ul>
                 {/* sidebar */}
@@ -157,19 +184,31 @@ function Tipe() {
                                         <thead>
                                             <tr>
                                                 <th scope="col">No</th>
-                                                <th scope="col">Seri Motor</th>
-                                                <th scope="col">Thumbnail</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Nama Seri</th>
+                                                <th scope="col">Deskripsi</th>
+                                                <th scope="col">Tipe Motor</th>
+                                                <th scope="col">Brand Motor</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-
+                                            {seriMotor.map((seri, index) => (
+                                                <tr key={seri.id}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{seri.nama}</td>
+                                                    <td>{seri.deskripsi}</td>
+                                                    <td>{seri.tipe_motor}</td>
+                                                    <td>{seri.brand_motor}</td>
+                                                    <td>
+                                                        <button
+                                                            className="btn btn-danger"
+                                                            onClick={() => handleDelete(seri.id)}
+                                                        >
+                                                            Hapus
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))}
                                         </tbody>
                                     </table>
 

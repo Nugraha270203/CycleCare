@@ -93,7 +93,7 @@ function DashNav() {
                                 <div class="bg-warning collapse-inner rounded">
                                     <a class="collapse-item" href="/Admin/Motor">Brand Motor</a>
                                     <a class="collapse-item" href="/Admin/Tipe">Tipe Motor</a>
-                                    <a class="collapse-item" href="utilities-color.html">Seri Motor</a>
+                                    <a class="collapse-item" href="/Admin/Seri">Seri Motor</a>
                                 </div>
                             </div>
                         </li>

@@ -80,6 +80,30 @@ app.get('/Admin/tipeMotor', (req, res) => {
     }
   });
 });
+app.get('/Admin/seriMotor', (req, res) => {
+  const sql = `
+    SELECT
+      seri_motor.id,
+      seri_motor.nama,
+      seri_motor.deskripsi,
+      brand_motor.nama AS brand_motor,
+  tipe_motor.nama AS tipe_motor
+    FROM
+      seri_motor
+    INNER JOIN
+      brand_motor ON seri_motor.brand_motor = brand_motor.id
+    INNER JOIN
+      tipe_motor ON seri_motor.tipe_motor = tipe_motor.id
+  `;
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error('Error fetching seri motor data:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json(result);
+    }
+  });
+});
 app.get("/Admin/totalvideos", (req, res) => {
   const sql = "SELECT COUNT(*) AS total_videos FROM video";
   db.query(sql, (err, result) => {
@@ -158,6 +182,19 @@ app.post('/Admin/tipeMotor', (req, res) => {
     } else {
       const newTipe = { id: result.insertId, nama, deskripsi };
       res.json(newTipe);
+    }
+  });
+});
+app.post('/Admin/seriMotor', (req, res) => {
+  const { nama, deskripsi, tipeMotorId, brandMotorId } = req.body;
+  const sql = 'INSERT INTO seri_motor (nama, deskripsi, tipe_motor, brand_motor) VALUES (?, ?, ?, ?)';
+  db.query(sql, [nama, deskripsi, tipeMotorId, brandMotorId], (err, result) => {
+    if (err) {
+      console.error('Error inserting into database:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      const newSeriMotor = { id: result.insertId, nama, deskripsi, tipeMotorId, brandMotorId };
+      res.json(newSeriMotor);
     }
   });
 });
@@ -260,6 +297,19 @@ app.delete('/Admin/brandMotor/:id', (req, res) => {
 app.delete('/Admin/tipeMotor/:id', (req, res) => {
   const { id } = req.params;
   const sql = 'DELETE FROM tipe_motor WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting data from database:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json({ success: true });
+    }
+  });
+});
+
+app.delete('/Admin/seriMotor/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM seri_motor WHERE id = ?';
   db.query(sql, [id], (err, result) => {
     if (err) {
       console.error('Error deleting data from database:', err);
