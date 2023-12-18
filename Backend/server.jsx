@@ -2,13 +2,35 @@ const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
 const mysql = require("mysql");
+const bcrypt = require('bcrypt');
 const bodyParser = require("body-parser");
+const cookieParser = require ('cookie-parser')
+const session = require('express-session')
+
+
 const path = require('path');
 const app = express();
+const { error } = require("console");
+const saltRound = 10;
 
-app.use(cors());
+app.use(cors({
+  origin:["http://localhost:5173"],
+  methods:["GET","POST"],
+  credentials: true
+}));
+app.use(cookieParser)
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+  key: "userId",
+  secret:"cinukk",
+  resave: false,
+  saveUninitialized: false,
+  cookie:{
+    expires: 60 * 60 * 24,
+  },
+
+}))
 
 // Koneksi ke database MySQL
 const db = mysql.createConnection({
@@ -198,66 +220,63 @@ app.post('/Admin/seriMotor', (req, res) => {
     }
   });
 });
-app.post('/regis', (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  const firstname = req.body.firstname;
-  const lastname = req.body.lastname;
-  const username = req.body.username;
+app.post('/register', (req, res) => {
+  const { firstname, lastname, username, email, password } = req.body;
+  const jenis_user_id = 2;
 
-  // untuk memvalidasi apakah email sudah ada dalam database
-  db.query(
-    "SELECT * FROM user WHERE email = ?",
-    [email],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send('Error during registration');
-      } else {
-        // Jika email sudah ada, kirim respons bahwa registrasi gagal
-        if (result.length > 0) {
-          res.status(400).send('Email is already registered');
-        } else {
-          // Jika email belum terdaftar, lakukan penyisipan ke database
-          db.query(
-            "INSERT INTO user (email, password, first_name, last_name, username) VALUES (?, ?, ?, ?, ?)",
-            [email, password, firstname, lastname, username],
-            (err, result) => {
-              if (err) {
-                console.log(err);
-                res.status(500).send('Error during registration');
-                alert('Error during registration')
-              } else {
-                res.status(200).send('Registration successful');
-              }
-            }
-          );
-        }
-      }
+  if (!firstname || !lastname || !username || !email || !password) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
+  bcrypt.hash(password, saltRound, (err, hash) => {
+    if (err){
+      console.log(err);
     }
-  );
+    const query = 'INSERT INTO user (email, password, username, first_name, last_name, jenis_user) VALUES (?, ?, ?, ?, ?, ?)';
+    db.query(query, [email, hash, username, firstname, lastname, jenis_user_id], (err, result) => {
+      if (err) {
+        console.error('Error during registration:', err);
+        return res.status(500).json({ error: 'Internal Server Error' });
+      }
+
+      res.status(200).json({ message: 'Registration successful' });
+    });
+  })
+
 });
 app.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   db.query(
-    "SELECT * FROM user WHERE email = ? AND password = ? ",
-    [email, password],
+    "SELECT * FROM user WHERE email = ?;",
+    email,
     (err, result) => {
+
       if (err) {
-        res.send({ err: err })
+        console.log(err)
       }
+
       if (result.length > 0) {
-        res.send(result)
+        bcrypt.compare(password, result[0].password, (error, response)=>{
+            if(response){
+              req.session.user = result;
+              console.log(req.session.user)
+              res.send(result)
+            }else { 
+              res.send({ message: "Wrong username or password" });
+            }
+        })
       } else {
-        res.send({ massage: "wrong username or pasasword!" })
+        res.send({ message: "User doesn't exist" });
       }
 
     }
-
   );
 
 });
+
+
+
 
 
 app.delete("/Admin/artikel/:id", (req, res) => {
@@ -306,7 +325,6 @@ app.delete('/Admin/tipeMotor/:id', (req, res) => {
     }
   });
 });
-
 app.delete('/Admin/seriMotor/:id', (req, res) => {
   const { id } = req.params;
   const sql = 'DELETE FROM seri_motor WHERE id = ?';
@@ -321,9 +339,8 @@ app.delete('/Admin/seriMotor/:id', (req, res) => {
 });
 
 
-
-
+const PORT = process.env.PORT || 8082;
 // Mmemulai server pada port 8082
-app.listen(8082, () => {
+app.listen(PORT, () => {
   console.log('Server aktif...');
 });

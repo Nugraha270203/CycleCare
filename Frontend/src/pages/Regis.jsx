@@ -9,32 +9,33 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
 
-    const [firstNamereg, setFirstNamereg] = useState('');
-    const [lastNamereg, setLastNamereg] = useState('');
-    const [emailreg, setEmailreg] = useState('');
-    const [passwordreg, setPasswordreg] = useState('');
-    const [usenamereg, setUsernamereg] = useState('');
-    const navigate = useNavigate();
-    const [error, setError] = useState("");
+    const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
 
-    const handleRegister = async () => {
-        try {
-            // Kirim permintaan registrasi ke server
-            const response = await axios.post('http://localhost:8082/regis', {
-                email: emailreg,
-                password: passwordreg,
-                firstname: firstNamereg,
-                lastname: lastNamereg,
-                username: usenamereg  
-            });
-            alert('Akun berhasil dibuat!')
-            navigate('/Login');
-        }  catch (error) {
-            alert('Email sudah digunakan');
-        }        
-    };
-    
+  const handleRegister = () => {
+    axios.post('http://localhost:8082/register', {
+      firstname,
+      lastname,
+      username,
+      email,
+      password,
+    })
+    .then(response => {
+      console.log(response.data);
+      alert('Register akun berhasil silahkan login!')
+      navigate('/login');
+    })
+    .catch(error => {
+      console.error('Error during registration:', error);
+      alert('Gagal membuat akun!')
+    });
+  };
+
 
 
 
@@ -62,26 +63,23 @@ function Login() {
                                 <div className="form-group md-8">
                                     <div className="row">
                                         <div className="col">
-                                            <input type="text" className="form-control mt-4" id="First" placeholder="First Name" onChange={(e) => setFirstNamereg(e.target.value)} />
+                                            <input type="text" className="form-control mt-4" id="First" placeholder="First Name" onChange={(e) => setFirstname(e.target.value)} />
                                         </div>
                                         <div className="col">
-                                            <input type="text" className="form-control mt-4" id="Last" placeholder="Last Name" onChange={(e) => setLastNamereg(e.target.value)} />
+                                            <input type="text" className="form-control mt-4" id="Last" placeholder="Last Name" onChange={(e) => setLastname(e.target.value)} />
                                         </div>
 
                                     </div>
                                 </div>
                                 <div className="form-gorup md-8">
-                                    <input type="text" className="form-control mt-4" id="Username" placeholder="Create Your Username" onChange={(e) => setUsernamereg(e.target.value)} />
-                                    <input type="text" className="form-control mt-4" id="email" placeholder="Enter Your Email" onChange={(e) => setEmailreg(e.target.value)} />
-                                    <input type="password" className="form-control mt-4" id="Password" placeholder="Enter Your Password" onChange={(e) => setPasswordreg(e.target.value)} />
+                                    <input type="text" className="form-control mt-4" id="Username" placeholder="Create Your Username" onChange={(e) => setUsername(e.target.value)} />
+                                    <input type="text" className="form-control mt-4" id="email" placeholder="Enter Your Email"  onChange={(e) => setEmail(e.target.value)} />
+                                    <input type="password" className="form-control mt-4" id="Password" placeholder="Enter Your Password"  onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <div className="form-group text-left mt-4 ">
-                                    <button type="button" className="btn btn-danger btn-lg btn-sm rounded-pill" style={{ width: "100%" }} onClick={handleRegister}>
+                                    <button type="button" className="btn btn-danger btn-lg btn-sm rounded-pill" style={{ width: "100%" }} onClick={handleRegister} >
                                         Register
                                     </button>
-                                    {/* <button type="button" className="btn btn-danger btn-lg btn-sm rounded-pill" style={{ width: "100%" }} onClick={handleLogin}>
-                    Continue
-                  </button> */}
                                 </div>
                             </blockquote>
                         </div>

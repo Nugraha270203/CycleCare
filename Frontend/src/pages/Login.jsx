@@ -4,7 +4,7 @@ import Footer from "../component/Footer";
 import logon from "../assets/logon.png";
 import bg5 from "../assets/bg5.png";
 import Mobilelogin from "../assets/Mobile login.gif"
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Login() {
@@ -14,32 +14,31 @@ function Login() {
     backgroundPosition: "flex",
     minHeight: "100vh",
   };
-  
-  const [email, setEmail]=useState("");
-  const [password, setPassword]=useState("");
-  const [loginStatus, setLoginStatus]=useState(""); 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginstatus, setLoginStatus] = useState("");
   const navigate = useNavigate();
-
   const handleLogin = () => {
-    axios.post('http://localhost:8082/login', {
+    console.log("Login button clicked");
+    console.log("Email:", email, "Password:", password);
+    axios.post("http://localhost:8082/login", {
       email: email,
       password: password,
-    }).then((response) => {
-      if (response.data.message) {
-        setLoginStatus(response.data.message);
-      } else {
-        const userData = response.data;
-        setLoginStatus(userData.username);
-  
-        // Simpan data pengguna di localStorage
-        localStorage.setItem('userData', JSON.stringify(userData));
-        navigate('/homelogin');
-      }
-      console.log(response);
-    });
+    })
+      .then((response) => {
+        console.log("Response:", response.data);
+        if (response.data.message) {
+          setLoginStatus(response.data.message);
+        } else {
+          alert('Login berhasil');
+          setLoginStatus(response.data[0].username);
+        }
+      })
+      .catch((error) => {
+        console.error("Error during login:", error);
+      });
   };
-  
-  
+
   return (
     <div className="background" style={backgroundStyle}>
       <div className="container">
@@ -58,16 +57,16 @@ function Login() {
                 <br />
                 <div className="container d-flex flex-column align-items-center">
                   <h3 className=" text-danger mx-auto">Login</h3>
-                  <h4>{loginStatus}</h4>
+                  <h6>{loginstatus}</h6>
                 </div>
                 <div className="form-group md-8">
-                  <input type="email" className="form-control mt-4" id="email" placeholder="Enter Your email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                  <input type="password" className="form-control mt-4" id="password" placeholder="Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                  <input type="email" className="form-control mt-4" id="email" placeholder="Enter Your email" onChange={(e) => { setEmail(e.target.value); }} />
+                  <input type="password" className="form-control mt-4" id="password" placeholder="Enter Your Password" onChange={(e) => { setPassword(e.target.value); }} />
                 </div>
                 <div className="form-group text-center mt-3">
-                    <button type="button" className="btn btn-danger btn-lg btn-sm rounded-pill" style={{ width: "100%" }} onClick={handleLogin}>
-                      Login
-                    </button>
+                  <button type="button" className="btn btn-danger btn-lg btn-sm rounded-pill" style={{ width: "100%" }} onClick={handleLogin} >
+                    Login
+                  </button>
                 </div>
                 <div className="container mt-4 d-flex flex-column align-items-center">
                   <a href="/Lupa" className="text-black" style={{ fontSize: "13px" }}>Forgot password?</a>
