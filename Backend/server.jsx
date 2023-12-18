@@ -5,7 +5,7 @@ const mysql = require("mysql");
 const bcrypt = require('bcrypt');
 const bodyParser = require("body-parser");
 const cookieParser = require ('cookie-parser')
-const session = require('express-session')
+const session = require('express-session');
 
 
 const path = require('path');
@@ -14,23 +14,24 @@ const { error } = require("console");
 const saltRound = 10;
 
 app.use(cors({
-  origin:["http://localhost:5173"],
-  methods:["GET","POST"],
-  credentials: true
+  origin: 'http://localhost:5173',
+  methods:["GET", "POST"],
+  credentials: true,
 }));
-app.use(cookieParser)
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cookieParser());
 app.use(session({
-  key: "userId",
-  secret:"cinukk",
+  key:"userId",
+  secret: 'cinukk',
   resave: false,
   saveUninitialized: false,
   cookie:{
-    expires: 60 * 60 * 24,
-  },
+    expires: 60 * 60 * 24,  
+  }
+}));
 
-}))
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Koneksi ke database MySQL
 const db = mysql.createConnection({
@@ -244,6 +245,7 @@ app.post('/register', (req, res) => {
   })
 
 });
+
 app.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -251,29 +253,27 @@ app.post('/login', (req, res) => {
     "SELECT * FROM user WHERE email = ?;",
     email,
     (err, result) => {
-
       if (err) {
-        console.log(err)
+        console.log(err);
       }
 
       if (result.length > 0) {
-        bcrypt.compare(password, result[0].password, (error, response)=>{
-            if(response){
-              req.session.user = result;
-              console.log(req.session.user)
-              res.send(result)
-            }else { 
-              res.send({ message: "Wrong username or password" });
-            }
-        })
+        bcrypt.compare(password, result[0].password, (error, response) => {
+          if (response) {
+            req.session.user = result;
+            console.log(req.session.user)
+            res.send(result);
+          } else {
+            res.send({ message: "Wrong username or password" });
+          }
+        });
       } else {
         res.send({ message: "User doesn't exist" });
       }
-
     }
   );
-
 });
+
 
 
 

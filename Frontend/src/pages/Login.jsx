@@ -19,14 +19,11 @@ function Login() {
   const [loginstatus, setLoginStatus] = useState("");
   const navigate = useNavigate();
   const handleLogin = () => {
-    console.log("Login button clicked");
-    console.log("Email:", email, "Password:", password);
     axios.post("http://localhost:8082/login", {
       email: email,
       password: password,
     })
       .then((response) => {
-        console.log("Response:", response.data);
         if (response.data.message) {
           setLoginStatus(response.data.message);
         } else {
