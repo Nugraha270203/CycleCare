@@ -245,74 +245,74 @@ function DashNav() {
                         </div>
                         {/* content */}
                         {/* Content Row */}
-                <div className="row">
-                  {/* Content Column */}
-                  <div className="col-lg-6 mb-4 mx-5">
-                    {/* Project Card Example */}
-                    <div className="card shadow mb-4">
-                      <div className="card-header py-3">
-                        <h6 className="m-0 font-weight-bold text-primary">
-                          Graphic
-                        </h6>
-                      </div>
-                      <div className="card-body">
-                        <h4 className="small font-weight-bold">
-                          Total Video <span className="float-right">15%</span>
-                        </h4>
-                        <div className="progress mb-4">
-                          <div
-                            className="progress-bar bg-danger"
-                            role="progressbar"
-                            style={{ width: "15%" }}
-                            aria-valuenow={15}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          />
+                        <div className="row">
+                            {/* Content Column */}
+                            <div className="col-lg-6 mb-4 mx-5">
+                                {/* Project Card Example */}
+                                <div className="card shadow mb-4">
+                                    <div className="card-header py-3">
+                                        <h6 className="m-0 font-weight-bold text-primary">
+                                            Graphic
+                                        </h6>
+                                    </div>
+                                    <div className="card-body">
+                                        <h4 className="small font-weight-bold">
+                                            Total Video <span className="float-right">15%</span>
+                                        </h4>
+                                        <div className="progress mb-4">
+                                            <div
+                                                className="progress-bar bg-danger"
+                                                role="progressbar"
+                                                style={{ width: "15%" }}
+                                                aria-valuenow={15}
+                                                aria-valuemin={0}
+                                                aria-valuemax={100}
+                                            />
+                                        </div>
+                                        <h4 className="small font-weight-bold">
+                                            Total Artikel <span className="float-right">35%</span>
+                                        </h4>
+                                        <div className="progress mb-4">
+                                            <div
+                                                className="progress-bar bg-warning"
+                                                role="progressbar"
+                                                style={{ width: "35%" }}
+                                                aria-valuenow={35}
+                                                aria-valuemin={0}
+                                                aria-valuemax={100}
+                                            />
+                                        </div>
+                                        <h4 className="small font-weight-bold">
+                                            Total Pengguna (User){" "}
+                                            <span className="float-right">15%</span>
+                                        </h4>
+                                        <div className="progress mb-4">
+                                            <div
+                                                className="progress-bar"
+                                                role="progressbar"
+                                                style={{ width: "15%" }}
+                                                aria-valuenow={15}
+                                                aria-valuemin={0}
+                                                aria-valuemax={100}
+                                            />
+                                        </div>
+                                        <h4 className="small font-weight-bold">
+                                            Motor <span className="float-right">15%</span>
+                                        </h4>
+                                        <div className="progress mb-4">
+                                            <div
+                                                className="progress-bar bg-info"
+                                                role="progressbar"
+                                                style={{ width: "15%" }}
+                                                aria-valuenow={150}
+                                                aria-valuemin={0}
+                                                aria-valuemax={100}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h4 className="small font-weight-bold">
-                          Total Artikel <span className="float-right">35%</span>
-                        </h4>
-                        <div className="progress mb-4">
-                          <div
-                            className="progress-bar bg-warning"
-                            role="progressbar"
-                            style={{ width: "35%" }}
-                            aria-valuenow={35}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          />
-                        </div>
-                        <h4 className="small font-weight-bold">
-                          Total Pengguna (User){" "}
-                          <span className="float-right">15%</span>
-                        </h4>
-                        <div className="progress mb-4">
-                          <div
-                            className="progress-bar"
-                            role="progressbar"
-                            style={{ width: "15%" }}
-                            aria-valuenow={15}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          />
-                        </div>
-                        <h4 className="small font-weight-bold">
-                          Motor <span className="float-right">15%</span>
-                        </h4>
-                        <div className="progress mb-4">
-                          <div
-                            className="progress-bar bg-info"
-                            role="progressbar"
-                            style={{ width: "15%" }}
-                            aria-valuenow={150}
-                            aria-valuemin={0}
-                            aria-valuemax={100}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                     </div>
                 </div>
