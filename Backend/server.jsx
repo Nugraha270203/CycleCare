@@ -268,10 +268,10 @@ app.post('/login', (req, res) => {
           if (response) {
             req.session.user = result;
             const id = result[0].id
-            const jwt = jwt.sign({id},"jwtSecret",{
-              expiresIn:300,
-            })
-            res.json({auth:true, token: token, result: result})
+            // const jwt = jwt.sign({id},"jwtSecret",{
+            //   expiresIn:300,
+            // })
+            // res.json({auth:true, token: token, result: result})
             res.send(result);
           } else {
             res.send({ message: "Email atau password yang anda masukan salah!" });
