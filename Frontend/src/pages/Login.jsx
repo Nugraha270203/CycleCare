@@ -29,7 +29,7 @@ function Login() {
         } else {
           alert('Login berhasil');
           navigate("/homelogin")
-          setLoginStatus(response.data[0].username);
+          setUserData(response.data[0]);
         }
       })
       .catch((error) => {
