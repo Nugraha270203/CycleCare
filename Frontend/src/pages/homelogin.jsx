@@ -16,6 +16,7 @@ import cb1 from "../assets/cb1.png"
 import cb2 from "../assets/cb2.png"
 import cb3 from "../assets/cb3.png"
 import Footer from "../component/Footer";
+import Chat from "./Chat";
 import "../index.css"
 import FloatingChat from "../component/chat";
 import { useState } from "react";
@@ -237,8 +238,9 @@ function Homelogin() {
         </a>
         <div className="line right"></div>
       </div>
-      
-
+      <div>
+      <Chat />
+      </div>
       <Footer />
 
     </>
