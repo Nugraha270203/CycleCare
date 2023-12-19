@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
@@ -40,6 +40,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import axios from "axios";
 
 // PANGGIL FUNCTION UNTUK ROUTER
 const router = createBrowserRouter([
@@ -82,8 +83,12 @@ const router = createBrowserRouter([
 
 
 function App() {
-  
-  
+  axios.defaults.withCredentials = true
+  useEffect(()=>{
+    axios.get("http://localhost:8082/login").then((Response)=>{
+      console.log(Response)
+    })
+  })
   return (
     <>
       <RouterProvider router={router} />

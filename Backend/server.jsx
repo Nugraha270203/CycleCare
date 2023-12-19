@@ -60,7 +60,7 @@ const upload = multer({ storage: storage });
 // File dari direktori gambar
 app.use('/assets/gambar', express.static(path.join(__dirname, 'src', 'assets', 'gambar')));
 
-
+app.get('/', (req, res) => res.send('<h2> Hello World! </h2>'));
 app.get("/Admin/artikel", (req, res) => {
   const sql = "SELECT * FROM artikel";
   db.query(sql, (err, data) => {
@@ -148,6 +148,13 @@ app.get("/Admin/totalartikel", (req, res) => {
     const totalArtikel = result[0].total_artikel;
     return res.json({ totalArtikel });
   });
+});
+app.get("/login", (req, res) => {
+  if (req.session.user){
+    res.send({loggedIn: true,user: req.session.user});
+  }else{
+    res.send({loggedIn: false})
+  }
 });
 
 // xcaasd
