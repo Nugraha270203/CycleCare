@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const bodyParser = require("body-parser");
 const cookieParser = require ('cookie-parser')
 const session = require('express-session');
+const jwt = require('jsonwebtoken')
 
 
 const path = require('path');
@@ -15,10 +16,9 @@ const saltRound = 10;
 
 app.use(cors({
   origin: 'http://localhost:5173',
-  methods:["GET", "POST"],
+  methods:["GET", "POST", "DELETE"],
   credentials: true,
 }));
-
 app.use(cookieParser());
 app.use(session({
   key:"userId",
@@ -29,7 +29,6 @@ app.use(session({
     expires: 60 * 60 * 24,  
   }
 }));
-
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -149,6 +148,14 @@ app.get("/Admin/totalartikel", (req, res) => {
     return res.json({ totalArtikel });
   });
 });
+app.get("/loginstatus", (req, res) => {
+  if (req.session.user){
+    res.send({loggedIn: true,user: req.session.user})
+  }else{
+    res.send({loggedIn: false})
+
+  }
+});
 
 
 app.post("/Admin/tambahartikel", upload.single('foto'), (req, res) => {
@@ -245,7 +252,6 @@ app.post('/register', (req, res) => {
   })
 
 });
-
 app.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -261,14 +267,18 @@ app.post('/login', (req, res) => {
         bcrypt.compare(password, result[0].password, (error, response) => {
           if (response) {
             req.session.user = result;
-            console.log(req.session.user)
+            const id = result[0].id
+            const jwt = jwt.sign({id},"jwtSecret",{
+              expiresIn:300,
+            })
+            res.json({auth:true, token: token, result: result})
             res.send(result);
           } else {
-            res.send({ message: "Wrong username or password" });
+            res.send({ message: "Email atau password yang anda masukan salah!" });
           }
         });
       } else {
-        res.send({ message: "User doesn't exist" });
+        res.send({ message: "Akun tidak ditemukan!" });
       }
     }
   );

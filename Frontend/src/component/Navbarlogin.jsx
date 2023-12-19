@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { Dropdown } from 'react-bootstrap';
 import prof from "../assets/prof.png";
-import React, { useEffect ,useState} from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 
 // const handleLogout = () => {
 //     // Hapus informasi akun dari localStorage saat logout
@@ -13,18 +15,7 @@ import React, { useEffect ,useState} from "react";
 
 
 function Navbarlogin() {
-    const [userData, setUserData] = useState(null);
 
-    useEffect(() => {
-        // Ambil data pengguna dari localStorage saat komponen dimuat
-        const storedUserData = localStorage.getItem('userData');
-
-        if (storedUserData) {
-            // Parse data JSON dari localStorage dan set ke state
-            setUserData(JSON.parse(storedUserData));
-        }
-    }, []);
-    // Tambahan: deklarasikan state setUserData
 
 
     return (
@@ -75,7 +66,7 @@ function Navbarlogin() {
                             <div className="container">
                                 <br />
                                 <img className="mx-5" src={prof} alt="" style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
-                                <h4>{userData ? userData.username : "Guest"}</h4>
+                                <h4></h4>
                                 <hr />
                             </div>
                         </Dropdown.Item>

@@ -29,6 +29,7 @@ function Login() {
         } else {
           alert('Login berhasil');
           setLoginStatus(response.data[0].username);
+          navigate('/homelogin');
         }
       })
       .catch((error) => {
@@ -54,7 +55,7 @@ function Login() {
                 <br />
                 <div className="container d-flex flex-column align-items-center">
                   <h3 className=" text-danger mx-auto">Login</h3>
-                  <h6>{loginstatus}</h6>
+                  <h6 className="text-danger">{loginstatus}</h6>
                 </div>
                 <div className="form-group md-8">
                   <input type="email" className="form-control mt-4" id="email" placeholder="Enter Your email" onChange={(e) => { setEmail(e.target.value); }} />

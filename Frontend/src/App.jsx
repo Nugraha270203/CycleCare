@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
@@ -13,7 +13,7 @@ import More from "./pages/more";
 import Otp from "./pages/Otp";
 import Article from "./pages/Article";
 import Homelogin from "./pages/homelogin";
-import Menuarticle from "./pages/Menuarticle"; 
+import Menuarticle from "./pages/Menuarticle";
 import Create from "./pages/Create";
 import Lupa from "./pages/Lupa";
 import Passo from "./pages/Passo";
@@ -40,39 +40,41 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import axios from "axios";
+
 
 // PANGGIL FUNCTION UNTUK ROUTER
 const router = createBrowserRouter([
-  {path:"/", element:<Home />},
-  {path:"/Login", element:<Login />},
-  {path:"/Profile", element:<Profile />},
-  {path:"/ProfileEdit", element:<ProfileEdit />},
-  {path:"/Regis", element:<Regis />},
-  {path:"/More", element:<More />},
-  {path:"/Otp", element:<Otp />},
-  {path:"/Article", element:<Article />},
-  {path:"/Homelogin", element:<Homelogin />},
-  {path:"/Menuarticle", element:<Menuarticle />},
-  {path:"/Create", element: <Create />},
-  {path:"/Lupa", element: <Lupa />},
-  {path:"/Passo", element: <Passo />},
-  {path:"/Otp2", element: <Otp2 />},
-  {path:"/Video", element: <Video />},
-  {path:"/Tips", element: <Tips />},
-  {path:"/Komunitas", element: <Komunitas />},
-  {path:"/Home", element: <Home />},
-  {path:"/Admin/Dashboard", element:<Dashboard />},
-  {path:"/Admin/Artikel", element:<Artikel />},
-  {path:"/Admin/tambahartikel", element:<Tambahrtikel />},
-  {path:"/Admin/DashNav", element:<DashNav />},
-  {path:"/Admin/Tvid", element: <Tvid />},
-  {path:"/Admin/Tambahvideo", element: <Tambahvideo />},
-  {path:"/Admin/Motor", element: <Motor />},
-  {path:"/Admin/Tipe", element: <Tipe />},
-  {path:"/Admin/Seri", element: <Seri />},
-  {path:"/Admin/Tambahmotor", element: <Tambahmotor />},
-  {path:"/Admin/Tambahtipe", element: <Tambahtipe />},
-  {path:"/Admin/Tambahserimotor", element: <Tambahserimotor />},
+  { path: "/", element: <Home /> },
+  { path: "/Login", element: <Login /> },
+  { path: "/Profile", element: <Profile /> },
+  { path: "/ProfileEdit", element: <ProfileEdit /> },
+  { path: "/Regis", element: <Regis /> },
+  { path: "/More", element: <More /> },
+  { path: "/Otp", element: <Otp /> },
+  { path: "/Article", element: <Article /> },
+  { path: "/Homelogin", element: <Homelogin /> },
+  { path: "/Menuarticle", element: <Menuarticle /> },
+  { path: "/Create", element: <Create /> },
+  { path: "/Lupa", element: <Lupa /> },
+  { path: "/Passo", element: <Passo /> },
+  { path: "/Otp2", element: <Otp2 /> },
+  { path: "/Video", element: <Video /> },
+  { path: "/Tips", element: <Tips /> },
+  { path: "/Komunitas", element: <Komunitas /> },
+  { path: "/Home", element: <Home /> },
+  { path: "/Admin/Dashboard", element: <Dashboard /> },
+  { path: "/Admin/Artikel", element: <Artikel /> },
+  { path: "/Admin/tambahartikel", element: <Tambahrtikel /> },
+  { path: "/Admin/DashNav", element: <DashNav /> },
+  { path: "/Admin/Tvid", element: <Tvid /> },
+  { path: "/Admin/Tambahvideo", element: <Tambahvideo /> },
+  { path: "/Admin/Motor", element: <Motor /> },
+  { path: "/Admin/Tipe", element: <Tipe /> },
+  { path: "/Admin/Seri", element: <Seri /> },
+  { path: "/Admin/Tambahmotor", element: <Tambahmotor /> },
+  { path: "/Admin/Tambahtipe", element: <Tambahtipe /> },
+  { path: "/Admin/Tambahserimotor", element: <Tambahserimotor /> },
 
 
 
@@ -82,8 +84,17 @@ const router = createBrowserRouter([
 
 
 function App() {
-  
-  
+
+  axios.defaults.withCredentials = true;
+  const [loginstatus, setLoginStatus] = useState("");
+
+  useEffect(() => {
+    axios.get("http://localhost:8082/loginstatus").then((Response) => {
+      // if (Response.data.loogedIn == true){
+        console.log(Response)
+      // }
+    })
+  })
   return (
     <>
       <RouterProvider router={router} />
