@@ -150,7 +150,7 @@ app.get("/Admin/totalartikel", (req, res) => {
   });
 });
 
-// a
+// xca
 app.post("/Admin/tambahartikel", upload.single('foto'), (req, res) => {
   const judul_artikel = req.body.judul_artikel;
   const foto = req.file.filename; // Nama file gambar yang diunggah
