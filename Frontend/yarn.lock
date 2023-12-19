@@ -1112,12 +1112,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bootstrap@npm:^5.3.2":
-  version: 5.3.2
-  resolution: "bootstrap@npm:5.3.2"
+"bootstrap@npm:5.0.0":
+  version: 5.0.0
+  resolution: "bootstrap@npm:5.0.0"
   peerDependencies:
-    "@popperjs/core": ^2.11.8
-  checksum: 0c108d90cee90247db571f07a0fc3718beda58eed2ffed3f2f8ccff66b25a349830dfbeb5e55e6e6fe484fad96c4edb19cb4c5fa5a68b771b2e0f3c400e42dda
+    "@popperjs/core": ^2.9.2
+  checksum: 3e8e5b86f12ee1e0a62761f0f6dd1809ec1d3f3ae8e432050bf90e0a916965c9bc235c06afe1b8c55d9e46cf890a2bb23ae7945aaa6328a261cb8a8a0174740a
   languageName: node
   linkType: hard
 
@@ -1325,11 +1325,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "cyclecare@workspace:."
   dependencies:
+    "@popperjs/core": "npm:^2.11.6"
     "@types/react": "npm:^18.2.37"
     "@types/react-dom": "npm:^18.2.15"
     "@vitejs/plugin-react": "npm:^4.2.0"
     axios: "npm:^1.6.2"
-    bootstrap: "npm:^5.3.2"
+    bootstrap: "npm:5.0.0"
     eslint: "npm:^8.53.0"
     eslint-plugin-react: "npm:^7.33.2"
     eslint-plugin-react-hooks: "npm:^4.6.0"
